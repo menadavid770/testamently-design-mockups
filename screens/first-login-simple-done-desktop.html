@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" class="vd">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testamently — You're protected (done)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--gold:#b8911e;--gold-d:#9c7a16;--ink:#0f172a;--muted:#64748b;--line:#e6e3db;--bg:#f4f7fb;--soft:#faf8f3}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100vh}
+  button{font-family:inherit;cursor:pointer}
+  a{text-decoration:none;color:inherit}
+
+  .topbar{display:flex;align-items:center;justify-content:space-between;padding:15px 26px;border-bottom:1px solid var(--line);background:#fff}
+  .brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:16px;letter-spacing:-.3px}
+  .brand .shield{width:27px;height:27px;border-radius:8px;background:linear-gradient(160deg,var(--gold),#d4af37);display:flex;align-items:center;justify-content:center;font-size:14px}
+
+  .stage{display:flex;justify-content:center;padding:46px 20px 80px}
+  .card{width:100%;max-width:580px;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 18px 50px rgba(20,25,40,.08);padding:34px 34px 30px;text-align:center}
+
+  .tick{width:62px;height:62px;border-radius:50%;background:#ecfdf3;border:1px solid #c5f0d4;display:flex;align-items:center;justify-content:center;font-size:30px;margin:0 auto 18px}
+  h1{font-size:26px;font-weight:800;letter-spacing:-.5px;margin-bottom:8px}
+  .sub{font-size:14.5px;color:var(--muted);max-width:430px;margin:0 auto 18px}
+
+  .happens{display:flex;gap:10px;text-align:left;background:var(--soft);border:1px solid var(--line);border-radius:13px;padding:14px 16px;margin-bottom:26px}
+  .happens .hi{font-size:18px}
+  .happens p{font-size:12.8px;color:#475569}
+  .happens b{color:var(--ink)}
+
+  .more-h{text-align:left;font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#94a3b8;margin-bottom:12px}
+  .opts{display:flex;flex-direction:column;gap:10px;margin-bottom:26px}
+  .opt{display:flex;align-items:center;gap:13px;text-align:left;border:1px solid var(--line);border-radius:13px;padding:14px 15px;transition:.14s}
+  .opt:hover{border-color:#d9cfa6;background:#fffdf7}
+  .opt .oi{width:40px;height:40px;border-radius:11px;background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:20px;flex:0 0 auto}
+  .opt h4{font-size:13.8px;font-weight:700;margin-bottom:2px}
+  .opt p{font-size:12.2px;color:var(--muted);line-height:1.45}
+  .opt .go{margin-left:auto;font-size:12px;font-weight:700;color:var(--gold);white-space:nowrap}
+  .opt .tag{display:inline-block;font-size:10.5px;font-weight:700;color:#64748b;background:#eef1f5;border-radius:5px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+
+  .cta{width:100%;background:var(--gold);color:#fff;border:none;border-radius:13px;padding:15px;font-size:15.5px;font-weight:700;box-shadow:0 6px 18px rgba(184,145,30,.32);transition:.15s}
+  .cta:hover{background:var(--gold-d)}
+  .prog{display:flex;align-items:center;justify-content:center;gap:9px;margin-top:20px;padding-top:18px;border-top:1px solid #f0eee8}
+  .dots{display:flex;gap:6px}
+  .dot{width:20px;height:7px;border-radius:5px;background:var(--gold)}
+  .prog small{font-size:11.8px;color:var(--muted);font-weight:600}
+
+  .vm .stage{padding:24px 14px 60px}
+  .vm .card{padding:24px 20px 22px;border-radius:18px}
+  .vm h1{font-size:22px}
+  .vm .opt .go{display:none}
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="shield">🛡️</span> Testamently</div>
+  </div>
+
+  <div class="stage">
+    <div class="card">
+      <div class="tick">🎉</div>
+      <h1>You’re protected, Sarah</h1>
+      <p class="sub">Your first secret is encrypted and your trustee is invited. That’s genuinely all you need to be set up.</p>
+
+      <div class="happens">
+        <div class="hi">🔄</div>
+        <p>We’ll check in with you from time to time. <b>If you ever stop responding, your trustee is given access</b> — never before.</p>
+      </div>
+
+      <div class="more-h">Want more control? — optional, anytime</div>
+      <div class="opts">
+        <a class="opt">
+          <div class="oi">🔐</div>
+          <div><h4>Stronger encryption <span class="tag">per secret</span></h4>
+            <p>Every secret uses standard encryption by default. Upgrade any one to Premium, Gold or Zero-knowledge from its card.</p></div>
+          <span class="go">In your vault ›</span>
+        </a>
+        <a class="opt">
+          <div class="oi">⏱️</div>
+          <div><h4>When access activates <span class="tag">check-in timing</span></h4>
+            <p>By default, trustees get access after 60 days with no check-in. Change the delay or add reminders whenever you like.</p></div>
+          <span class="go">Settings › Check-ins</span>
+        </a>
+        <a class="opt">
+          <div class="oi">👥</div>
+          <div><h4>More secrets, trustees &amp; folders</h4>
+            <p>Add more people, assign who receives what, and organize everything into folders.</p></div>
+          <span class="go">In your vault ›</span>
+        </a>
+      </div>
+
+      <button class="cta">Go to my vault →</button>
+
+      <div class="prog">
+        <div class="dots"><span class="dot"></span><span class="dot"></span></div>
+        <small>Setup complete · you’re protected</small>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

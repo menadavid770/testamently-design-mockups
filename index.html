@@ -99,8 +99,10 @@ const GROUPS = [
     ['family-accept','Family invite','“Sarah invited you to join their family plan”'],
   ]},
   { title:'New screens — to implement', who:'proposals · not yet in the app', proposed:true, screens:[
-    ['first-login-simple','First login — simplified ⭐','David’s feedback: the current onboarding asks for too much. This strips it to ONE step — quick-pick what to protect, name it, paste it, Save. Protection level + trustees are deferred (“add right after — no rush”). Friendly and fast, with more incentive (“20 seconds”, progress bar).'],
-    ['first-login-banner','First login + guidance banner','The real onboarding screen with a “what to do” banner added on top — a 3-step explainer (add a secret → choose who receives it → save) so a first-time user knows exactly what this screen is for.'],
+    ['first-login-simple','Simplified onboarding — Step 1 ⭐','David’s feedback: the current onboarding asks for too much. Step 1 strips it to the essentials — quick-pick what to protect, name it, paste it, Save. Protection level + trustees are deferred. Friendly and fast (“20 seconds”, progress bar).'],
+    ['first-login-simple-step2','Simplified onboarding — Step 2','After the first secret is saved: “Who should receive it?” — one trusted person (name + email + optional relationship). Shows the just-saved secret for context. Skippable.'],
+    ['first-login-simple-done','Simplified onboarding — Done','“You’re protected.” Confirms setup is complete, then surfaces the deferred settings as OPTIONAL, anytime: stronger encryption (per secret, from its card) and when access activates (check-in timing in Settings).'],
+    ['first-login-banner','First login + guidance banner','The real (full) onboarding screen with a “what to do” banner added on top — a 3-step explainer so a first-time user knows exactly what this screen is for. Alternative to simplifying.'],
     ['welcome-intro','Welcome / first sign-in','Standalone onboarding before the vault: explains what Testamently is, then lets the user choose which secrets to protect and add trustees. Interactive — click the cards.'],
   ]},
 ];

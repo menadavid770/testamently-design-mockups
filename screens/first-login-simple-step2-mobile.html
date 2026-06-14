@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" class="vm">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testamently — Add a trustee (step 2)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--gold:#b8911e;--gold-d:#9c7a16;--ink:#0f172a;--muted:#64748b;--line:#e6e3db;--bg:#f4f7fb;--soft:#faf8f3}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100vh}
+  button{font-family:inherit;cursor:pointer}
+
+  .topbar{display:flex;align-items:center;justify-content:space-between;padding:15px 26px;border-bottom:1px solid var(--line);background:#fff}
+  .brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:16px;letter-spacing:-.3px}
+  .brand .shield{width:27px;height:27px;border-radius:8px;background:linear-gradient(160deg,var(--gold),#d4af37);display:flex;align-items:center;justify-content:center;font-size:14px}
+  .skiptop{font-size:13px;font-weight:600;color:var(--muted);text-decoration:none}
+  .skiptop:hover{color:var(--ink)}
+
+  .stage{display:flex;justify-content:center;padding:46px 20px 80px}
+  .card{width:100%;max-width:560px;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 18px 50px rgba(20,25,40,.08);padding:34px 34px 30px}
+
+  .eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#16a34a;background:#ecfdf3;border:1px solid #c5f0d4;padding:5px 11px;border-radius:20px;margin-bottom:15px}
+  h1{font-size:26px;font-weight:800;letter-spacing:-.5px;margin-bottom:7px}
+  .sub{font-size:14.5px;color:var(--muted);margin-bottom:20px}
+
+  /* saved-secret context pill */
+  .saved{display:flex;align-items:center;gap:10px;background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:11px 14px;margin-bottom:22px}
+  .saved .si{width:34px;height:34px;border-radius:9px;background:#fbf3da;display:flex;align-items:center;justify-content:center;font-size:17px;flex:0 0 auto}
+  .saved b{font-size:13.5px}
+  .saved span{font-size:12px;color:var(--muted)}
+  .saved .ok{margin-left:auto;font-size:12px;font-weight:700;color:#16a34a;display:flex;align-items:center;gap:5px}
+
+  .label{font-size:12px;font-weight:700;color:#475569;margin:0 0 9px}
+  .field{margin-bottom:14px}
+  .field input{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:13px 15px;font-size:14.5px;font-family:inherit;background:#fff;color:var(--ink);transition:.14s}
+  .field input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(184,145,30,.12)}
+  .field input::placeholder{color:#9aa3af}
+  .two{display:flex;gap:12px}
+  .two .field{flex:1}
+
+  .rels{display:flex;flex-wrap:wrap;gap:8px;margin:2px 0 22px}
+  .rel{font-size:12.5px;font-weight:600;color:#334155;background:#fff;border:1.5px solid var(--line);border-radius:30px;padding:7px 13px;transition:.14s}
+  .rel:hover{border-color:#d9cfa6;background:#fffdf7}
+  .rel.sel{border-color:var(--gold);background:#fffdf5;color:var(--gold-d);box-shadow:0 0 0 3px rgba(184,145,30,.10)}
+
+  .assure{display:flex;flex-wrap:wrap;gap:8px 18px;margin:0 0 22px}
+  .assure span{font-size:12.3px;color:var(--muted);display:flex;align-items:center;gap:6px}
+
+  .cta{width:100%;background:var(--gold);color:#fff;border:none;border-radius:13px;padding:15px;font-size:15.5px;font-weight:700;box-shadow:0 6px 18px rgba(184,145,30,.32);transition:.15s}
+  .cta:hover{background:var(--gold-d)}
+  .later{text-align:center;font-size:12.8px;color:var(--muted);margin-top:13px}
+  .later a{color:#475569;font-weight:600;text-decoration:none}
+  .later a:hover{text-decoration:underline}
+
+  .prog{display:flex;align-items:center;justify-content:center;gap:9px;margin-top:22px;padding-top:18px;border-top:1px solid #f0eee8}
+  .dots{display:flex;gap:6px}
+  .dot{width:7px;height:7px;border-radius:50%;background:#dcd8cd}
+  .dot.on{background:var(--gold);width:20px;border-radius:5px}
+  .prog small{font-size:11.8px;color:var(--muted);font-weight:600}
+
+  .vm .stage{padding:24px 14px 60px}
+  .vm .card{padding:24px 20px 22px;border-radius:18px}
+  .vm h1{font-size:22px}
+  .vm .sub{font-size:13.5px}
+  .vm .two{flex-direction:column;gap:0}
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="shield">🛡️</span> Testamently</div>
+    <a class="skiptop" href="#">Skip for now</a>
+  </div>
+
+  <div class="stage">
+    <div class="card">
+      <span class="eyebrow">✓ First secret saved</span>
+      <h1>Who should receive it?</h1>
+      <p class="sub">Add one trusted person. They’re only invited now — they can’t see anything until your vault is released.</p>
+
+      <div class="saved">
+        <div class="si">🔑</div>
+        <div><b>Gmail password</b><br><span>Encrypted · stored in your vault</span></div>
+        <div class="ok">🔒 Safe</div>
+      </div>
+
+      <div class="two">
+        <div class="field"><input type="text" placeholder="Full name"></div>
+        <div class="field"><input type="email" placeholder="Email address"></div>
+      </div>
+
+      <p class="label">How do you know them? <span style="font-weight:500;color:#9aa3af">(optional)</span></p>
+      <div class="rels" id="rels">
+        <button class="rel">Spouse</button>
+        <button class="rel">Child</button>
+        <button class="rel">Parent</button>
+        <button class="rel">Sibling</button>
+        <button class="rel">Attorney</button>
+        <button class="rel">Friend</button>
+      </div>
+
+      <div class="assure">
+        <span>✅ They’re verified before any access</span>
+        <span>🔕 No access until your check-ins stop</span>
+      </div>
+
+      <button class="cta">Send invite &amp; finish →</button>
+      <p class="later"><a href="#">Skip — I’ll add someone later</a></p>
+
+      <div class="prog">
+        <div class="dots"><span class="dot on"></span><span class="dot on"></span></div>
+        <small>Step 2 of 2 · last step — you’re protected</small>
+      </div>
+    </div>
+  </div>
+
+<script>
+  const rels=document.getElementById('rels');
+  rels.querySelectorAll('.rel').forEach(r=>r.addEventListener('click',()=>{
+    rels.querySelectorAll('.rel').forEach(x=>x.classList.remove('sel'));
+    r.classList.add('sel');
+  }));
+</script>
+</body>
+</html>
