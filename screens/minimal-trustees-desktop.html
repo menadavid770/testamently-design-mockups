@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" class="vd">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testamently — Trustees (minimalist)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#18181b;--muted:#8a8a93;--faint:#b6b6bd;--line:#ececec;--bg:#fff;--ac:#b8911e;--ac-soft:#fbf6e7}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;background:#fff;color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+  button{font-family:inherit;cursor:pointer}
+  .bar{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;border-bottom:1px solid var(--line)}
+  .wm{font-size:15px;font-weight:600}.wm i{color:var(--ac);font-style:normal}
+  .bar nav{display:flex;gap:26px}
+  .bar nav a{font-size:13.5px;color:var(--muted);text-decoration:none}
+  .bar nav a.on{color:var(--ink);font-weight:600}
+  .me{width:30px;height:30px;border-radius:50%;background:var(--ink);color:#fff;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center}
+  .wrap{max-width:720px;margin:0 auto;padding:46px 28px 80px}
+  .head{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
+  .head h1{font-size:30px;font-weight:600;letter-spacing:-.6px}
+  .head span{font-size:13.5px;color:var(--faint)}
+  .head .add{margin-left:auto;font-size:13px;font-weight:600;color:var(--ac);background:none;border:none}
+  .intro{font-size:13.5px;color:var(--muted);margin-bottom:26px}
+  .row{display:flex;align-items:center;gap:15px;padding:17px 4px;border-bottom:1px solid var(--line)}
+  .av{width:38px;height:38px;border-radius:50%;color:#fff;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+  .nm{font-size:14.5px;font-weight:500}
+  .mt{font-size:12.3px;color:var(--muted);margin-top:1px}
+  .right{margin-left:auto;display:flex;align-items:center;gap:16px}
+  .recs{font-size:12.5px;color:var(--muted)}
+  .badge{font-size:11.5px;font-weight:600;padding:3px 10px;border-radius:20px}
+  .badge.ok{color:#16a34a;background:#ecfdf3}
+  .badge.pend{color:#b8911e;background:var(--ac-soft)}
+  .mng{font-size:12.5px;color:var(--faint);background:none;border:none}
+  .vm .bar nav{display:none}.vm .wrap{padding:28px 18px 60px}.vm .head h1{font-size:25px}.vm .recs{display:none}
+</style>
+</head>
+<body>
+  <div class="bar">
+    <div class="wm">Testamently<i>.</i></div>
+    <nav><a>Records</a><a class="on">Trustees</a><a>Settings</a></nav>
+    <div class="me">SM</div>
+  </div>
+  <div class="wrap">
+    <div class="head"><h1>Trustees</h1><span>3 people</span><button class="add">+ Invite</button></div>
+    <p class="intro">The people who can unlock your records — but only if your check-ins ever stop.</p>
+
+    <div class="row">
+      <div class="av" style="background:#3b82f6">MM</div>
+      <div><div class="nm">Michael Mitchell</div><div class="mt">Spouse · michael.demo@testamently.com</div></div>
+      <div class="right"><span class="recs">6 records</span><span class="badge ok">Active</span><button class="mng">Manage</button></div>
+    </div>
+    <div class="row">
+      <div class="av" style="background:#7c3aed">JR</div>
+      <div><div class="nm">Jennifer Roth</div><div class="mt">Attorney · jennifer.demo@testamently.com</div></div>
+      <div class="right"><span class="recs">4 records</span><span class="badge ok">Active</span><button class="mng">Manage</button></div>
+    </div>
+    <div class="row">
+      <div class="av" style="background:#0891b2">DK</div>
+      <div><div class="nm">David Klein</div><div class="mt">Brother · david.klein@example.com</div></div>
+      <div class="right"><span class="recs">0 records</span><span class="badge pend">Invited</span><button class="mng">Resend</button></div>
+    </div>
+  </div>
+</body>
+</html>

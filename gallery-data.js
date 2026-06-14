@@ -37,8 +37,15 @@ window.GALLERY_GROUPS = [
     ['first-login-simple-done','Simplified onboarding — Done','“You’re protected.” Confirms setup is complete, then surfaces the deferred settings as OPTIONAL, anytime: stronger encryption (per secret, from its card) and when access activates (check-in timing in Settings).'],
     ['first-login-banner','First login + guidance banner','The real (full) onboarding screen with a “what to do” banner added on top — a 3-step explainer so a first-time user knows exactly what this screen is for. Alternative to simplifying.'],
     ['welcome-intro','Welcome / first sign-in','Standalone onboarding before the vault: explains what Testamently is, then lets the user choose which secrets to protect and add trustees. Interactive — click the cards.'],
-    ['minimal-main','Main screen — minimalist','A pared-back take on the vault: hairline rows instead of cards, lots of whitespace, status dots, reveal-on-hover. Same demo content, far less visual noise.'],
-    ['minimal-settings','Settings — minimalist + new options','Minimalist settings that DEFINE the deferred options: default encryption level for new records, and Release & activation (release-after timing, check-in reminders + frequency). Answers “where do encryption / when-to-activate live”.'],
-    ['minimal-secret-detail','Per-record encryption & activation','Open a record to OVERRIDE the defaults just for it: encryption level (Standard→Zero-knowledge) and when trustees get it (on inactivity / a specific date / after death verified). The “global default in Settings + per-record override” pattern.'],
+  ]},
+  { title:'Minimalist version — to implement', who:'proposal · a cleaner, pared-back redesign of the whole app', proposed:true, screens:[
+    ['minimal-login','Sign in','Centered, hairline fields, single accent — no split-screen hero.'],
+    ['minimal-main','Main — Records','The vault as a clean list: hairline rows instead of cards, status dots, reveal-on-hover. Same demo content, far less noise.'],
+    ['minimal-add-record','Add a record','Create a record with the per-record choices built in: type, name, value, encryption level, and when trustees get it.'],
+    ['minimal-secret-detail','Record — encryption & activation','Open a record to OVERRIDE the defaults just for it: encryption (Standard→Zero-knowledge) and release rule (inactivity / a date / after death verified).'],
+    ['minimal-trustees','Trustees','Manage the people who can unlock the vault — active + invited, record counts.'],
+    ['minimal-trustee-view','Trustee view (released)','What a trustee sees once the vault is released — reveal each assigned record, with hints.'],
+    ['minimal-checkin','Check-in (heartbeat)','The dead-man’s-switch screen: “you’re checked in”, next due, schedule, recent history.'],
+    ['minimal-settings','Settings + new options','Defines the defaults: default encryption level, and Release & activation (release-after timing, reminders, frequency).'],
   ]},
 ];

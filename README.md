@@ -33,8 +33,19 @@ shots/         PNG screenshots used as gallery thumbnails
 | Owner | demo@ — Sarah Mitchell (Premium) | vault, trustees, settings, heartbeat, family |
 | Trustee | michael.demo@ — Michael Mitchell | trustee-home, trustee-locked, trustee-unlocked |
 | Invitations | invite links | trustee-accept, trustee-decline, family-accept |
+| New screens — to implement | proposals | first-login simplified (step 1/2/done), first-login + banner, welcome-intro |
+| Minimalist version — to implement | proposals | login, main (records), add-record, record encryption & activation, trustees, trustee view, check-in, settings |
 
-**21 screens × 2 viewports = 42 editable HTML files.**
+Captured screens are the real app; the two **to-implement** groups are new design proposals.
+
+## 🎛️ Versions (v1 / v2 tabs)
+
+The gallery has a **v1 / v2** switcher at the top:
+
+- **v1 · Captured** — everything above (`index.html`).
+- **v2 · Minimalist** — `v2/` — **David's workspace** for a minimalist redesign with a different palette (one `--accent` CSS variable). Live at `/v2`.
+
+The screen list lives in **`gallery-data.js`** (shared) — add a screen there and it appears in the gallery.
 
 ## ✏️ Edit & publish
 

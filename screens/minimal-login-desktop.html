@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" class="vd">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testamently — Sign in (minimalist)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#18181b;--muted:#8a8a93;--faint:#b6b6bd;--line:#ececec;--bg:#fff;--ac:#b8911e;--ac-soft:#fbf6e7}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;background:#fff;color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100vh}
+  button{font-family:inherit;cursor:pointer}
+  .stage{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+  .box{width:100%;max-width:380px;text-align:center}
+  .wm{font-size:16px;font-weight:700;letter-spacing:.2px;margin-bottom:30px}
+  .wm i{color:var(--ac);font-style:normal}
+  h1{font-size:23px;font-weight:600;letter-spacing:-.4px;margin-bottom:6px}
+  .sub{font-size:13.5px;color:var(--muted);margin-bottom:26px}
+  .field{text-align:left;margin-bottom:13px}
+  .field label{font-size:12px;font-weight:600;color:#52525b;display:block;margin-bottom:6px}
+  .field input{width:100%;border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:14px;color:var(--ink)}
+  .field input:focus{outline:none;border-color:var(--ac)}
+  .field input::placeholder{color:var(--faint)}
+  .forgot{display:block;text-align:right;font-size:12px;color:var(--muted);text-decoration:none;margin:-4px 0 18px}
+  .signin{width:100%;background:var(--ac);color:#fff;border:none;border-radius:10px;padding:13px;font-size:14.5px;font-weight:600}
+  .or{display:flex;align-items:center;gap:12px;color:var(--faint);font-size:12px;margin:20px 0}
+  .or::before,.or::after{content:"";flex:1;height:1px;background:var(--line)}
+  .oauth{width:100%;border:1px solid var(--line);border-radius:10px;padding:12px;font-size:13.5px;font-weight:500;background:#fff;display:flex;align-items:center;justify-content:center;gap:9px;margin-bottom:10px}
+  .foot{font-size:13px;color:var(--muted);margin-top:22px}
+  .foot a{color:var(--ink);font-weight:600;text-decoration:none}
+  .vm .box{max-width:340px}
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="box">
+      <div class="wm">Testamently<i>.</i></div>
+      <h1>Welcome back</h1>
+      <p class="sub">Sign in to your vault</p>
+
+      <div class="field"><label>Email</label><input type="email" placeholder="you@example.com"></div>
+      <div class="field"><label>Password</label><input type="password" placeholder="••••••••"></div>
+      <a class="forgot" href="#">Forgot password?</a>
+      <button class="signin">Sign in</button>
+
+      <div class="or">or</div>
+      <button class="oauth">Continue with Google</button>
+      <button class="oauth">Continue with Apple</button>
+
+      <p class="foot">No account? <a href="#">Create one</a></p>
+    </div>
+  </div>
+</body>
+</html>
