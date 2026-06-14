@@ -33,6 +33,7 @@
   input.ti:focus,textarea.tv:focus{outline:none;border-color:var(--accent)}
   input.ti::placeholder,textarea.tv::placeholder{color:var(--muted2)}
   .defaults{margin:18px 0 6px;font-size:12.5px;color:var(--muted);display:flex;gap:8px;line-height:1.55}.defaults b{color:var(--text);font-weight:500}
+  .splitnote{margin:14px 0 2px;font-size:12.5px;color:var(--muted);background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:11px 14px;line-height:1.5;display:flex;gap:9px}.splitnote b{color:var(--text);font-weight:600}
   details{margin-top:14px;border-top:1px solid var(--border);padding-top:14px}
   summary{list-style:none;cursor:pointer;font-size:13px;font-weight:500;color:var(--accent);display:flex;align-items:center;gap:7px}
   summary::-webkit-details-marker{display:none}.chev{transition:transform .15s}details[open] .chev{transform:rotate(90deg)}
@@ -55,12 +56,13 @@
   <div class="stage"><div class="panel">
     <div class="steps"><span class="sd on"><span class="n">1</span>The record</span><span class="sline"></span><span class="sd"><span class="n">2</span>Who receives it</span></div>
     <div class="ptop"><h2>Add a record</h2><button class="close">✕</button></div>
-    <div class="psub">First, what do you want to keep safe? We encrypt it the moment you type.</div>
+    <div class="psub">What does someone need to <b>find or open something physical</b> you’re leaving behind?</div>
     <div class="body">
       <p class="lbl">What is it?</p>
-      <div class="cats"><button class="cat on">🔑 Password</button><button class="cat">₿ Crypto seed</button><button class="cat">🏦 Bank info</button><button class="cat">✉️ A letter</button><button class="cat">📄 Document</button></div>
-      <input class="ti" placeholder="Give it a name…">
-      <textarea class="tv" placeholder="Type or paste what you want to protect"></textarea>
+      <div class="cats"><button class="cat on">📱 Phone / device</button><button class="cat">🔐 Crypto wallet</button><button class="cat">🏦 Safe combo</button><button class="cat">🔑 Keys &amp; access</button><button class="cat">📄 Document</button><button class="cat">✉️ Letter</button><button class="cat">🖼️ Photo</button></div>
+      <input class="ti" placeholder="e.g. iPhone passcode">
+      <textarea class="tv" placeholder="e.g. the 6-digit code — the phone itself stays with you"></textarea>
+      <div class="splitnote">🧩<div>Store the <b>PIN, not the phone</b> — the <b>code, not the wallet</b>. We keep one half; your home keeps the other, so a breach of Testamently alone reveals nothing usable.</div></div>
       <div class="defaults">🔒<div><b>Standard encryption</b>, released only if your check-ins stop — editable later. Want to change it now?</div></div>
       <details>
         <summary><span class="chev">▸</span> Advanced — encryption &amp; release rule</summary>

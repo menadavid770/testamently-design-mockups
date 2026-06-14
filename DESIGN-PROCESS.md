@@ -11,6 +11,39 @@ picking this up) can see *why* each screen looks the way it does — not just *w
 
 ---
 
+## 0. What it's for — the "you hold half" model
+
+The sharpest idea in the project. Testamently deliberately stores information that is
+**useless on its own** — it only has value next to a *physical thing* you keep, or as a
+*pointer/instruction*. That gives a rare, honest security claim:
+
+> **"Even if Testamently were breached, a thief gets nothing — the other half (your phone,
+> your wallet, your safe) is in your home."**
+
+The test for whether something belongs: **on its own, is it harmless?**
+- ✅ A wallet **PIN** (needs the device) · a safe **combination** (needs the safe) · a phone
+  **passcode** (needs the phone) · **where** the documents are.
+- ❌ A live email/banking **password** — that *is* full access, dangerous the moment it leaks.
+  So the generic "Password" type was **dropped**.
+
+This also lowers the emotional barrier: people are far more comfortable storing "the safe combo"
+than "my live bank login."
+
+### Two classes of record
+1. **Access & instructions — the valuable half.** Phone/device passcode, crypto-wallet PIN,
+   safe combination, keys & storage, where documents are, accounts to know about. The
+   split-knowledge security matters most here.
+2. **Messages & memories — lower stakes.** A letter, a photo's whereabouts, funeral wishes.
+   Less sensitive even if leaked — these are simply things you want delivered. Good security
+   still applies, but the "half" framing isn't the point.
+
+**The "What is it?" types:** 📱 Phone / device · 🔐 Crypto wallet · 🏦 Safe combo ·
+🔑 Keys & access · 📄 Document · ✉️ Letter · 🖼️ Photo *(+ accounts-to-know, instructions/wishes
+as needed)*. The one-line guidance in the UI: *"Store the PIN, not the phone — the code, not the
+wallet. We keep one half; your home keeps the other."*
+
+---
+
 ## 1. The exploration — four versions
 
 Each version is a deliberate step, not a redo. Use the **v1 · v2 · v3 · v4** tabs to compare.
