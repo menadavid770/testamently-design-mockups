@@ -56,6 +56,9 @@ Also as **[CSV](./migration-tickets.csv)** + **[PDF](./Testamently-migration-che
 📣 **[Social graphics](./social/)** — ready-to-post Instagram / Facebook / LinkedIn images
 (square · link · portrait) in the new direction, with suggested captions.
 
+📖 **[How it works](./how-it-works.html)** — a standalone explainer page that walks through the
+four steps with real app screenshots.
+
 See **[DESIGN-PROCESS.md](./DESIGN-PROCESS.md)** for the full story: the **"you hold half"**
 positioning, the minimalist design principles, the UX optimisations behind v4, the theming
 system, and the key product decisions (per-record encryption, 2-step add, the legal/will
