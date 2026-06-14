@@ -40,10 +40,16 @@
   .half p{font-size:13.5px;color:var(--muted);line-height:1.5}
   .op{display:flex;align-items:center;font-family:var(--serif);font-size:28px;color:var(--muted2)}
   .hnote{margin-top:30px;font-size:14.5px;color:var(--text);font-weight:500}
-  .sentiment{max-width:760px;margin:0 auto;padding:6px 7% 64px;text-align:center}
-  .sentiment h3{font-family:var(--serif);font-size:clamp(22px,3vw,30px);font-weight:400;letter-spacing:-.3px;margin-bottom:10px}
+  .sentiment{max-width:1000px;margin:0 auto;padding:6px 7% 64px;text-align:center}
+  .sentiment h3{font-family:var(--serif);font-size:clamp(22px,3vw,30px);font-weight:400;letter-spacing:-.3px;margin-bottom:8px}
   .sentiment h3 em{font-style:italic;color:var(--accent)}
-  .sentiment p{font-size:15px;color:var(--muted);max-width:560px;margin:0 auto}
+  .sentiment .sub{font-size:15px;color:var(--muted);max-width:560px;margin:0 auto 28px}
+  .excols{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:left}
+  .excol{border:1px solid var(--border);background:var(--surface);border-radius:14px;padding:20px}
+  .excol h4{font-size:14px;margin-bottom:12px}
+  .excol ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+  .excol li{font-size:13px;color:var(--muted);line-height:1.45;padding-left:13px;position:relative}.excol li::before{content:"·";position:absolute;left:3px;color:var(--accent);font-weight:700}
+  @media(max-width:760px){.excols{grid-template-columns:1fr}}
   .vm .hwrap{flex-direction:column;align-items:stretch}.vm .op{justify-content:center;transform:rotate(90deg)}.vm .half{max-width:none}
   .closing{max-width:1040px;margin:0 auto 70px;padding:54px 7%;background:var(--accent);color:var(--accent-fg);border-radius:20px;text-align:center}
   .closing h2{font-family:var(--serif);font-size:clamp(28px,4vw,40px);font-weight:400;margin-bottom:12px}
@@ -90,7 +96,12 @@
   </section>
   <section class="sentiment">
     <h3>Some of it they’d never find. Some of it is just <em>irreplaceable</em>.</h3>
-    <p><b>Not your everyday logins.</b> The PIN to the phone full of family photos · a life-insurance policy that would otherwise go unclaimed · an account in Switzerland no one knows about · where the deeds are kept · a letter to your children · <b>or anything else that matters to you</b>. The things — valuable or priceless — that would quietly disappear if you didn’t leave them somewhere safe.</p>
+    <p class="sub"><b>Not your everyday logins</b> — the things, valuable or priceless, that would quietly disappear if you didn’t leave them somewhere safe.</p>
+    <div class="excols">
+      <div class="excol"><h4>🔐 Access</h4><ul><li>Phone passcode — for the photos</li><li>Crypto wallet PIN &amp; where it’s kept</li><li>Home-safe combination</li><li>Spare keys &amp; storage unit</li></ul></div>
+      <div class="excol"><h4>🧭 They’d never find</h4><ul><li>A life-insurance policy that would go unclaimed</li><li>An account in Switzerland</li><li>Where the will &amp; solicitor are</li><li>An old pension</li></ul></div>
+      <div class="excol"><h4>🤍 Irreplaceable</h4><ul><li>A letter to your children</li><li>Where the family photos live</li><li>The story behind a ring</li><li>Funeral wishes</li></ul></div>
+    </div>
   </section>
   <section class="closing">
     <h2>The things you want them to know — gathered, organised, safe.</h2>
