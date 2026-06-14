@@ -194,4 +194,54 @@ Still to decide:
 
 ---
 
+## 8. Language / i18n — how to handle it
+
+David's note: **signup shouldn't show language options.** Agreed — and it points to a clean
+principle for the whole app: *language is a setting, not a decision the user makes mid-flow.*
+
+**Recommended approach**
+1. **Auto-detect, don't ask.** On first visit, pick the language from the browser
+   (`Accept-Language` / `navigator.language`), fall back to English. Most people never change it.
+2. **Keep auth screens clean.** Remove the switcher from **login / signup** entirely — it adds
+   doubt and friction at the exact moment we want focus and conversion. (One-line change in the
+   real app: drop `<LanguageSwitcher/>` from the register/login pages.)
+3. **Put it where it belongs:**
+   - **Settings → Language** — the canonical place to change it.
+   - A **quiet switcher in the marketing footer** only (not in the hero, not in forms).
+4. **One source of truth, persisted.** Store the choice in a cookie + the user profile once
+   signed in, so it follows them across devices and is respected everywhere.
+
+Net: detect → store → respect. The user sees their language; they rarely have to choose it.
+
+## 9. Transitioning the app to the v4 UX (migration plan)
+
+v4 is mostly **presentation, copy and flow** — the data model (records/secrets, trustees,
+encryption tiers, the check-in switch) already exists. So this is an evolution, **not a rewrite**.
+Recommended order, lowest-risk and highest-impact first:
+
+1. **Lock the design system.** Port the v4 tokens into the app's global styles: the forest
+   palette, **DM Serif Display + Inter**, the CSS variables, and (optionally) the theme switcher
+   (accent + light/dark) as a real **Settings → Appearance**. Everything else builds on this.
+2. **Ship the copy & positioning early** (cheap, high impact, no schema): the *"you hold half"*
+   messaging, the record **types** (Phone/Crypto/Safe/Keys/Document/Letter/Photo), the example
+   bank, the **legal/will notice**. Landing + onboarding + add-record first.
+3. **Migrate screen-by-screen, behind the existing routes** (not a parallel app), in this order:
+   **Records** (biggest win) → **Add record** (2-step + types) → **Edit record**
+   (hint/folder/encryption/release) → **Onboarding/Welcome** → Trustees → Check-in →
+   Trustee view → Settings → Landing.
+4. **Map v4 states to existing data — no big schema change.** e.g. *"Will reach N"* = assigned &
+   accepted trustees; *"No trustee"* = unassigned; *"Needs master password"* = PBKDF2-locked;
+   *"Invited · pending"* = trustee not yet accepted. Only small **additive** fields if missing:
+   per-record `hint`, `folder`, and a release-rule (`inactivity | date | death-verified`).
+5. **Use a flag or a `/v2`-style route** to land each screen safely (the app already has a
+   `/landing-v2` pattern), so you can compare and roll back.
+6. **QA with the demo account** — it already exercises every state (locked record, unassigned,
+   pending trustee, released vault). Verify each migrated screen against it.
+7. **Fold the language change in** (section 8) when you touch auth + settings.
+
+**Sequence in one line:** copy/positioning → design tokens → Records → Add/Edit → onboarding →
+the rest → polish. Each piece merges independently; nothing is a big-bang.
+
+---
+
 *Mockups: [v1](./) · [v2](./v2/) · [v3](./v3/) · [v4](./v4/) — all live and editable. Built from the real app with demo content.*
