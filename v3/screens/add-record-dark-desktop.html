@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" class="vd">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testamently — Add record (themeable · v3)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#F4F3EF;--bg2:#EEEDEA;--surface:#FFFFFF;--text:#111111;--muted:#6B7280;--muted2:#9A9A93;--border:#E4E3DC;--toggle-off:#D9D6CC;--status:#16A34A;--accent:#5E7356;--accent-fg:#FAFAF7;
+    --serif:'DM Serif Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6}
+  button{font-family:inherit;cursor:pointer}
+  .stage{display:flex;justify-content:center;padding:42px 20px 90px}
+  .panel{width:100%;max-width:600px;background:var(--surface);border:1px solid var(--border);border-radius:18px;overflow:hidden}
+  .ptop{display:flex;align-items:center;gap:13px;padding:22px 26px;border-bottom:1px solid var(--border)}
+  .ptop .ic{width:40px;height:40px;border-radius:10px;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:19px}
+  .ptop h2{font-family:var(--serif);font-size:22px;font-weight:400}.ptop .mt{font-size:12.5px;color:var(--muted)}
+  .ptop .close{margin-left:auto;font-size:18px;color:var(--muted2);background:none;border:none}
+  .body{padding:8px 26px 4px}
+  .grp{padding:18px 0;border-bottom:1px solid var(--border)}.grp:last-child{border-bottom:none}
+  .lbl{font-size:13px;font-weight:500;margin-bottom:3px}.sub{font-size:12.5px;color:var(--muted);margin-bottom:12px}
+  .default-tag{font-size:11px;font-weight:500;color:var(--muted);background:var(--bg2);padding:2px 8px;border-radius:20px;margin-left:7px}
+  .cats{display:flex;flex-wrap:wrap;gap:7px}
+  .cat{font-size:12.5px;font-weight:400;color:var(--text);border:1px solid var(--border);border-radius:30px;padding:8px 14px;background:var(--surface)}
+  .cat.on{border-color:var(--accent);background:var(--accent);color:var(--accent-fg);font-weight:500}
+  input.ti,textarea.tv{width:100%;border:1px solid var(--border);border-radius:9px;padding:12px 14px;font-size:14px;font-family:inherit;color:var(--text);background:var(--surface)}
+  textarea.tv{min-height:80px;resize:vertical;margin-top:10px}
+  input.ti:focus,textarea.tv:focus{outline:none;border-color:var(--accent)}
+  input.ti::placeholder,textarea.tv::placeholder{color:var(--muted2)}
+  .seg{display:flex;border:1px solid var(--border);border-radius:9px;overflow:hidden}
+  .seg button{flex:1;font-size:12.5px;padding:9px 6px;background:var(--surface);border:none;color:var(--muted);border-left:1px solid var(--border)}
+  .seg button:first-child{border-left:none}.seg button.on{background:var(--accent);color:var(--accent-fg);font-weight:500}
+  .opt{display:flex;gap:11px;align-items:flex-start;border:1px solid var(--border);border-radius:11px;padding:12px 14px;margin-bottom:8px;cursor:pointer}
+  .opt.on{border-color:var(--accent)}
+  .radio{width:17px;height:17px;border-radius:50%;border:1.5px solid var(--toggle-off);flex:0 0 auto;margin-top:1px}.opt.on .radio{border:5px solid var(--accent)}
+  .opt h4{font-size:13.3px;font-weight:500}.opt p{font-size:11.8px;color:var(--muted)}
+  .who{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{display:flex;align-items:center;gap:7px;border:1px solid var(--border);border-radius:30px;padding:6px 12px 6px 6px;font-size:12.5px;font-weight:400}
+  .av{width:23px;height:23px;border-radius:50%;color:#fff;font-size:10px;font-weight:600;display:flex;align-items:center;justify-content:center}
+  .addc{border:1px dashed var(--toggle-off);border-radius:30px;padding:6px 13px;font-size:12.5px;color:var(--accent);font-weight:500;background:none}
+  .foot{display:flex;align-items:center;gap:14px;padding:16px 26px;border-top:1px solid var(--border);background:var(--bg2)}
+  .note{font-size:11.6px;color:var(--muted)}.foot .actions{margin-left:auto;display:flex;gap:10px}
+  .cancel{font-size:13px;font-weight:500;color:var(--muted);background:none;border:none}
+  .save{font-size:13px;font-weight:500;color:var(--accent-fg);background:var(--accent);border:none;border-radius:8px;padding:11px 22px}
+  .tsw{position:fixed;bottom:18px;right:18px;display:flex;align-items:center;gap:9px;background:var(--surface);border:1px solid var(--border);border-radius:30px;padding:8px 14px;z-index:50;box-shadow:0 8px 26px rgba(0,0,0,.12)}
+  .tsw .lab{font-size:11px;color:var(--muted);font-weight:600}.tsw .acc-btn{width:18px;height:18px;border-radius:50%;border:2px solid var(--surface);box-shadow:0 0 0 1px var(--border);cursor:pointer;padding:0}.tsw .acc-btn.on{box-shadow:0 0 0 2px var(--text)}
+  .tsw .sep{width:1px;height:20px;background:var(--border)}.tsw .mode-btn{font-size:12px;font-weight:600;color:var(--text);background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:5px 12px}
+  .vm .stage{padding:0 0 90px}.vm .panel{max-width:none;border:none;border-radius:0;min-height:100vh}.vm .seg{flex-wrap:wrap}
+</style>
+</head>
+<body>
+  <div class="stage"><div class="panel">
+    <div class="ptop"><div class="ic">＋</div><div><h2>New record</h2><div class="mt">Encrypted the moment you type</div></div><button class="close">✕</button></div>
+    <div class="body">
+      <div class="grp"><div class="lbl">Type</div><div class="cats">
+        <button class="cat on">🔑 Password</button><button class="cat">₿ Crypto wallet</button><button class="cat">🏦 Bank account</button><button class="cat">📄 Document</button><button class="cat">✉️ Note / letter</button><button class="cat">🪪 ID</button>
+      </div></div>
+      <div class="grp"><div class="lbl">Name</div><input class="ti" placeholder="e.g. Gmail password"><textarea class="tv" placeholder="The secret — type or paste what you want to protect"></textarea></div>
+      <div class="grp"><div class="lbl">Encryption <span class="default-tag">default · Standard</span></div><div class="sub">Standard is server-recoverable. Pick stronger for this record if it’s sensitive.</div>
+        <div class="seg"><button class="on">Standard</button><button>Premium</button><button>Gold</button><button>Zero-knowledge</button></div></div>
+      <div class="grp"><div class="lbl">When should trustees get it? <span class="default-tag">default · on inactivity</span></div>
+        <div class="opt on"><span class="radio"></span><div><h4>When my check-ins stop</h4><p>Released after the inactivity period from Settings (60 days).</p></div></div>
+        <div class="opt"><span class="radio"></span><div><h4>On a specific date</h4><p>Schedule it — e.g. a birthday letter.</p></div></div>
+        <div class="opt"><span class="radio"></span><div><h4>Only after death is verified</h4><p>Requires a death certificate first.</p></div></div></div>
+      <div class="grp"><div class="lbl">Who receives it <span class="default-tag">optional · add later</span></div>
+        <div class="who"><span class="chip"><span class="av" style="background:#1f2937">MM</span>Michael Mitchell</span><button class="addc">+ Add trustee</button></div></div>
+    </div>
+    <div class="foot"><span class="note">🔒 Encrypted on your device before saving.</span><div class="actions"><button class="cancel">Cancel</button><button class="save">Save record</button></div></div>
+  </div></div>
+
+  <div class="tsw">
+    <span class="lab">Accent</span>
+    <button class="acc-btn" data-a="ink" style="background:#111111" title="Ink (David's)"></button>
+    <button class="acc-btn" data-a="forest" style="background:#5E7356" title="Forest"></button>
+    <button class="acc-btn" data-a="emerald" style="background:#0E7C5A" title="Emerald"></button>
+    <button class="acc-btn" data-a="slate" style="background:#46707C" title="Slate"></button>
+    <span class="sep"></span>
+    <button id="modeBtn" class="mode-btn">🌙 Dark</button>
+  </div>
+  <script>
+  const MODES={light:{bg:'#F4F3EF',bg2:'#EEEDEA',surface:'#FFFFFF',text:'#111111',muted:'#6B7280',muted2:'#9A9A93',border:'#E4E3DC','toggle-off':'#D9D6CC',status:'#16A34A'},
+    dark:{bg:'#14160E',bg2:'#1B1E14',surface:'#1C2015',text:'#F1EFE3',muted:'#A8AA93',muted2:'#7E8270',border:'#333829','toggle-off':'#3A4031',status:'#86C08A'}};
+  const ACC={ink:{light:['#111111','#FAFAFA'],dark:['#E8E6DD','#16190F']},forest:{light:['#5E7356','#FAFAF7'],dark:['#9DBE8A','#16190F']},emerald:{light:['#0E7C5A','#F4FBF7'],dark:['#34D399','#0C140F']},slate:{light:['#46707C','#F5FAFB'],dark:['#86A9B3','#0E1417']}};
+  let mode=(localStorage.getItem('v3mode')||'light'),acc=(localStorage.getItem('v3acc')||'forest');
+  function apply(){const m=MODES[mode];for(const k in m)document.documentElement.style.setProperty('--'+k,m[k]);const a=ACC[acc][mode];document.documentElement.style.setProperty('--accent',a[0]);document.documentElement.style.setProperty('--accent-fg',a[1]);
+    document.querySelectorAll('.acc-btn').forEach(b=>b.classList.toggle('on',b.dataset.a===acc));
+    document.getElementById('modeBtn').textContent=mode==='light'?'🌙 Dark':'☀ Light';
+    try{localStorage.setItem('v3mode',mode);localStorage.setItem('v3acc',acc)}catch(e){}}
+  document.querySelectorAll('.acc-btn').forEach(b=>b.onclick=()=>{acc=b.dataset.a;apply();});
+  document.getElementById('modeBtn').onclick=()=>{mode=mode==='light'?'dark':'light';apply();};
+  apply();
+  </script>
+</body>
+</html>
