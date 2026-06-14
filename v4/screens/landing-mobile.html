@@ -49,8 +49,11 @@
   .closing h2{font-family:var(--serif);font-size:clamp(28px,4vw,40px);font-weight:400;margin-bottom:12px}
   .closing p{opacity:.8;font-size:15.5px;margin-bottom:26px}
   .closing .b{background:var(--accent-fg);color:var(--accent);font-size:15px;font-weight:500;height:48px;padding:0 30px;border-radius:6px;display:inline-flex;align-items:center;gap:8px}
-  footer{border-top:1px solid var(--border);padding:26px 7%;display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted2);max-width:1040px;margin:0 auto}
-  footer .badge{margin-left:auto;font-size:10px;font-weight:600;border:1px solid var(--border);background:var(--surface);color:var(--muted);border-radius:20px;padding:3px 9px}
+  footer{border-top:1px solid var(--border);padding:26px 7%;display:flex;flex-direction:column;gap:16px;font-size:13px;color:var(--muted2);max-width:1040px;margin:0 auto}
+  .willnote{font-size:13.5px;color:var(--text);background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:14px 17px;line-height:1.55;max-width:880px}.willnote b{font-weight:600}
+  .legal{font-size:11.5px;line-height:1.6;color:var(--muted2);max-width:880px}.legal b{color:var(--muted)}
+  .frow{display:flex;align-items:center;gap:10px}
+  .frow .badge{margin-left:auto;font-size:10px;font-weight:600;border:1px solid var(--border);background:var(--surface);color:var(--muted);border-radius:20px;padding:3px 9px}
   .tsw{position:fixed;bottom:18px;right:18px;display:flex;align-items:center;gap:9px;background:var(--surface);border:1px solid var(--border);border-radius:30px;padding:8px 14px;z-index:50;box-shadow:0 8px 26px rgba(0,0,0,.12)}
   .tsw .lab{font-size:11px;color:var(--muted);font-weight:600}
   .tsw .acc-btn{width:18px;height:18px;border-radius:50%;border:2px solid var(--surface);box-shadow:0 0 0 1px var(--border);cursor:pointer;padding:0}.tsw .acc-btn.on{box-shadow:0 0 0 2px var(--text)}
@@ -90,11 +93,15 @@
     <p><b>Not your everyday logins.</b> The PIN to the phone full of family photos · a life-insurance policy that would otherwise go unclaimed · an account in Switzerland no one knows about · where the deeds are kept · a letter to your children · <b>or anything else that matters to you</b>. The things — valuable or priceless — that would quietly disappear if you didn’t leave them somewhere safe.</p>
   </section>
   <section class="closing">
-    <h2>Your legacy, in good hands.</h2>
-    <p>It takes five minutes to protect what would otherwise be lost.</p>
+    <h2>The things you want them to know — gathered, organised, safe.</h2>
+    <p>Five minutes now spares your loved ones a frantic search later.</p>
     <a class="b">Create your vault →</a>
   </section>
-  <footer><span>© 2026 Testamently</span><span class="badge">LANDING · v3 THEMES</span></footer>
+  <footer>
+    <div class="willnote">📜 <b>Testamently isn’t your will</b> — but it can hold a copy, or simply point your loved ones to the solicitor who keeps the original. So even if everything else is forgotten, your family knows the official will exists and where to find it.</div>
+    <p class="legal"><b>Legal notice.</b> Testamently is a private, encrypted information vault — <b>not a legal will, trust, or estate-administration service</b>, and not a substitute for one. It does not transfer ownership of assets, grant any legal authority, or provide legal, tax or financial advice. Information you store is released to the trustees you choose as a practical convenience; this is not probate, and does not by itself execute, validate or replace a will. For estate planning and anything legally binding, please consult a qualified solicitor or advisor.</p>
+    <div class="frow"><span>© 2026 Testamently · <a href="#" style="color:inherit;text-decoration:underline">Privacy</a> · <a href="#" style="color:inherit;text-decoration:underline">Terms</a></span><span class="badge">LANDING · v4</span></div>
+  </footer>
 
   <div class="tsw">
     <span class="lab">Accent</span>
