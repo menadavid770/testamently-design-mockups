@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testamently — Minimalist (v2) · David</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* ───────────────────────────────────────────────
+     v2 — David's minimalist version.
+     Change --accent to try a different colour.
+     ─────────────────────────────────────────────── */
+  :root{ --accent:#4f46e5;  /* ← try your own colour */
+         --ink:#18181b; --muted:#71717a; --line:#ececec; --bg:#fff; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{text-decoration:none;color:inherit}
+  .page{max-width:880px;margin:0 auto;padding:40px 28px 90px}
+
+  .vtabs{display:inline-flex;gap:4px;background:#fafafa;border:1px solid var(--line);border-radius:30px;padding:4px;margin-bottom:22px}
+  .vtab{font-size:13px;font-weight:700;color:var(--muted);padding:6px 16px;border-radius:22px}
+  .vtab.active{background:var(--accent);color:#fff}
+
+  .wm{font-size:15px;font-weight:700;letter-spacing:.2px;margin-bottom:6px}
+  .wm i{color:var(--accent);font-style:normal}
+  h1{font-size:28px;font-weight:800;letter-spacing:-.5px;margin-bottom:8px}
+  .lead{font-size:14.5px;color:var(--muted);max-width:620px}
+
+  .canvas{margin-top:30px;border:1.5px dashed #d7d7dc;border-radius:18px;padding:48px 30px;text-align:center;background:#fcfcfd}
+  .canvas .em{font-size:34px;margin-bottom:10px}
+  .canvas h2{font-size:18px;font-weight:700;margin-bottom:8px}
+  .canvas p{font-size:13.5px;color:var(--muted);max-width:520px;margin:0 auto}
+  .swatches{display:flex;gap:10px;justify-content:center;margin-top:20px}
+  .sw{width:30px;height:30px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px var(--line);cursor:pointer}
+
+  .how{margin-top:30px;border:1px solid var(--line);border-radius:14px;padding:20px 22px;font-size:13.5px;color:#3f3f46}
+  .how b{color:var(--ink)}
+  .how code{background:#f4f4f5;padding:1px 6px;border-radius:5px;font-size:12.5px}
+  .how ol{margin:10px 0 0 18px;display:flex;flex-direction:column;gap:6px}
+</style>
+</head>
+<body>
+  <div class="page">
+    <div class="vtabs">
+      <a class="vtab" href="../">v1 · Captured</a>
+      <a class="vtab active" href="./">v2 · Minimalist</a>
+    </div>
+
+    <div class="wm">Testamently<i>.</i></div>
+    <h1>Minimalist version — v2</h1>
+    <p class="lead">David’s workspace. Build the minimalist redesign here and experiment with a different colour palette. This page is yours — nothing here affects v1.</p>
+
+    <div class="canvas">
+      <div class="em">🎨</div>
+      <h2>Your canvas</h2>
+      <p>Drop your screens in <code>v2/screens/</code> and lay them out here however you like. The accent below is driven by one CSS variable — click a swatch to preview, or set your own.</p>
+      <div class="swatches">
+        <span class="sw" style="background:#4f46e5" onclick="document.documentElement.style.setProperty('--accent','#4f46e5')"></span>
+        <span class="sw" style="background:#0f766e" onclick="document.documentElement.style.setProperty('--accent','#0f766e')"></span>
+        <span class="sw" style="background:#b8911e" onclick="document.documentElement.style.setProperty('--accent','#b8911e')"></span>
+        <span class="sw" style="background:#db2777" onclick="document.documentElement.style.setProperty('--accent','#db2777')"></span>
+        <span class="sw" style="background:#111827" onclick="document.documentElement.style.setProperty('--accent','#111827')"></span>
+      </div>
+    </div>
+
+    <div class="how">
+      <b>How to work here</b>
+      <ol>
+        <li>1. Edit <code>v2/index.html</code> — change <code>--accent</code> near the top to recolour everything.</li>
+        <li>2. Add your minimalist screen files under <code>v2/screens/</code> and link them from this page.</li>
+        <li>3. <code>git add -A &amp;&amp; git commit -m "v2 …" &amp;&amp; git push</code> — it auto-deploys to <code>/v2</code>.</li>
+        <li>4. Need a reference? The full captured app is one click away on the <b>v1</b> tab.</li>
+      </ol>
+    </div>
+  </div>
+</body>
+</html>

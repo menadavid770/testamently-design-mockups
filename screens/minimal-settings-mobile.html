@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" class="vm">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testamently — Settings (minimalist proposal)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#18181b;--muted:#8a8a93;--faint:#b6b6bd;--line:#ececec;--bg:#fff;--ac:#b8911e;--ac-soft:#fbf6e7}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+  button{font-family:inherit;cursor:pointer}
+
+  .bar{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;border-bottom:1px solid var(--line)}
+  .wm{font-size:15px;font-weight:600;letter-spacing:.2px}
+  .wm i{color:var(--ac);font-style:normal}
+  .bar nav{display:flex;gap:26px}
+  .bar nav a{font-size:13.5px;color:var(--muted);text-decoration:none}
+  .bar nav a.on{color:var(--ink);font-weight:600}
+  .me{width:30px;height:30px;border-radius:50%;background:var(--ink);color:#fff;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center}
+
+  .wrap{max-width:680px;margin:0 auto;padding:46px 28px 90px}
+  h1{font-size:30px;font-weight:600;letter-spacing:-.6px;margin-bottom:34px}
+
+  .sec{margin-bottom:36px}
+  .sec-h{display:flex;align-items:center;gap:9px;font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  .new{font-size:9.5px;font-weight:700;letter-spacing:.05em;color:#fff;background:var(--ac);padding:2px 7px;border-radius:20px}
+  .sec-note{font-size:12.5px;color:var(--faint);margin-bottom:14px}
+
+  .row{display:flex;align-items:center;gap:16px;padding:15px 0;border-bottom:1px solid var(--line)}
+  .row:last-child{border-bottom:none}
+  .row .l{font-size:14px;font-weight:500}
+  .row .d{font-size:12.3px;color:var(--muted);margin-top:2px;max-width:330px}
+  .row .ctl{margin-left:auto;flex:0 0 auto}
+  .val{font-size:13.5px;color:var(--muted)}
+
+  /* segmented */
+  .seg{display:inline-flex;border:1px solid var(--line);border-radius:9px;overflow:hidden}
+  .seg button{font-size:12.5px;padding:7px 13px;background:#fff;border:none;color:var(--muted);border-left:1px solid var(--line)}
+  .seg button:first-child{border-left:none}
+  .seg button.on{background:var(--ac-soft);color:var(--ac);font-weight:600}
+
+  /* select pill */
+  .pill{border:1px solid var(--line);border-radius:9px;padding:8px 13px;font-size:13px;font-weight:500;background:#fff;color:var(--ink)}
+
+  /* toggle */
+  .tg{width:42px;height:24px;border-radius:20px;background:var(--ac);position:relative;border:none}
+  .tg::after{content:"";position:absolute;top:3px;right:3px;width:18px;height:18px;border-radius:50%;background:#fff}
+  .tg.off{background:#dcdce0}
+  .tg.off::after{right:21px}
+
+  .danger .l{color:#dc2626}
+  .link{font-size:13px;font-weight:600;color:#dc2626;background:none;border:none}
+
+  .vm .bar nav{display:none}
+  .vm .wrap{padding:28px 18px 70px}
+  .vm h1{font-size:25px}
+  .vm .row{flex-wrap:wrap;gap:10px}
+  .vm .seg{flex-wrap:wrap}
+</style>
+</head>
+<body>
+  <div class="bar">
+    <div class="wm">Testamently<i>.</i></div>
+    <nav><a>Records</a><a>Trustees</a><a class="on">Settings</a></nav>
+    <div class="me">SM</div>
+  </div>
+
+  <div class="wrap">
+    <h1>Settings</h1>
+
+    <div class="sec">
+      <div class="sec-h">Account</div>
+      <div class="row"><div><div class="l">Name</div></div><div class="ctl val">Sarah Mitchell</div></div>
+      <div class="row"><div><div class="l">Email</div></div><div class="ctl val">demo@testamently.com</div></div>
+      <div class="row"><div><div class="l">Plan</div></div><div class="ctl val">Premium</div></div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-h">Encryption <span class="new">NEW</span></div>
+      <div class="sec-note">Set once — applies to every new record. You can still upgrade any single record from its card.</div>
+      <div class="row">
+        <div><div class="l">Default protection</div><div class="d">How new records are encrypted by default.</div></div>
+        <div class="ctl seg">
+          <button class="on">Standard</button><button>Premium</button><button>Gold</button><button>Zero-knowledge</button>
+        </div>
+      </div>
+      <div class="row">
+        <div><div class="l">Require master password to reveal</div><div class="d">Adds a second passphrase before any record is shown.</div></div>
+        <div class="ctl"><button class="tg off"></button></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-h">Release &amp; activation <span class="new">NEW</span></div>
+      <div class="sec-note">When your trusted people are given access — the “dead-man’s switch”.</div>
+      <div class="row">
+        <div><div class="l">Release my vault after</div><div class="d">Trustees gain access once you’ve missed check-ins for this long.</div></div>
+        <div class="ctl"><select class="pill"><option>30 days</option><option selected>60 days of no check-in</option><option>90 days</option><option>6 months</option></select></div>
+      </div>
+      <div class="row">
+        <div><div class="l">Check-in reminders</div><div class="d">We’ll nudge you before the timer runs out.</div></div>
+        <div class="ctl"><button class="tg"></button></div>
+      </div>
+      <div class="row">
+        <div><div class="l">Remind me by</div></div>
+        <div class="ctl seg"><button class="on">Email</button><button>SMS</button><button>Both</button></div>
+      </div>
+      <div class="row">
+        <div><div class="l">Check-in frequency</div><div class="d">How often we ask you to confirm you’re OK.</div></div>
+        <div class="ctl"><select class="pill"><option>Weekly</option><option selected>Monthly</option><option>Every 3 months</option></select></div>
+      </div>
+    </div>
+
+    <div class="sec danger">
+      <div class="sec-h">Danger zone</div>
+      <div class="row"><div><div class="l">Delete vault</div><div class="d">Permanently erase all records and trustees.</div></div><div class="ctl"><button class="link">Delete</button></div></div>
+    </div>
+  </div>
+</body>
+</html>

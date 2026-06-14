@@ -48,11 +48,20 @@
   .group.proposed .group-hd h2{color:var(--gold)}
   .newtag{font-size:10.5px;font-weight:800;letter-spacing:.07em;color:#fff;background:var(--gold);padding:3px 9px;border-radius:20px}
   .group.proposed .group-line{background:#efe3bf}
+  /* version tabs */
+  .vtabs{display:inline-flex;gap:4px;background:#fff;border:1px solid var(--line);border-radius:30px;padding:4px;margin-bottom:16px}
+  .vtab{font-size:13px;font-weight:700;color:var(--muted);padding:6px 16px;border-radius:22px;transition:.14s}
+  .vtab.active{background:var(--gold);color:#fff}
+  .vtab:hover:not(.active){color:var(--ink)}
   footer{max-width:1180px;margin:0 auto;padding:0 28px 60px;color:var(--muted);font-size:12.5px}
 </style>
 </head>
 <body>
 <header>
+  <div class="vtabs">
+    <a class="vtab active" href="./">v1 · Captured</a>
+    <a class="vtab" href="v2/">v2 · Minimalist</a>
+  </div>
   <div class="logo">Testamently</div>
   <h1>Design Mockups — captured from the live app</h1>
   <p class="lead">Every screen below is the <b>real production UI</b> (testamently.com), frozen into a self-contained, <b>editable</b> HTML file — Tailwind classes and inline CSS intact. Open any screen, edit the markup/styles, refine the design. Content comes from the demo accounts.</p>
@@ -65,47 +74,9 @@
   Owner screens use <b>demo@testamently.com</b> (Sarah Mitchell — 10 secrets, 3 folders, 2 trustees). Trustee screens use <b>michael.demo@testamently.com</b>. First-login uses a fresh throwaway account.
 </footer>
 
+<script src="gallery-data.js"></script>
 <script>
-const GROUPS = [
-  { title:'Marketing & Auth', who:'public — no login', screens:[
-    ['landing','Landing page','Hero, value props, pricing teaser, footer'],
-    ['login','Login','Email/password sign-in with lockout + social'],
-    ['signup','Sign up','Create account — name, email, phone, password'],
-    ['how-it-works','How it works','Explainer of the dead-man-switch flow'],
-    ['pricing','Pricing','Free / Premium / Gold / ZK tiers'],
-    ['security','Security','Encryption tiers + zero-knowledge explainer'],
-    ['blog','Blog','Article index'],
-    ['privacy','Privacy policy','Legal'],
-    ['terms','Terms','Legal'],
-  ]},
-  { title:'First-time experience', who:'fresh account', screens:[
-    ['first-login','First login (onboarding)','Empty vault auto-opens the add-secret form'],
-  ]},
-  { title:'Owner experience', who:'demo@testamently.com — Sarah Mitchell', screens:[
-    ['vault','Vault','Secrets, folders, search, per-secret status'],
-    ['trustees','Trustees','Manage the people who can unlock the vault'],
-    ['settings','Settings','Account, plan, MFA, danger zone'],
-    ['heartbeat','Heartbeat','Dead-man-switch check-in schedule'],
-    ['family','Family','Shared family members'],
-  ]},
-  { title:'Trustee experience', who:'michael.demo@testamently.com — Michael Mitchell', screens:[
-    ['trustee-home','Trustee home','The trustee’s own logged-in dashboard'],
-    ['trustee-locked','Trustee — locked vault','Active vault, not yet triggered — countdown + upload'],
-    ['trustee-unlocked','Trustee — unlocked vault','Vault triggered — reveal each assigned secret'],
-  ]},
-  { title:'Invitations', who:'invite links', screens:[
-    ['trustee-accept','Trustee invite — accepted','Confirmation after accepting a trustee invite'],
-    ['trustee-decline','Trustee invite — declined','Confirmation after declining a trustee invite'],
-    ['family-accept','Family invite','“Sarah invited you to join their family plan”'],
-  ]},
-  { title:'New screens — to implement', who:'proposals · not yet in the app', proposed:true, screens:[
-    ['first-login-simple','Simplified onboarding — Step 1 ⭐','David’s feedback: the current onboarding asks for too much. Step 1 strips it to the essentials — quick-pick what to protect, name it, paste it, Save. Protection level + trustees are deferred. Friendly and fast (“20 seconds”, progress bar).'],
-    ['first-login-simple-step2','Simplified onboarding — Step 2','After the first secret is saved: “Who should receive it?” — one trusted person (name + email + optional relationship). Shows the just-saved secret for context. Skippable.'],
-    ['first-login-simple-done','Simplified onboarding — Done','“You’re protected.” Confirms setup is complete, then surfaces the deferred settings as OPTIONAL, anytime: stronger encryption (per secret, from its card) and when access activates (check-in timing in Settings).'],
-    ['first-login-banner','First login + guidance banner','The real (full) onboarding screen with a “what to do” banner added on top — a 3-step explainer so a first-time user knows exactly what this screen is for. Alternative to simplifying.'],
-    ['welcome-intro','Welcome / first sign-in','Standalone onboarding before the vault: explains what Testamently is, then lets the user choose which secrets to protect and add trustees. Interactive — click the cards.'],
-  ]},
-];
+const GROUPS = window.GALLERY_GROUPS;
 
 const app = document.getElementById('app');
 for (const g of GROUPS){
