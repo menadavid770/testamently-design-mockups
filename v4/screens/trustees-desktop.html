@@ -3,52 +3,75 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Testamently — trustees (themeable · v3)</title>
+<title>Testamently — Trustees (v4 · UX)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{--bg:#F4F3EF;--bg2:#EEEDEA;--surface:#FFFFFF;--text:#111111;--muted:#6B7280;--muted2:#9A9A93;--border:#E4E3DC;--toggle-off:#D9D6CC;--status:#16A34A;--accent:#5E7356;--accent-fg:#FAFAF7;--green:#059669;--green-bg:#ECF4EF;--green-bd:#CBE4D6;--serif:'DM Serif Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif}
+  :root{--bg:#F4F3EF;--bg2:#EEEDEA;--surface:#FFFFFF;--text:#111111;--muted:#6B7280;--muted2:#9A9A93;--border:#E4E3DC;--toggle-off:#D9D6CC;--status:#16A34A;--warn:#B7791F;--accent:#5E7356;--accent-fg:#FAFAF7;
+    --serif:'DM Serif Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6}
   button{font-family:inherit;cursor:pointer}
-  nav{height:65px;background:rgba(244,243,239,.82);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 6%}
-  .logo{display:flex;align-items:center;gap:10px}.logo .mk{width:30px;height:30px;border-radius:8px;background:var(--accent);color:var(--accent-fg);display:flex;align-items:center;justify-content:center;font-size:14px}.logo .tx{font-size:18px;font-weight:600;letter-spacing:-.3px}
-  nav .links{display:flex;gap:30px;margin-left:48px}nav .links a{font-size:14px;color:var(--muted);text-decoration:none}nav .links a.on{color:var(--text);font-weight:500}
-  .me{margin-left:auto;width:32px;height:32px;border-radius:50%;background:var(--accent);color:var(--accent-fg);font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center}
-  .wrap{max-width:740px;margin:0 auto;padding:54px 28px 90px}
+  nav{height:64px;border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 6%}
+  .logo{display:flex;align-items:center;gap:10px}.logo .mk{width:30px;height:30px;border-radius:8px;background:var(--accent);color:var(--accent-fg);display:flex;align-items:center;justify-content:center;font-size:14px}.logo .tx{font-size:18px;font-weight:600}
+  nav .links{display:flex;gap:28px;margin-left:46px}nav .links a{font-size:14px;color:var(--muted);text-decoration:none}nav .links a.on{color:var(--text);font-weight:500}
+  .me{margin-left:auto;width:32px;height:32px;border-radius:50%;background:var(--bg2);border:1px solid var(--border);color:var(--text);font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center}
+  .wrap{max-width:740px;margin:0 auto;padding:46px 28px 90px}
   .head{display:flex;align-items:flex-end;gap:14px;margin-bottom:6px}
-  .head h1{font-family:var(--serif);font-size:46px;font-weight:400;line-height:1;letter-spacing:-.5px}.head .ct{font-size:14px;color:var(--muted2);padding-bottom:6px}
-  .head .add{margin-left:auto;font-size:14px;font-weight:500;color:var(--accent-fg);background:var(--accent);border:none;border-radius:6px;height:42px;padding:0 22px}
-  .intro{font-size:15px;color:var(--muted);margin-bottom:30px}
-  .row{display:flex;align-items:center;gap:16px;padding:18px 4px;border-bottom:1px solid var(--border)}
+  .head h1{font-family:var(--serif);font-size:42px;font-weight:400;line-height:1;letter-spacing:-.5px}
+  .head .add{margin-left:auto;font-size:13.5px;font-weight:500;color:var(--accent-fg);background:var(--accent);border:none;border-radius:10px;height:42px;padding:0 20px}
+  .intro{font-size:14.5px;color:var(--muted);margin-bottom:22px;max-width:560px}
+  .reassure{display:flex;align-items:center;gap:9px;background:var(--bg2);border:1px solid var(--border);border-radius:11px;padding:11px 15px;font-size:13px;color:var(--text);margin-bottom:14px}
+  .nudge{display:flex;align-items:center;gap:11px;background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--warn);border-radius:10px;padding:11px 16px;margin-bottom:24px;font-size:13px}
+  .nudge b{font-weight:600}.nudge .fix{margin-left:auto;font-size:12.5px;font-weight:600;color:var(--accent);background:none;border:none;white-space:nowrap}
+  .row{display:flex;align-items:center;gap:15px;padding:17px 4px;border-bottom:1px solid var(--border)}
   .av{width:40px;height:40px;border-radius:50%;color:#fff;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
   .nm{font-size:15px;font-weight:500}.mt{font-size:12.5px;color:var(--muted);margin-top:1px}
-  .right{margin-left:auto;display:flex;align-items:center;gap:18px}.recs{font-size:12.5px;color:var(--muted)}
-  .badge{font-size:11.5px;font-weight:500;padding:4px 11px;border-radius:20px}.badge.ok{color:var(--green);background:rgba(5,150,105,.09)}.badge.pend{color:#92702a;background:rgba(201,165,39,.14)}
-  .mng{font-size:12.5px;color:var(--muted2);background:none;border:none}
-  .vm nav .links{display:none}.vm .wrap{padding:30px 18px 60px}.vm .head h1{font-size:36px}.vm .recs{display:none}
-.tsw{position:fixed;bottom:18px;right:18px;display:flex;align-items:center;gap:9px;background:var(--surface);border:1px solid var(--border);border-radius:30px;padding:8px 14px;z-index:50;box-shadow:0 8px 26px rgba(0,0,0,.12)}.tsw .lab{font-size:11px;color:var(--muted);font-weight:600}.tsw .acc-btn{width:18px;height:18px;border-radius:50%;border:2px solid var(--surface);box-shadow:0 0 0 1px var(--border);cursor:pointer;padding:0}.tsw .acc-btn.on{box-shadow:0 0 0 2px var(--text)}.tsw .sep{width:1px;height:20px;background:var(--border)}.tsw .mode-btn{font-size:12px;font-weight:600;color:var(--text);background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:5px 12px}
+  .cov{font-size:12.5px;color:var(--text);margin-top:3px}.cov b{font-weight:600}.cov .mut{color:var(--muted2)}
+  .right{margin-left:auto;display:flex;align-items:center;gap:14px}
+  .badge{font-size:11.5px;font-weight:500;padding:4px 11px;border-radius:20px;display:inline-flex;align-items:center;gap:5px}
+  .badge .d{width:6px;height:6px;border-radius:50%}
+  .badge.ok{color:var(--status);background:color-mix(in srgb,var(--status) 12%,transparent)}.badge.ok .d{background:var(--status)}
+  .badge.pend{color:var(--warn);background:color-mix(in srgb,var(--warn) 13%,transparent)}.badge.pend .d{background:var(--warn)}
+  .mng{font-size:12.5px;font-weight:500;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:7px 13px}.mng:hover{border-color:var(--accent);color:var(--accent)}
+  .tsw{position:fixed;bottom:18px;right:18px;display:flex;align-items:center;gap:9px;background:var(--surface);border:1px solid var(--border);border-radius:30px;padding:8px 14px;z-index:50;box-shadow:0 8px 26px rgba(0,0,0,.12)}
+  .tsw .lab{font-size:11px;color:var(--muted);font-weight:600}.tsw .acc-btn{width:18px;height:18px;border-radius:50%;border:2px solid var(--surface);box-shadow:0 0 0 1px var(--border);cursor:pointer;padding:0}.tsw .acc-btn.on{box-shadow:0 0 0 2px var(--text)}
+  .tsw .sep{width:1px;height:20px;background:var(--border)}.tsw .mode-btn{font-size:12px;font-weight:600;color:var(--text);background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:5px 12px}
+  .vm nav .links{display:none}.vm .wrap{padding:28px 18px 70px}.vm .head h1{font-size:34px}.vm .mng{display:none}
 </style>
 </head>
 <body>
-  <nav><div class="logo"><div class="mk"><i style="font-style:normal">🛡</i></div><div class="tx">Testamently</div></div><div class="links"><a>Records</a><a class="on">Trustees</a><a>Settings</a></div><div class="me">SM</div></nav>
+  <nav><div class="logo"><div class="mk"><i style="font-style:normal">🛡</i></div><div class="tx">Testamently</div></div><div class="links"><a>Records</a><a class="on">Trustees</a><a>Check-in</a><a>Settings</a></div><div class="me">SM</div></nav>
   <div class="wrap">
-    <div class="head"><h1>Trustees</h1><span class="ct">3 people</span><button class="add">+ Invite</button></div>
-    <p class="intro">The people who can unlock your records — but only if your check-ins ever stop.</p>
-    <div class="row"><div class="av" style="background:#1f2937">MM</div><div><div class="nm">Michael Mitchell</div><div class="mt">Spouse · michael.demo@testamently.com</div></div><div class="right"><span class="recs">6 records</span><span class="badge ok">Active</span><button class="mng">Manage</button></div></div>
-    <div class="row"><div class="av" style="background:#4b5563">JR</div><div><div class="nm">Jennifer Roth</div><div class="mt">Attorney · jennifer.demo@testamently.com</div></div><div class="right"><span class="recs">4 records</span><span class="badge ok">Active</span><button class="mng">Manage</button></div></div>
-    <div class="row"><div class="av" style="background:#9ca3af">DK</div><div><div class="nm">David Klein</div><div class="mt">Brother · david.klein@example.com</div></div><div class="right"><span class="recs">0 records</span><span class="badge pend">Invited</span><button class="mng">Resend</button></div></div>
+    <div class="head"><h1>Trustees</h1><button class="add">+ Invite</button></div>
+    <p class="intro">The people who can unlock your vault if your check-ins ever stop. They’re invited and verified — and see nothing until that day.</p>
+    <div class="reassure">🔕 No trustee can open anything until your vault is released. Until then they only see their name on your list.</div>
+    <div class="nudge">⚠️<div><b>1 record isn’t covered.</b> “Netflix Family” has no trustee — it won’t reach anyone.</div><button class="fix">Assign a trustee →</button></div>
+
+    <div class="row">
+      <div class="av" style="background:#1f2937">MM</div>
+      <div><div class="nm">Michael Mitchell</div><div class="mt">Spouse · michael.demo@testamently.com</div><div class="cov"><b>Will receive 6 records</b> <span class="mut">· Home Safe, Coinbase, Chase…</span></div></div>
+      <div class="right"><span class="badge ok"><span class="d"></span>Active</span><button class="mng">Manage</button></div>
+    </div>
+    <div class="row">
+      <div class="av" style="background:#4b5563">JR</div>
+      <div><div class="nm">Jennifer Roth</div><div class="mt">Attorney · jennifer.demo@testamently.com</div><div class="cov"><b>Will receive 4 records</b> <span class="mut">· Life Insurance, Passport…</span></div></div>
+      <div class="right"><span class="badge ok"><span class="d"></span>Active</span><button class="mng">Manage</button></div>
+    </div>
+    <div class="row">
+      <div class="av" style="background:#9ca3af">DK</div>
+      <div><div class="nm">David Klein</div><div class="mt">Brother · david.klein@example.com</div><div class="cov"><span class="mut">Invitation sent — waiting for them to accept. No records yet.</span></div></div>
+      <div class="right"><span class="badge pend"><span class="d"></span>Invited</span><button class="mng">Resend</button></div>
+    </div>
   </div>
 
   <div class="tsw"><span class="lab">Accent</span><button class="acc-btn" data-a="ink" style="background:#111111" title="Ink"></button><button class="acc-btn" data-a="forest" style="background:#5E7356" title="Forest"></button><button class="acc-btn" data-a="emerald" style="background:#0E7C5A" title="Emerald"></button><button class="acc-btn" data-a="slate" style="background:#46707C" title="Slate"></button><span class="sep"></span><button id="modeBtn" class="mode-btn">🌙 Dark</button></div>
   <script>
-  const MODES={light:{bg:"#F4F3EF",bg2:"#EEEDEA",surface:"#FFFFFF",text:"#111111",muted:"#6B7280",muted2:"#9A9A93",border:"#E4E3DC","toggle-off":"#D9D6CC",status:"#16A34A"},dark:{bg:"#14160E",bg2:"#1B1E14",surface:"#1C2015",text:"#F1EFE3",muted:"#A8AA93",muted2:"#7E8270",border:"#333829","toggle-off":"#3A4031",status:"#86C08A"}};
+  const MODES={light:{bg:"#F4F3EF",bg2:"#EEEDEA",surface:"#FFFFFF",text:"#111111",muted:"#6B7280",muted2:"#9A9A93",border:"#E4E3DC","toggle-off":"#D9D6CC",status:"#16A34A",warn:"#B7791F"},dark:{bg:"#14160E",bg2:"#1B1E14",surface:"#1C2015",text:"#F1EFE3",muted:"#A8AA93",muted2:"#7E8270",border:"#333829","toggle-off":"#3A4031",status:"#86C08A",warn:"#D9A441"}};
   const ACC={ink:{light:["#111111","#FAFAFA"],dark:["#E8E6DD","#16190F"]},forest:{light:["#5E7356","#FAFAF7"],dark:["#9DBE8A","#16190F"]},emerald:{light:["#0E7C5A","#F4FBF7"],dark:["#34D399","#0C140F"]},slate:{light:["#46707C","#F5FAFB"],dark:["#86A9B3","#0E1417"]}};
   let mode=(localStorage.getItem("v3mode")||"light"),acc=(localStorage.getItem("v3acc")||"forest");
   function apply(){const m=MODES[mode];for(const k in m)document.documentElement.style.setProperty("--"+k,m[k]);const a=ACC[acc][mode];document.documentElement.style.setProperty("--accent",a[0]);document.documentElement.style.setProperty("--accent-fg",a[1]);document.querySelectorAll(".acc-btn").forEach(b=>b.classList.toggle("on",b.dataset.a===acc));document.getElementById("modeBtn").textContent=mode==="light"?"🌙 Dark":"☀ Light";try{localStorage.setItem("v3mode",mode);localStorage.setItem("v3acc",acc)}catch(e){}}
-  document.querySelectorAll(".acc-btn").forEach(b=>b.onclick=()=>{acc=b.dataset.a;apply();});
-  document.getElementById("modeBtn").onclick=()=>{mode=mode==="light"?"dark":"light";apply();};
-  apply();
+  document.querySelectorAll(".acc-btn").forEach(b=>b.onclick=()=>{acc=b.dataset.a;apply();});document.getElementById("modeBtn").onclick=()=>{mode=mode==="light"?"dark":"light";apply();};apply();
   </script>
 </body>
 </html>
