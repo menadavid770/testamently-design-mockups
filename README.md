@@ -51,6 +51,10 @@ The screen list lives in **`gallery-data.js`** (shared) — add a screen there a
 
 🛠️ **[MIGRATION-CHECKLIST.md](./MIGRATION-CHECKLIST.md)** — developer-ready, ticket-per-screen
 plan to roll v4 into the live app (data mappings + acceptance criteria included).
+Also as **[CSV](./migration-tickets.csv)** + **[PDF](./Testamently-migration-checklist.pdf)**.
+
+📣 **[Social graphics](./social/)** — ready-to-post Instagram / Facebook / LinkedIn images
+(square · link · portrait) in the new direction, with suggested captions.
 
 See **[DESIGN-PROCESS.md](./DESIGN-PROCESS.md)** for the full story: the **"you hold half"**
 positioning, the minimalist design principles, the UX optimisations behind v4, the theming

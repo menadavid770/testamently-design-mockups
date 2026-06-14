@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#F4F3EF;--surface:#fff;--text:#111;--muted:#5d6b5a;--border:#E4E3DC;--accent:#5E7356;--accent-fg:#FAFAF7;--serif:'DM Serif Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif}
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased}
+  html,body{width:100%;height:100%}
+  body{font-family:var(--sans);background:var(--bg);color:var(--text);overflow:hidden}
+  .canvas{width:100vw;height:100vh;display:flex;flex-direction:column;justify-content:center;padding:8.5vmin;position:relative}
+  body.dark{--bg:#14160E;--text:#F1EFE3;--muted:#A8AA93;--surface:#1C2015;--border:#333829;--accent:#9DBE8A;--accent-fg:#16190F;background:var(--bg);color:var(--text)}
+  .brand{position:absolute;top:8vmin;left:8.5vmin;display:flex;align-items:center;gap:1.6vmin;font-size:3vmin;font-weight:600}
+  .brand .mk{width:5vmin;height:5vmin;border-radius:1.4vmin;background:var(--accent);color:var(--accent-fg);display:flex;align-items:center;justify-content:center;font-size:2.6vmin}
+  .kicker{font-size:2.3vmin;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:3vmin}
+  h1{font-family:var(--serif);font-weight:400;font-size:9.2vmin;line-height:1.02;letter-spacing:-.03em;max-width:15ch}
+  h1 .i{font-style:italic;color:var(--accent)}
+  .sub{font-size:3.3vmin;color:var(--muted);line-height:1.5;max-width:30ch;margin-top:4vmin}
+  .foot{position:absolute;bottom:8vmin;left:8.5vmin;right:8.5vmin;display:flex;align-items:center;justify-content:space-between;font-size:2.4vmin;color:var(--muted)}
+  .foot .url{font-weight:600;color:var(--text)}
+  .eq{position:absolute;bottom:8vmin;right:8.5vmin;display:flex;align-items:center;gap:1.4vmin;font-size:3.4vmin}
+  .eq span{width:7vmin;height:7vmin;border-radius:1.8vmin;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center}
+  .eq .g{background:var(--accent)}
+  /* landscape link format tweaks */
+  body.link h1{font-size:7vmin}body.link .sub{font-size:2.6vmin}body.link .canvas{padding:6vmin 7vmin}
+  body.link .brand{top:5.5vmin;left:7vmin}body.link .foot{bottom:5.5vmin;left:7vmin;right:7vmin}
+</style></head>
+<body>
+  <div class="canvas">
+    <div class="brand"><span class="mk">🛡</span>Testamently</div>
+    <div id="kick" class="kicker"></div>
+    <h1 id="h"></h1>
+    <p id="sub" class="sub"></p>
+    <div class="foot"><span class="url">testamently.com</span><span id="tag">The half they’ll need</span></div>
+  </div>
+<script>
+  const D=[
+    {slug:'hero',kick:'Digital legacy, done right',h:'The half <span class="i">they’ll need.</span>',sub:'The codes, locations and last words your loved ones will need — released only when your check-ins stop.'},
+    {slug:'pin',kick:'Why it’s safe',h:'Store the <span class="i">PIN</span>, not the phone.',sub:'We keep one half. Your home keeps the other. Alone, it opens nothing.'},
+    {slug:'breach',dark:true,kick:'Breach-proof by design',h:'Even if we’re hacked, your secrets are <span class="i">safe.</span>',sub:'Because the other half — your phone, your wallet, your safe — was never here.'},
+    {slug:'lost',kick:'What would otherwise be lost',h:'A letter. A PIN. A policy <span class="i">no one knew about.</span>',sub:'Testamently keeps the things that quietly vanish when someone’s gone.'},
+    {slug:'notpm',kick:'Not what you think',h:'Not a password manager. <span class="i">Not a will.</span>',sub:'A private vault for what you’d leave behind — and who should receive it.'},
+  ];
+  const u=new URLSearchParams(location.search);
+  const d=D[+(u.get('i')||0)]; const fmt=u.get('f')||'square';
+  if(d.dark)document.body.classList.add('dark');
+  if(fmt==='link')document.body.classList.add('link');
+  document.getElementById('kick').innerHTML=d.kick;
+  document.getElementById('h').innerHTML=d.h;
+  document.getElementById('sub').innerHTML=d.sub;
+</script>
+</body></html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testamently — Social graphics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#F4F3EF;--surface:#fff;--text:#111;--muted:#6B7280;--border:#E4E3DC;--accent:#5E7356}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+  .wrap{max-width:1080px;margin:0 auto;padding:40px 28px 80px}
+  h1{font-family:'DM Serif Display',serif;font-size:36px;font-weight:400;letter-spacing:-.5px}
+  .lead{font-size:15px;color:var(--muted);margin:8px 0 6px;max-width:680px}
+  .lead a{color:var(--accent);font-weight:600;text-decoration:none}
+  .note{font-size:13px;color:var(--muted);background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px 15px;max-width:680px;margin-top:14px}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:20px;margin-top:26px;display:grid;grid-template-columns:1fr 1.1fr;gap:22px;align-items:center}
+  .imgs{display:flex;gap:12px;align-items:flex-start}
+  .imgs a{display:block;text-decoration:none}
+  .imgs img{display:block;border:1px solid var(--border);border-radius:8px;background:#fff}
+  .imgs .sq{width:150px;height:150px}
+  .imgs .col{display:flex;flex-direction:column;gap:10px}
+  .imgs .lk{width:150px;height:78px;object-fit:cover}
+  .imgs .pt{width:74px;height:92px;object-fit:cover}
+  .lbl{font-size:10px;color:#9aa3af;text-align:center;margin-top:3px;text-transform:uppercase;letter-spacing:.05em}
+  .meta h3{font-family:'DM Serif Display',serif;font-size:21px;font-weight:400;margin-bottom:8px}
+  .cap{font-size:13.5px;color:#374151;line-height:1.6;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:12px 14px}
+  .tags{font-size:12px;color:var(--accent);font-weight:500;margin-top:8px}
+  .formats{font-size:11.5px;color:var(--muted);margin-top:10px}.formats b{color:var(--text)}
+</style></head><body>
+<div class="wrap">
+  <h1>Social graphics</h1>
+  <p class="lead">Ready-to-post images in the brand’s forest/serif look, on the new <b>“you hold half”</b> direction. Three sizes each — <b>Square 1080×1080</b> (Instagram feed), <b>Link 1200×630</b> (Facebook/LinkedIn share), <b>Portrait 1080×1350</b> (Instagram). Click any image to open full-size.</p>
+  <div class="note">📁 Files in <code>/social/</code> as <code>&lt;name&gt;-square.png</code>, <code>-link.png</code>, <code>-portrait.png</code>. Edit copy in <code>social-template.html</code> and re-render to change them.</div>
+  <div id="grid"></div>
+</div>
+<script>
+  const D=[
+    ['hero','The half they’ll need','Your loved ones will need the codes, locations and last words you’d leave behind — and most of it is lost when someone’s gone. Testamently keeps them safe and releases them only if your check-ins ever stop. 🔐','#digitallegacy #estateplanning #peaceofmind'],
+    ['pin','Store the PIN, not the phone','We keep one half. Your home keeps the other. Alone, it opens nothing — so even a breach is useless. Security by design, not by promise.','#security #digitallegacy #privacy'],
+    ['breach','Even if we’re hacked, your secrets are safe','A claim no password manager can make: we never hold the thing your code unlocks. The phone, the wallet, the safe stay with you.','#cybersecurity #privacybydesign #legacy'],
+    ['lost','A letter. A PIN. A policy no one knew about','Unclaimed life insurance. Lost crypto. A letter never read. Testamently keeps the things that quietly vanish — so nothing important is lost again.','#estateplanning #digitallegacy #family'],
+    ['notpm','Not a password manager. Not a will','A private vault for what you’d leave behind — and who should receive it. It even points your family to your official will. 🤍','#legacy #estateplanning #digitalvault'],
+  ];
+  const g=document.getElementById('grid');
+  for(const [s,t,cap,tags] of D){
+    g.insertAdjacentHTML('beforeend',`<div class="card">
+      <div class="imgs">
+        <div><a href="${s}-square.png" target="_blank"><img class="sq" src="${s}-square.png"></a><div class="lbl">Square</div></div>
+        <div class="col">
+          <a href="${s}-link.png" target="_blank"><img class="lk" src="${s}-link.png"></a><div class="lbl">Link</div>
+        </div>
+        <div><a href="${s}-portrait.png" target="_blank"><img class="pt" src="${s}-portrait.png"></a><div class="lbl">Portrait</div></div>
+      </div>
+      <div class="meta"><h3>${t}</h3><div class="cap">${cap}</div><div class="tags">${tags}</div>
+      <div class="formats"><b>Use:</b> Square → Instagram feed · Link → Facebook / LinkedIn · Portrait → Instagram / stories</div></div>
+    </div>`);
+  }
+</script>
+</body></html>
