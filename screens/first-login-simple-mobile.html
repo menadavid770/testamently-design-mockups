@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" class="vm">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testamently — First secret (simplified)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--gold:#b8911e;--gold-d:#9c7a16;--ink:#0f172a;--muted:#64748b;--line:#e6e3db;--bg:#f4f7fb;--soft:#faf8f3}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100vh}
+  button{font-family:inherit;cursor:pointer}
+
+  .topbar{display:flex;align-items:center;justify-content:space-between;padding:15px 26px;border-bottom:1px solid var(--line);background:#fff}
+  .brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:16px;letter-spacing:-.3px}
+  .brand .shield{width:27px;height:27px;border-radius:8px;background:linear-gradient(160deg,var(--gold),#d4af37);display:flex;align-items:center;justify-content:center;font-size:14px}
+  .skiptop{font-size:13px;font-weight:600;color:var(--muted);text-decoration:none}
+  .skiptop:hover{color:var(--ink)}
+
+  .stage{display:flex;justify-content:center;padding:46px 20px 80px}
+  .card{width:100%;max-width:560px;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 18px 50px rgba(20,25,40,.08);padding:34px 34px 30px}
+
+  .eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#16a34a;background:#ecfdf3;border:1px solid #c5f0d4;padding:5px 11px;border-radius:20px;margin-bottom:15px}
+  h1{font-size:26px;font-weight:800;letter-spacing:-.5px;margin-bottom:7px}
+  .sub{font-size:14.5px;color:var(--muted);margin-bottom:22px}
+
+  .label{font-size:12px;font-weight:700;color:#475569;margin:0 0 9px;letter-spacing:.01em}
+  .picks{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+  .pick{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:#334155;background:#fff;border:1.5px solid var(--line);border-radius:30px;padding:8px 14px;transition:.14s}
+  .pick:hover{border-color:#d9cfa6;background:#fffdf7}
+  .pick.sel{border-color:var(--gold);background:#fffdf5;color:var(--gold-d);box-shadow:0 0 0 3px rgba(184,145,30,.10)}
+
+  .field{margin-bottom:16px}
+  .field input,.field textarea{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:13px 15px;font-size:14.5px;font-family:inherit;background:#fff;color:var(--ink);transition:.14s}
+  .field textarea{min-height:96px;resize:vertical}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(184,145,30,.12)}
+  .field input::placeholder,.field textarea::placeholder{color:#9aa3af}
+
+  .assure{display:flex;flex-wrap:wrap;gap:8px 18px;margin:6px 0 22px}
+  .assure span{font-size:12.3px;color:var(--muted);display:flex;align-items:center;gap:6px}
+
+  .cta{width:100%;background:var(--gold);color:#fff;border:none;border-radius:13px;padding:15px;font-size:15.5px;font-weight:700;box-shadow:0 6px 18px rgba(184,145,30,.32);transition:.15s}
+  .cta:hover{background:var(--gold-d)}
+  .later{text-align:center;font-size:12.8px;color:var(--muted);margin-top:13px}
+  .later b{color:#475569;font-weight:600}
+
+  .prog{display:flex;align-items:center;justify-content:center;gap:9px;margin-top:22px;padding-top:18px;border-top:1px solid #f0eee8}
+  .dots{display:flex;gap:6px}
+  .dot{width:7px;height:7px;border-radius:50%;background:#dcd8cd}
+  .dot.on{background:var(--gold);width:20px;border-radius:5px}
+  .prog small{font-size:11.8px;color:var(--muted);font-weight:600}
+
+  /* mobile (class-driven) */
+  .vm .stage{padding:24px 14px 60px}
+  .vm .card{padding:24px 20px 22px;border-radius:18px}
+  .vm h1{font-size:22px}
+  .vm .sub{font-size:13.5px}
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="shield">🛡️</span> Testamently</div>
+    <a class="skiptop" href="#">Skip for now</a>
+  </div>
+
+  <div class="stage">
+    <div class="card">
+      <span class="eyebrow">✓ Your vault is ready</span>
+      <h1>Add your first secret</h1>
+      <p class="sub">Takes about 20 seconds. We encrypt it the moment you type — only you can read it.</p>
+
+      <p class="label">What do you want to keep safe?</p>
+      <div class="picks" id="picks">
+        <button class="pick" data-ph="e.g. Gmail password">🔑 A password</button>
+        <button class="pick" data-ph="e.g. Bitcoin wallet seed phrase">₿ Crypto seed</button>
+        <button class="pick" data-ph="e.g. Main bank account">🏦 Bank info</button>
+        <button class="pick" data-ph="e.g. A letter to my children">✉️ A letter</button>
+        <button class="pick" data-ph="e.g. Passport details">📄 Document</button>
+      </div>
+
+      <div class="field">
+        <input id="name" type="text" placeholder="Give it a name…">
+      </div>
+      <div class="field">
+        <textarea id="val" placeholder="Type or paste what you want to protect"></textarea>
+      </div>
+
+      <div class="assure">
+        <span>🔒 Encrypted on your device</span>
+        <span>🔓 Released only if your check-ins stop</span>
+      </div>
+
+      <button class="cta">Save my first secret →</button>
+      <p class="later">You can add <b>trustees</b> and more secrets right after — no rush.</p>
+
+      <div class="prog">
+        <div class="dots"><span class="dot on"></span><span class="dot"></span></div>
+        <small>Step 1 of 2 · you’re almost protected</small>
+      </div>
+    </div>
+  </div>
+
+<script>
+  const picks=document.getElementById('picks'), name=document.getElementById('name');
+  picks.querySelectorAll('.pick').forEach(p=>p.addEventListener('click',()=>{
+    picks.querySelectorAll('.pick').forEach(x=>x.classList.remove('sel'));
+    p.classList.add('sel');
+    name.setAttribute('placeholder',p.dataset.ph);
+    name.focus();
+  }));
+</script>
+</body>
+</html>
