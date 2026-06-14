@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Testamently — Add record (themeable · v3)</title>
+<title>Testamently — Add record (minimalist · v3)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -12,38 +12,39 @@
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6}
   button{font-family:inherit;cursor:pointer}
-  .stage{display:flex;justify-content:center;padding:42px 20px 90px}
-  .panel{width:100%;max-width:600px;background:var(--surface);border:1px solid var(--border);border-radius:18px;overflow:hidden}
-  .ptop{display:flex;align-items:center;gap:13px;padding:22px 26px;border-bottom:1px solid var(--border)}
-  .ptop .ic{width:40px;height:40px;border-radius:10px;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:19px}
-  .ptop h2{font-family:var(--serif);font-size:22px;font-weight:400}.ptop .mt{font-size:12.5px;color:var(--muted)}
+  .stage{display:flex;justify-content:center;padding:52px 20px 90px}
+  .panel{width:100%;max-width:540px;background:var(--surface);border:1px solid var(--border);border-radius:18px;overflow:hidden}
+  .ptop{display:flex;align-items:center;gap:13px;padding:24px 28px 4px}
+  .ptop h2{font-family:var(--serif);font-size:26px;font-weight:400}
   .ptop .close{margin-left:auto;font-size:18px;color:var(--muted2);background:none;border:none}
-  .body{padding:8px 26px 4px}
-  .grp{padding:18px 0;border-bottom:1px solid var(--border)}.grp:last-child{border-bottom:none}
-  .lbl{font-size:13px;font-weight:500;margin-bottom:3px}.sub{font-size:12.5px;color:var(--muted);margin-bottom:12px}
-  .default-tag{font-size:11px;font-weight:500;color:var(--muted);background:var(--bg2);padding:2px 8px;border-radius:20px;margin-left:7px}
-  .cats{display:flex;flex-wrap:wrap;gap:7px}
-  .cat{font-size:12.5px;font-weight:400;color:var(--text);border:1px solid var(--border);border-radius:30px;padding:8px 14px;background:var(--surface)}
+  .ptop+.psub{padding:0 28px;font-size:13.5px;color:var(--muted);margin-bottom:20px}
+  .body{padding:0 28px}
+  .lbl{font-size:12.5px;font-weight:600;color:var(--muted);margin:0 0 9px}
+  .cats{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+  .cat{font-size:13px;font-weight:400;color:var(--text);border:1px solid var(--border);border-radius:30px;padding:8px 15px;background:var(--surface)}
   .cat.on{border-color:var(--accent);background:var(--accent);color:var(--accent-fg);font-weight:500}
-  input.ti,textarea.tv{width:100%;border:1px solid var(--border);border-radius:9px;padding:12px 14px;font-size:14px;font-family:inherit;color:var(--text);background:var(--surface)}
-  textarea.tv{min-height:80px;resize:vertical;margin-top:10px}
+  input.ti,textarea.tv{width:100%;border:1px solid var(--border);border-radius:11px;padding:13px 15px;font-size:14.5px;font-family:inherit;color:var(--text);background:var(--surface)}
+  textarea.tv{min-height:96px;resize:vertical;margin-top:12px}
   input.ti:focus,textarea.tv:focus{outline:none;border-color:var(--accent)}
   input.ti::placeholder,textarea.tv::placeholder{color:var(--muted2)}
+  .defaults{margin:18px 0 6px;font-size:12.5px;color:var(--muted);display:flex;align-items:flex-start;gap:8px;line-height:1.55}
+  .defaults b{color:var(--text);font-weight:500}
+  details{margin-top:14px;border-top:1px solid var(--border);padding-top:14px}
+  summary{list-style:none;cursor:pointer;font-size:13px;font-weight:500;color:var(--accent);display:flex;align-items:center;gap:7px}
+  summary::-webkit-details-marker{display:none}
+  summary .chev{transition:transform .15s}
+  details[open] summary .chev{transform:rotate(90deg)}
+  .adv{padding-top:14px}
+  .arow{margin-bottom:16px}
+  .arow .al{font-size:12.5px;font-weight:600;margin-bottom:8px}
   .seg{display:flex;border:1px solid var(--border);border-radius:9px;overflow:hidden}
-  .seg button{flex:1;font-size:12.5px;padding:9px 6px;background:var(--surface);border:none;color:var(--muted);border-left:1px solid var(--border)}
+  .seg button{flex:1;font-size:12px;padding:9px 6px;background:var(--surface);border:none;color:var(--muted);border-left:1px solid var(--border)}
   .seg button:first-child{border-left:none}.seg button.on{background:var(--accent);color:var(--accent-fg);font-weight:500}
-  .opt{display:flex;gap:11px;align-items:flex-start;border:1px solid var(--border);border-radius:11px;padding:12px 14px;margin-bottom:8px;cursor:pointer}
-  .opt.on{border-color:var(--accent)}
-  .radio{width:17px;height:17px;border-radius:50%;border:1.5px solid var(--toggle-off);flex:0 0 auto;margin-top:1px}.opt.on .radio{border:5px solid var(--accent)}
-  .opt h4{font-size:13.3px;font-weight:500}.opt p{font-size:11.8px;color:var(--muted)}
-  .who{display:flex;flex-wrap:wrap;gap:8px}
-  .chip{display:flex;align-items:center;gap:7px;border:1px solid var(--border);border-radius:30px;padding:6px 12px 6px 6px;font-size:12.5px;font-weight:400}
-  .av{width:23px;height:23px;border-radius:50%;color:#fff;font-size:10px;font-weight:600;display:flex;align-items:center;justify-content:center}
-  .addc{border:1px dashed var(--toggle-off);border-radius:30px;padding:6px 13px;font-size:12.5px;color:var(--accent);font-weight:500;background:none}
-  .foot{display:flex;align-items:center;gap:14px;padding:16px 26px;border-top:1px solid var(--border);background:var(--bg2)}
+  .pill{border:1px solid var(--border);border-radius:9px;padding:10px 13px;font-size:13px;background:var(--surface);color:var(--text);width:100%}
+  .foot{display:flex;align-items:center;gap:14px;padding:18px 28px;margin-top:18px;border-top:1px solid var(--border);background:var(--bg2)}
   .note{font-size:11.6px;color:var(--muted)}.foot .actions{margin-left:auto;display:flex;gap:10px}
   .cancel{font-size:13px;font-weight:500;color:var(--muted);background:none;border:none}
-  .save{font-size:13px;font-weight:500;color:var(--accent-fg);background:var(--accent);border:none;border-radius:8px;padding:11px 22px}
+  .save{font-size:13.5px;font-weight:500;color:var(--accent-fg);background:var(--accent);border:none;border-radius:9px;padding:12px 24px}
   .tsw{position:fixed;bottom:18px;right:18px;display:flex;align-items:center;gap:9px;background:var(--surface);border:1px solid var(--border);border-radius:30px;padding:8px 14px;z-index:50;box-shadow:0 8px 26px rgba(0,0,0,.12)}
   .tsw .lab{font-size:11px;color:var(--muted);font-weight:600}.tsw .acc-btn{width:18px;height:18px;border-radius:50%;border:2px solid var(--surface);box-shadow:0 0 0 1px var(--border);cursor:pointer;padding:0}.tsw .acc-btn.on{box-shadow:0 0 0 2px var(--text)}
   .tsw .sep{width:1px;height:20px;background:var(--border)}.tsw .mode-btn{font-size:12px;font-weight:600;color:var(--text);background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:5px 12px}
@@ -52,20 +53,26 @@
 </head>
 <body>
   <div class="stage"><div class="panel">
-    <div class="ptop"><div class="ic">＋</div><div><h2>New record</h2><div class="mt">Encrypted the moment you type</div></div><button class="close">✕</button></div>
+    <div class="ptop"><h2>Add a record</h2><button class="close">✕</button></div>
+    <div class="psub">Two fields and you’re protected — we encrypt it the moment you type.</div>
     <div class="body">
-      <div class="grp"><div class="lbl">Type</div><div class="cats">
-        <button class="cat on">🔑 Password</button><button class="cat">₿ Crypto wallet</button><button class="cat">🏦 Bank account</button><button class="cat">📄 Document</button><button class="cat">✉️ Note / letter</button><button class="cat">🪪 ID</button>
-      </div></div>
-      <div class="grp"><div class="lbl">Name</div><input class="ti" placeholder="e.g. Gmail password"><textarea class="tv" placeholder="The secret — type or paste what you want to protect"></textarea></div>
-      <div class="grp"><div class="lbl">Encryption <span class="default-tag">default · Standard</span></div><div class="sub">Standard is server-recoverable. Pick stronger for this record if it’s sensitive.</div>
-        <div class="seg"><button class="on">Standard</button><button>Premium</button><button>Gold</button><button>Zero-knowledge</button></div></div>
-      <div class="grp"><div class="lbl">When should trustees get it? <span class="default-tag">default · on inactivity</span></div>
-        <div class="opt on"><span class="radio"></span><div><h4>When my check-ins stop</h4><p>Released after the inactivity period from Settings (60 days).</p></div></div>
-        <div class="opt"><span class="radio"></span><div><h4>On a specific date</h4><p>Schedule it — e.g. a birthday letter.</p></div></div>
-        <div class="opt"><span class="radio"></span><div><h4>Only after death is verified</h4><p>Requires a death certificate first.</p></div></div></div>
-      <div class="grp"><div class="lbl">Who receives it <span class="default-tag">optional · add later</span></div>
-        <div class="who"><span class="chip"><span class="av" style="background:#1f2937">MM</span>Michael Mitchell</span><button class="addc">+ Add trustee</button></div></div>
+      <p class="lbl">What is it?</p>
+      <div class="cats">
+        <button class="cat on">🔑 Password</button><button class="cat">₿ Crypto seed</button><button class="cat">🏦 Bank info</button><button class="cat">✉️ A letter</button><button class="cat">📄 Document</button>
+      </div>
+      <input class="ti" placeholder="Give it a name…">
+      <textarea class="tv" placeholder="Type or paste what you want to protect"></textarea>
+
+      <div class="defaults">🔒<div><b>Standard encryption</b>, released only if your check-ins stop, no trustee yet — all editable later. Want to change them now?</div></div>
+
+      <details>
+        <summary><span class="chev">▸</span> Advanced — encryption, release &amp; trustee</summary>
+        <div class="adv">
+          <div class="arow"><div class="al">Encryption</div><div class="seg"><button class="on">Standard</button><button>Premium</button><button>Gold</button><button>Zero-knowledge</button></div></div>
+          <div class="arow"><div class="al">Release to trustees</div><select class="pill"><option selected>When my check-ins stop (60 days)</option><option>On a specific date</option><option>Only after death is verified</option></select></div>
+          <div class="arow"><div class="al">Who receives it</div><select class="pill"><option selected>Add later</option><option>Michael Mitchell</option><option>Jennifer Roth</option></select></div>
+        </div>
+      </details>
     </div>
     <div class="foot"><span class="note">🔒 Encrypted on your device before saving.</span><div class="actions"><button class="cancel">Cancel</button><button class="save">Save record</button></div></div>
   </div></div>
