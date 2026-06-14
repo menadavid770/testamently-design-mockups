@@ -49,9 +49,13 @@ The screen list lives in **`gallery-data.js`** (shared) — add a screen there a
 
 ## 📐 Design process
 
-See **[DESIGN-PROCESS.md](./DESIGN-PROCESS.md)** for the minimalist design principles, the UX
-optimisations behind v4, the theming system, and the key product decisions (per-record
-encryption, 2-step add, etc.).
+See **[DESIGN-PROCESS.md](./DESIGN-PROCESS.md)** for the full story: the **"you hold half"**
+positioning, the minimalist design principles, the UX optimisations behind v4, the theming
+system, and the key product decisions (per-record encryption, 2-step add, the legal/will
+notice, etc.).
+
+📄 **One-page overview (PDF):** **[Testamently-overview.pdf](./Testamently-overview.pdf)** —
+summary + the model + a screenshot tour of the v4 app. Regenerate from `overview.html`.
 
 ## ✏️ Edit & publish
 

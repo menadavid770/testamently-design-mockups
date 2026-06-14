@@ -4,10 +4,15 @@ How the mockups in this repo evolved, the **minimalist** principles behind them,
 **user-experience** decisions that shaped the final direction. Written so David (and anyone
 picking this up) can see *why* each screen looks the way it does — not just *what* it looks like.
 
-> **The product in one line:** an encrypted vault that releases your most important
-> information (passwords, crypto, documents, last words) to people you trust — but only if
-> your regular check-ins ever stop. Every design choice serves that promise: *calm, trustworthy,
-> and effortless.*
+> **The product in one line:** a private, encrypted vault for the **half they'll need** — the
+> codes, locations and last words that unlock what you leave behind — released to the people you
+> trust, but only if your regular check-ins ever stop.
+>
+> **Not** a password manager and **not** a legal will. It holds the things that would otherwise
+> be lost: the PIN to the phone with the photos, a life-insurance policy no one knows about,
+> where the safe is, a letter to your children. On its own it opens nothing — the other half (the
+> phone, the wallet, the safe) lives with you, so a breach reveals nothing usable. Every design
+> choice serves that promise: *calm, trustworthy, and effortless.*
 
 ---
 
@@ -29,18 +34,31 @@ The test for whether something belongs: **on its own, is it harmless?**
 This also lowers the emotional barrier: people are far more comfortable storing "the safe combo"
 than "my live bank login."
 
-### Two classes of record
-1. **Access & instructions — the valuable half.** Phone/device passcode, crypto-wallet PIN,
-   safe combination, keys & storage, where documents are, accounts to know about. The
-   split-knowledge security matters most here.
-2. **Messages & memories — lower stakes.** A letter, a photo's whereabouts, funeral wishes.
-   Less sensitive even if leaked — these are simply things you want delivered. Good security
-   still applies, but the "half" framing isn't the point.
+### Three things people leave (the example bank)
+Used in the onboarding welcome and the landing to show breadth at a glance:
+
+1. **🔐 Access — the half (split-knowledge).** Useless on its own; needs the physical thing.
+   *Phone PIN (for the family photos) · crypto-wallet PIN & recovery · home-safe combination ·
+   keys & storage-unit location.*
+2. **🧭 They'd never find it — knowledge that vanishes.** Things heirs don't even know exist and
+   would otherwise go unclaimed. *A life-insurance policy · an account abroad / Swiss account · an
+   old pension · where the will & the solicitor are.*
+3. **🤍 Irreplaceable — sentimental, not monetary.** Lower-stakes even if leaked; the point is
+   simply that it's delivered. *A letter to your children · where the family photos & videos live ·
+   the story behind a ring · funeral wishes.*
 
 **The "What is it?" types:** 📱 Phone / device · 🔐 Crypto wallet · 🏦 Safe combo ·
-🔑 Keys & access · 📄 Document · ✉️ Letter · 🖼️ Photo *(+ accounts-to-know, instructions/wishes
-as needed)*. The one-line guidance in the UI: *"Store the PIN, not the phone — the code, not the
-wallet. We keep one half; your home keeps the other."*
+🔑 Keys & access · 📄 Document · ✉️ Letter · 🖼️ Photo. The one-line guidance in the UI:
+*"Not your everyday logins — store the PIN, not the phone; the code, not the wallet. We keep one
+half; your home keeps the other."*
+
+### Legal positioning (and the will pointer)
+The name sounds like a will, so the product must be explicit that it **isn't** one. Every surface
+carries a **legal notice**: *Testamently is a private, encrypted information vault — not a legal
+will, trust or estate-administration service, and not a substitute for one.* Release to trustees
+is a convenience, **not probate**. Turned into a feature: Testamently can **hold a copy of your
+official will, or point your family to the solicitor who keeps the original** — so the real,
+legally-binding will is never missed.
 
 ---
 
