@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testamently — Design Mockups (real app)</title>
+<style>
+  :root{--gold:#b8911e;--ink:#111;--muted:#7a7a7a;--line:#e8e6e0;--bg:#faf9f6;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  a{color:inherit;text-decoration:none}
+  header{padding:40px 28px 8px;max-width:1180px;margin:0 auto}
+  .logo{font-size:22px;font-weight:800;color:var(--gold);letter-spacing:-.4px}
+  h1{font-size:28px;font-weight:800;letter-spacing:-.5px;margin:6px 0 6px}
+  .lead{font-size:14.5px;color:var(--muted);max-width:760px}
+  .lead b{color:var(--ink)}
+  .note{margin:16px 0 0;font-size:13px;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 16px;max-width:760px}
+  .note code{background:#f1efe9;padding:1px 6px;border-radius:4px;font-size:12px}
+  main{max-width:1180px;margin:0 auto;padding:20px 28px 80px}
+  .group{margin-top:38px}
+  .group-hd{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
+  .group-hd h2{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.09em;color:#444}
+  .group-hd .who{font-size:12px;color:var(--muted)}
+  .group-line{height:1px;background:var(--line);margin:10px 0 22px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:26px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:box-shadow .15s,transform .15s}
+  .card:hover{box-shadow:0 10px 34px rgba(40,30,0,.10);transform:translateY(-2px)}
+  .frames{display:flex;gap:14px;align-items:flex-end;padding:18px 18px 0;background:linear-gradient(180deg,#f6f4ee,#fff);min-height:215px}
+  /* desktop browser frame */
+  .browser{flex:1;border:1px solid #ddd9cf;border-radius:8px 8px 0 0;overflow:hidden;box-shadow:0 6px 16px rgba(0,0,0,.07);background:#fff}
+  .bbar{height:20px;background:#efece4;display:flex;align-items:center;gap:5px;padding:0 8px;border-bottom:1px solid #e3dfd4}
+  .dot{width:7px;height:7px;border-radius:50%}
+  .bshot{display:block;width:100%;height:150px;object-fit:cover;object-position:top}
+  /* phone frame */
+  .phone{width:84px;border:3px solid #2a2a2a;border-bottom:none;border-radius:14px 14px 0 0;overflow:hidden;box-shadow:0 6px 16px rgba(0,0,0,.12);background:#000}
+  .pshot{display:block;width:100%;height:165px;object-fit:cover;object-position:top;background:#fff}
+  .meta{padding:14px 18px 18px}
+  .meta h3{font-size:15px;font-weight:700}
+  .meta p{font-size:12.5px;color:var(--muted);margin-top:2px;min-height:34px}
+  .open{display:flex;gap:8px;margin-top:10px}
+  .btn{flex:1;text-align:center;font-size:12.5px;font-weight:600;padding:8px 10px;border-radius:8px;border:1px solid var(--line)}
+  .btn.d{background:#1c1c1c;color:#fff;border-color:#1c1c1c}
+  .btn.m{background:#fff;color:var(--ink)}
+  .btn:hover{opacity:.88}
+  .missing{filter:grayscale(1);opacity:.35}
+  footer{max-width:1180px;margin:0 auto;padding:0 28px 60px;color:var(--muted);font-size:12.5px}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Testamently</div>
+  <h1>Design Mockups — captured from the live app</h1>
+  <p class="lead">Every screen below is the <b>real production UI</b> (testamently.com), frozen into a self-contained, <b>editable</b> HTML file — Tailwind classes and inline CSS intact. Open any screen, edit the markup/styles, refine the design. Content comes from the demo accounts.</p>
+  <div class="note">
+    <b>For David:</b> click <b>Desktop</b> or <b>Mobile</b> on any card to open that screen as standalone HTML in <code>/screens/</code>. They render offline (CSS inlined; fonts/images load from the live site). Edit freely — these are copies, nothing here touches production.
+  </div>
+</header>
+<main id="app"></main>
+<footer>
+  Owner screens use <b>demo@testamently.com</b> (Sarah Mitchell — 10 secrets, 3 folders, 2 trustees). Trustee screens use <b>michael.demo@testamently.com</b>. First-login uses a fresh throwaway account.
+</footer>
+
+<script>
+const GROUPS = [
+  { title:'Marketing & Auth', who:'public — no login', screens:[
+    ['landing','Landing page','Hero, value props, pricing teaser, footer'],
+    ['login','Login','Email/password sign-in with lockout + social'],
+    ['signup','Sign up','Create account — name, email, phone, password'],
+    ['how-it-works','How it works','Explainer of the dead-man-switch flow'],
+    ['pricing','Pricing','Free / Premium / Gold / ZK tiers'],
+    ['security','Security','Encryption tiers + zero-knowledge explainer'],
+    ['blog','Blog','Article index'],
+    ['privacy','Privacy policy','Legal'],
+    ['terms','Terms','Legal'],
+  ]},
+  { title:'First-time experience', who:'fresh account', screens:[
+    ['first-login','First login (onboarding)','Empty vault auto-opens the add-secret form'],
+  ]},
+  { title:'Owner experience', who:'demo@testamently.com — Sarah Mitchell', screens:[
+    ['vault','Vault','Secrets, folders, search, per-secret status'],
+    ['trustees','Trustees','Manage the people who can unlock the vault'],
+    ['settings','Settings','Account, plan, MFA, danger zone'],
+    ['heartbeat','Heartbeat','Dead-man-switch check-in schedule'],
+    ['family','Family','Shared family members'],
+  ]},
+  { title:'Trustee experience', who:'michael.demo@testamently.com — Michael Mitchell', screens:[
+    ['trustee-home','Trustee home','The trustee’s own logged-in dashboard'],
+    ['trustee-locked','Trustee — locked vault','Active vault, not yet triggered — countdown + upload'],
+    ['trustee-unlocked','Trustee — unlocked vault','Vault triggered — reveal each assigned secret'],
+  ]},
+  { title:'Invitations', who:'invite links', screens:[
+    ['trustee-accept','Trustee invite — accepted','Confirmation after accepting a trustee invite'],
+    ['trustee-decline','Trustee invite — declined','Confirmation after declining a trustee invite'],
+    ['family-accept','Family invite','“Sarah invited you to join their family plan”'],
+  ]},
+];
+
+const app = document.getElementById('app');
+for (const g of GROUPS){
+  const sec = document.createElement('section'); sec.className='group';
+  sec.innerHTML = `<div class="group-hd"><h2>${g.title}</h2><span class="who">${g.who}</span></div><div class="group-line"></div><div class="grid"></div>`;
+  const grid = sec.querySelector('.grid');
+  for (const [name,title,desc] of g.screens){
+    const d = `shots/${name}-desktop.png`, m = `shots/${name}-mobile.png`;
+    const card = document.createElement('div'); card.className='card';
+    card.innerHTML = `
+      <div class="frames">
+        <div class="browser">
+          <div class="bbar"><span class="dot" style="background:#f3766f"></span><span class="dot" style="background:#f7c948"></span><span class="dot" style="background:#5ec26a"></span></div>
+          <img class="bshot" src="${d}" alt="${title} desktop" loading="lazy" onerror="this.closest('.browser').classList.add('missing')">
+        </div>
+        <div class="phone"><img class="pshot" src="${m}" alt="${title} mobile" loading="lazy" onerror="this.closest('.phone').classList.add('missing')"></div>
+      </div>
+      <div class="meta">
+        <h3>${title}</h3>
+        <p>${desc}</p>
+        <div class="open">
+          <a class="btn d" href="screens/${name}-desktop.html" target="_blank">Desktop ↗</a>
+          <a class="btn m" href="screens/${name}-mobile.html" target="_blank">Mobile ↗</a>
+        </div>
+      </div>`;
+    grid.appendChild(card);
+  }
+  app.appendChild(sec);
+}
+</script>
+</body>
+</html>
