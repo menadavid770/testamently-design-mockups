@@ -64,14 +64,14 @@
     <button class="acc-btn" data-a="ink" style="background:#111111" title="Ink (David's)"></button>
     <button class="acc-btn" data-a="forest" style="background:#5E7356" title="Forest"></button>
     <button class="acc-btn" data-a="emerald" style="background:#0E7C5A" title="Emerald"></button>
-    <button class="acc-btn" data-a="slate" style="background:#46707C" title="Slate"></button>
+    <button class="acc-btn" data-a="slate" style="background:#46707C" title="Slate"></button><button class="acc-btn" data-a="teal" style="background:#0F766E" title="Teal"></button><button class="acc-btn" data-a="blue" style="background:#3A5BBF" title="Blue"></button><button class="acc-btn" data-a="violet" style="background:#6D4AA8" title="Violet"></button><button class="acc-btn" data-a="clay" style="background:#B05A3C" title="Clay"></button>
     <span class="sep"></span>
     <button id="modeBtn" class="mode-btn">🌙 Dark</button>
   </div>
   <script>
   const MODES={light:{bg:'#F4F3EF',bg2:'#EEEDEA',surface:'#FFFFFF',text:'#111111',muted:'#6B7280',muted2:'#9A9A93',border:'#E4E3DC','toggle-off':'#D9D6CC',status:'#16A34A'},
     dark:{bg:'#14160E',bg2:'#1B1E14',surface:'#1C2015',text:'#F1EFE3',muted:'#A8AA93',muted2:'#7E8270',border:'#333829','toggle-off':'#3A4031',status:'#86C08A'}};
-  const ACC={ink:{light:['#111111','#FAFAFA'],dark:['#E8E6DD','#16190F']},forest:{light:['#5E7356','#FAFAF7'],dark:['#9DBE8A','#16190F']},emerald:{light:['#0E7C5A','#F4FBF7'],dark:['#34D399','#0C140F']},slate:{light:['#46707C','#F5FAFB'],dark:['#86A9B3','#0E1417']}};
+  const ACC={ink:{light:['#111111','#FAFAFA'],dark:['#E8E6DD','#16190F']},forest:{light:['#5E7356','#FAFAF7'],dark:['#9DBE8A','#16190F']},emerald:{light:['#0E7C5A','#F4FBF7'],dark:['#34D399','#0C140F']},slate:{light:['#46707C','#F5FAFB'],dark:['#86A9B3','#0E1417']},teal:{light:['#0F766E','#F0FBFA'],dark:['#5ED3C6','#0B1413']},blue:{light:['#3A5BBF','#F4F7FF'],dark:['#93B0F2','#0D1220']},violet:{light:['#6D4AA8','#F8F4FD'],dark:['#B89BE8','#130F1C']},clay:{light:['#B05A3C','#FFF7F2'],dark:['#E0997C','#1A120D']}};
   let mode=(localStorage.getItem('v3mode')||'light'),acc=(localStorage.getItem('v3acc')||'forest');
   function apply(){const m=MODES[mode];for(const k in m)document.documentElement.style.setProperty('--'+k,m[k]);const a=ACC[acc][mode];document.documentElement.style.setProperty('--accent',a[0]);document.documentElement.style.setProperty('--accent-fg',a[1]);
     document.querySelectorAll('.acc-btn').forEach(b=>b.classList.toggle('on',b.dataset.a===acc));
