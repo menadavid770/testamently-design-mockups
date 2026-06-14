@@ -47,6 +47,12 @@ The gallery has a **v1 / v2** switcher at the top:
 
 The screen list lives in **`gallery-data.js`** (shared) — add a screen there and it appears in the gallery.
 
+## 📐 Design process
+
+See **[DESIGN-PROCESS.md](./DESIGN-PROCESS.md)** for the minimalist design principles, the UX
+optimisations behind v4, the theming system, and the key product decisions (per-record
+encryption, 2-step add, etc.).
+
 ## ✏️ Edit & publish
 
 It's a plain static site — editing and publishing is just git:
