@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Testamently — Settings (dark · v3)</title>
+<title>Testamently — Settings (themeable · v3)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{--bg:#14160E;--bg2:#1B1E14;--surface:#1C2015;--text:#F1EFE3;--muted:#A8AA93;--muted2:#7E8270;--border:#333829;--accent:#9DBE8A;--accent-fg:#16190F;--status:#86C08A;
+  :root{--bg:#F4F3EF;--bg2:#EEEDEA;--surface:#FFFFFF;--text:#111111;--muted:#6B7280;--muted2:#9A9A93;--border:#E4E3DC;--toggle-off:#D9D6CC;--status:#16A34A;--accent:#5E7356;--accent-fg:#FAFAF7;
     --serif:'DM Serif Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6}
@@ -23,14 +23,17 @@
   .sec-note{font-size:13px;color:var(--muted);margin-bottom:16px}
   .row{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--border)}.row:last-child{border-bottom:none}
   .row .l{font-size:14.5px;font-weight:500}.row .d{font-size:12.5px;color:var(--muted);margin-top:2px;max-width:330px}.row .ctl{margin-left:auto;flex:0 0 auto}.val{font-size:14px;color:var(--muted)}
-  .seg{display:inline-flex;border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--bg2)}
+  .seg{display:inline-flex;border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--surface)}
   .seg button{font-size:12.5px;padding:8px 14px;background:none;border:none;color:var(--muted);border-left:1px solid var(--border)}.seg button:first-child{border-left:none}.seg button.on{background:var(--accent);color:var(--accent-fg);font-weight:500}
-  .pill{border:1px solid var(--border);border-radius:8px;padding:9px 14px;font-size:13.5px;font-weight:500;background:var(--bg2);color:var(--text)}
-  .tg{width:42px;height:24px;border-radius:20px;background:var(--accent);position:relative;border:none}.tg::after{content:"";position:absolute;top:3px;right:3px;width:18px;height:18px;border-radius:50%;background:var(--bg)}
-  .tg.off{background:#3a4031}.tg.off::after{right:21px;background:#8a8f7c}
-  .danger .l{color:#E58C7D}.link{font-size:13.5px;font-weight:500;color:#E58C7D;background:none;border:none}
-  .tsw{position:fixed;bottom:18px;right:18px;display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:30px;padding:8px 13px;z-index:50}
-  .tsw span{font-size:11px;color:var(--muted);font-weight:500}.tsw button{width:18px;height:18px;border-radius:50%;border:2px solid var(--surface);box-shadow:0 0 0 1px var(--border);cursor:pointer;padding:0}
+  .pill{border:1px solid var(--border);border-radius:8px;padding:9px 14px;font-size:13.5px;font-weight:500;background:var(--surface);color:var(--text)}
+  .tg{width:42px;height:24px;border-radius:20px;background:var(--accent);position:relative;border:none}.tg::after{content:"";position:absolute;top:3px;right:3px;width:18px;height:18px;border-radius:50%;background:var(--surface)}
+  .tg.off{background:var(--toggle-off)}.tg.off::after{right:21px;background:var(--surface)}
+  .danger .l{color:#C0483B}.link{font-size:13.5px;font-weight:500;color:#C0483B;background:none;border:none}
+  .tsw{position:fixed;bottom:18px;right:18px;display:flex;align-items:center;gap:9px;background:var(--surface);border:1px solid var(--border);border-radius:30px;padding:8px 14px;z-index:50;box-shadow:0 8px 26px rgba(0,0,0,.12)}
+  .tsw .lab{font-size:11px;color:var(--muted);font-weight:600}
+  .tsw .acc-btn{width:18px;height:18px;border-radius:50%;border:2px solid var(--surface);box-shadow:0 0 0 1px var(--border);cursor:pointer;padding:0}.tsw .acc-btn.on{box-shadow:0 0 0 2px var(--text)}
+  .tsw .sep{width:1px;height:20px;background:var(--border)}
+  .tsw .mode-btn{font-size:12px;font-weight:600;color:var(--text);background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:5px 12px}
   .vm nav .links{display:none}.vm .wrap{padding:30px 18px 70px}.vm h1{font-size:36px}.vm .row{flex-wrap:wrap;gap:10px}.vm .seg{flex-wrap:wrap}
 </style>
 </head>
@@ -56,20 +59,27 @@
       <div class="row"><div><div class="l">Delete vault</div><div class="d">Permanently erase all records and trustees.</div></div><div class="ctl"><button class="link">Delete</button></div></div></div>
   </div>
 
-  <div class="tsw"><span>Theme</span>
-    <button data-t="forest" style="background:#9DBE8A" title="Forest"></button>
-    <button data-t="emerald" style="background:#34D399" title="Emerald"></button>
-    <button data-t="gold" style="background:#D4AF37" title="Noir gold"></button>
-    <button data-t="slate" style="background:#86A9B3" title="Slate"></button>
+  <div class="tsw">
+    <span class="lab">Accent</span>
+    <button class="acc-btn" data-a="ink" style="background:#111111" title="Ink (David's)"></button>
+    <button class="acc-btn" data-a="forest" style="background:#5E7356" title="Forest"></button>
+    <button class="acc-btn" data-a="emerald" style="background:#0E7C5A" title="Emerald"></button>
+    <button class="acc-btn" data-a="slate" style="background:#46707C" title="Slate"></button>
+    <span class="sep"></span>
+    <button id="modeBtn" class="mode-btn">🌙 Dark</button>
   </div>
   <script>
-  const TH={forest:{bg:'#14160E',bg2:'#1B1E14',surface:'#1C2015',text:'#F1EFE3',muted:'#A8AA93',muted2:'#7E8270',border:'#333829',accent:'#9DBE8A','accent-fg':'#16190F',status:'#86C08A'},
-    emerald:{bg:'#0F1512',bg2:'#16201B',surface:'#17221C',text:'#ECF2EE',muted:'#9DB0A6',muted2:'#74877D',border:'#28332D',accent:'#34D399','accent-fg':'#0C140F',status:'#34D399'},
-    gold:{bg:'#16140D',bg2:'#1F1B11',surface:'#201C12',text:'#F2EEE1',muted:'#ABA48C',muted2:'#827B64',border:'#37311F',accent:'#D4AF37','accent-fg':'#16140D',status:'#C9A227'},
-    slate:{bg:'#11161A',bg2:'#172026',surface:'#182228',text:'#ECF1F4',muted:'#9DAAB2',muted2:'#71808A',border:'#26333B',accent:'#86A9B3','accent-fg':'#0E1417',status:'#7FB8A0'}};
-  function setT(n){const t=TH[n]||TH.forest;for(const k in t)document.documentElement.style.setProperty('--'+k,t[k]);try{localStorage.setItem('v3t',n)}catch(e){}}
-  document.querySelectorAll('.tsw button').forEach(b=>b.onclick=()=>setT(b.dataset.t));
-  setT(localStorage.getItem('v3t')||'forest');
+  const MODES={light:{bg:'#F4F3EF',bg2:'#EEEDEA',surface:'#FFFFFF',text:'#111111',muted:'#6B7280',muted2:'#9A9A93',border:'#E4E3DC','toggle-off':'#D9D6CC',status:'#16A34A'},
+    dark:{bg:'#14160E',bg2:'#1B1E14',surface:'#1C2015',text:'#F1EFE3',muted:'#A8AA93',muted2:'#7E8270',border:'#333829','toggle-off':'#3A4031',status:'#86C08A'}};
+  const ACC={ink:{light:['#111111','#FAFAFA'],dark:['#E8E6DD','#16190F']},forest:{light:['#5E7356','#FAFAF7'],dark:['#9DBE8A','#16190F']},emerald:{light:['#0E7C5A','#F4FBF7'],dark:['#34D399','#0C140F']},slate:{light:['#46707C','#F5FAFB'],dark:['#86A9B3','#0E1417']}};
+  let mode=(localStorage.getItem('v3mode')||'light'),acc=(localStorage.getItem('v3acc')||'forest');
+  function apply(){const m=MODES[mode];for(const k in m)document.documentElement.style.setProperty('--'+k,m[k]);const a=ACC[acc][mode];document.documentElement.style.setProperty('--accent',a[0]);document.documentElement.style.setProperty('--accent-fg',a[1]);
+    document.querySelectorAll('.acc-btn').forEach(b=>b.classList.toggle('on',b.dataset.a===acc));
+    document.getElementById('modeBtn').textContent=mode==='light'?'🌙 Dark':'☀ Light';
+    try{localStorage.setItem('v3mode',mode);localStorage.setItem('v3acc',acc)}catch(e){}}
+  document.querySelectorAll('.acc-btn').forEach(b=>b.onclick=()=>{acc=b.dataset.a;apply();});
+  document.getElementById('modeBtn').onclick=()=>{mode=mode==='light'?'dark':'light';apply();};
+  apply();
   </script>
 </body>
 </html>

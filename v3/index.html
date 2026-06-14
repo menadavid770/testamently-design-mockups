@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Testamently — Dark (v3)</title>
+<title>Testamently — Themes (v3)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{--bg:#14160E;--bg2:#1B1E14;--surface:#1C2015;--text:#F1EFE3;--muted:#A8AA93;--muted2:#7E8270;--border:#333829;--accent:#9DBE8A;--accent-fg:#16190F;--status:#86C08A;
+  :root{--bg:#F4F3EF;--bg2:#EEEDEA;--surface:#FFFFFF;--text:#111111;--muted:#6B7280;--muted2:#9A9A93;--border:#E4E3DC;--toggle-off:#D9D6CC;--status:#16A34A;--accent:#5E7356;--accent-fg:#FAFAF7;
     --serif:'DM Serif Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
@@ -16,26 +16,26 @@
   .vtabs{display:inline-flex;gap:4px;background:var(--bg2);border:1px solid var(--border);border-radius:30px;padding:4px;margin-bottom:26px}
   .vtab{font-size:13px;font-weight:500;color:var(--muted);padding:7px 17px;border-radius:22px}.vtab.active{background:var(--accent);color:var(--accent-fg)}
   .logo{display:flex;align-items:center;gap:9px;font-size:16px;font-weight:600;margin-bottom:14px}.logo .mk{width:27px;height:27px;border-radius:7px;background:var(--accent);color:var(--accent-fg);display:flex;align-items:center;justify-content:center;font-size:13px}
-  h1{font-family:var(--serif);font-size:clamp(30px,4.4vw,44px);font-weight:400;line-height:1.05;letter-spacing:-.4px;margin-bottom:12px;max-width:700px}
+  h1{font-family:var(--serif);font-size:clamp(30px,4.4vw,44px);font-weight:400;line-height:1.05;letter-spacing:-.4px;margin-bottom:12px;max-width:720px}
   h1 .i{font-style:italic;color:var(--accent)}
-  .lead{font-size:15.5px;color:var(--muted);max-width:660px}.lead b{color:var(--text);font-weight:500}
-  .tip{margin-top:16px;font-size:13px;color:var(--muted);background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:11px 15px;max-width:660px}
-  .tip b{color:var(--text)}
+  .lead{font-size:15.5px;color:var(--muted);max-width:680px}.lead b{color:var(--text);font-weight:500}
+  .tip{margin-top:16px;font-size:13px;color:var(--muted);background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:11px 15px;max-width:680px}.tip b{color:var(--text)}
   .grid{margin-top:34px;display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:26px}
   .card{background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:.16s}
-  .card:hover{box-shadow:0 16px 40px -16px rgba(0,0,0,.5);transform:translateY(-2px)}
+  .card:hover{box-shadow:0 16px 40px -16px rgba(0,0,0,.18);transform:translateY(-2px)}
   .frames{display:flex;gap:14px;align-items:flex-end;padding:18px 18px 0;background:var(--bg2);min-height:210px}
-  .browser{flex:1;border:1px solid var(--border);border-radius:8px 8px 0 0;overflow:hidden;background:#000}
-  .bbar{height:18px;background:#23271b;display:flex;align-items:center;gap:5px;padding:0 8px;border-bottom:1px solid var(--border)}
-  .dot{width:6px;height:6px;border-radius:50%;background:#3a4031}
+  .browser{flex:1;border:1px solid var(--border);border-radius:8px 8px 0 0;overflow:hidden;background:#fff}
+  .bbar{height:18px;background:#e7e5de;display:flex;align-items:center;gap:5px;padding:0 8px;border-bottom:1px solid var(--border)}
+  .dot{width:6px;height:6px;border-radius:50%;background:#cfccc2}
   .bshot{display:block;width:100%;height:150px;object-fit:cover;object-position:top}
-  .phone{width:80px;border:3px solid #2a2f22;border-bottom:none;border-radius:14px 14px 0 0;overflow:hidden;background:#000}
-  .pshot{display:block;width:100%;height:160px;object-fit:cover;object-position:top}
+  .phone{width:80px;border:3px solid var(--text);border-bottom:none;border-radius:14px 14px 0 0;overflow:hidden;background:#000}
+  .pshot{display:block;width:100%;height:160px;object-fit:cover;object-position:top;background:#fff}
   .meta{padding:16px 18px 18px}.meta h3{font-family:var(--serif);font-size:19px;font-weight:400;margin-bottom:5px}.meta p{font-size:13px;color:var(--muted);margin-bottom:12px}
   .open{display:flex;gap:8px}.btn{flex:1;text-align:center;font-size:12.5px;font-weight:500;padding:9px;border-radius:7px;border:1px solid var(--border)}
-  .btn.d{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}.btn.m{background:transparent;color:var(--text)}
-  .tsw{position:fixed;bottom:18px;right:18px;display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:30px;padding:8px 13px;z-index:50}
-  .tsw span{font-size:11px;color:var(--muted);font-weight:500}.tsw button{width:18px;height:18px;border-radius:50%;border:2px solid var(--surface);box-shadow:0 0 0 1px var(--border);cursor:pointer;padding:0}
+  .btn.d{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}.btn.m{background:var(--surface);color:var(--text)}
+  .tsw{position:fixed;bottom:18px;right:18px;display:flex;align-items:center;gap:9px;background:var(--surface);border:1px solid var(--border);border-radius:30px;padding:8px 14px;z-index:50;box-shadow:0 8px 26px rgba(0,0,0,.12)}
+  .tsw .lab{font-size:11px;color:var(--muted);font-weight:600}.tsw .acc-btn{width:18px;height:18px;border-radius:50%;border:2px solid var(--surface);box-shadow:0 0 0 1px var(--border);cursor:pointer;padding:0}.tsw .acc-btn.on{box-shadow:0 0 0 2px var(--text)}
+  .tsw .sep{width:1px;height:20px;background:var(--border)}.tsw .mode-btn{font-size:12px;font-weight:600;color:var(--text);background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:5px 12px}
 </style>
 </head>
 <body>
@@ -43,26 +43,29 @@
     <div class="vtabs">
       <a class="vtab" href="../">v1 · Captured</a>
       <a class="vtab" href="../v2/">v2 · Minimalist</a>
-      <a class="vtab active" href="./">v3 · Dark</a>
+      <a class="vtab active" href="./">v3 · Themes</a>
     </div>
     <div class="logo"><span class="mk"><i style="font-style:normal">🛡</i></span>Testamently</div>
-    <h1>The dark direction — <i>evergreen</i>.</h1>
-    <p class="lead">Same serif, editorial language as v2 — but on warm near-black with a living-green accent. A calmer, premium feel for an app about permanence.</p>
-    <div class="tip">🎨 <b>Try the palette:</b> open any screen and use the <b>Theme</b> switcher (bottom-right) to flip between <b>Forest</b>, <b>Emerald</b>, <b>Noir-gold</b> and <b>Slate</b> live. It works on this page too →</div>
+    <h1>Same blank canvas — <i>your colour</i>.</h1>
+    <p class="lead">David’s light Dylaw base, but with the accent colour as a choice. Default here is <b>blank + forest green</b>. Two switches let you try the rest.</p>
+    <div class="tip">🎨 <b>Two switchers</b> (bottom-right, and on every screen): <b>Accent</b> — Ink (David’s black) · Forest · Emerald · Slate — and a <b>🌙 Dark / ☀ Light</b> toggle for the background. Change them live; your choice is remembered.</div>
     <div class="grid" id="grid"></div>
   </div>
 
-  <div class="tsw"><span>Theme</span>
-    <button data-t="forest" style="background:#9DBE8A" title="Forest"></button>
-    <button data-t="emerald" style="background:#34D399" title="Emerald"></button>
-    <button data-t="gold" style="background:#D4AF37" title="Noir gold"></button>
-    <button data-t="slate" style="background:#86A9B3" title="Slate"></button>
+  <div class="tsw">
+    <span class="lab">Accent</span>
+    <button class="acc-btn" data-a="ink" style="background:#111111" title="Ink (David's)"></button>
+    <button class="acc-btn" data-a="forest" style="background:#5E7356" title="Forest"></button>
+    <button class="acc-btn" data-a="emerald" style="background:#0E7C5A" title="Emerald"></button>
+    <button class="acc-btn" data-a="slate" style="background:#46707C" title="Slate"></button>
+    <span class="sep"></span>
+    <button id="modeBtn" class="mode-btn">🌙 Dark</button>
   </div>
 <script>
   const SCREENS=[
-    ['landing-dark','Landing','Hero, three values, closing band — in the dark serif language.'],
-    ['main-dark','Main — Records','The vault as a calm dark list with green status + reveal-on-hover.'],
-    ['settings-dark','Settings + new options','Default encryption and release / activation timing, dark.'],
+    ['landing-dark','Landing','Hero, three values, closing band — your accent on blank.'],
+    ['main-dark','Main — Records','The vault as a calm list with the accent on actions + status.'],
+    ['settings-dark','Settings + new options','Default encryption and release / activation timing.'],
   ];
   const grid=document.getElementById('grid');
   for(const [name,title,desc] of SCREENS){
@@ -70,13 +73,17 @@
     c.innerHTML=`<div class="frames"><div class="browser"><div class="bbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div><img class="bshot" src="shots/${name}-desktop.png" loading="lazy"></div><div class="phone"><img class="pshot" src="shots/${name}-mobile.png" loading="lazy"></div></div><div class="meta"><h3>${title}</h3><p>${desc}</p><div class="open"><a class="btn d" href="screens/${name}-desktop.html" target="_blank">Desktop ↗</a><a class="btn m" href="screens/${name}-mobile.html" target="_blank">Mobile ↗</a></div></div>`;
     grid.appendChild(c);
   }
-  const TH={forest:{bg:'#14160E',bg2:'#1B1E14',surface:'#1C2015',text:'#F1EFE3',muted:'#A8AA93',muted2:'#7E8270',border:'#333829',accent:'#9DBE8A','accent-fg':'#16190F',status:'#86C08A'},
-    emerald:{bg:'#0F1512',bg2:'#16201B',surface:'#17221C',text:'#ECF2EE',muted:'#9DB0A6',muted2:'#74877D',border:'#28332D',accent:'#34D399','accent-fg':'#0C140F',status:'#34D399'},
-    gold:{bg:'#16140D',bg2:'#1F1B11',surface:'#201C12',text:'#F2EEE1',muted:'#ABA48C',muted2:'#827B64',border:'#37311F',accent:'#D4AF37','accent-fg':'#16140D',status:'#C9A227'},
-    slate:{bg:'#11161A',bg2:'#172026',surface:'#182228',text:'#ECF1F4',muted:'#9DAAB2',muted2:'#71808A',border:'#26333B',accent:'#86A9B3','accent-fg':'#0E1417',status:'#7FB8A0'}};
-  function setT(n){const t=TH[n]||TH.forest;for(const k in t)document.documentElement.style.setProperty('--'+k,t[k]);try{localStorage.setItem('v3t',n)}catch(e){}}
-  document.querySelectorAll('.tsw button').forEach(b=>b.onclick=()=>setT(b.dataset.t));
-  setT(localStorage.getItem('v3t')||'forest');
+  const MODES={light:{bg:'#F4F3EF',bg2:'#EEEDEA',surface:'#FFFFFF',text:'#111111',muted:'#6B7280',muted2:'#9A9A93',border:'#E4E3DC','toggle-off':'#D9D6CC',status:'#16A34A'},
+    dark:{bg:'#14160E',bg2:'#1B1E14',surface:'#1C2015',text:'#F1EFE3',muted:'#A8AA93',muted2:'#7E8270',border:'#333829','toggle-off':'#3A4031',status:'#86C08A'}};
+  const ACC={ink:{light:['#111111','#FAFAFA'],dark:['#E8E6DD','#16190F']},forest:{light:['#5E7356','#FAFAF7'],dark:['#9DBE8A','#16190F']},emerald:{light:['#0E7C5A','#F4FBF7'],dark:['#34D399','#0C140F']},slate:{light:['#46707C','#F5FAFB'],dark:['#86A9B3','#0E1417']}};
+  let mode=(localStorage.getItem('v3mode')||'light'),acc=(localStorage.getItem('v3acc')||'forest');
+  function apply(){const m=MODES[mode];for(const k in m)document.documentElement.style.setProperty('--'+k,m[k]);const a=ACC[acc][mode];document.documentElement.style.setProperty('--accent',a[0]);document.documentElement.style.setProperty('--accent-fg',a[1]);
+    document.querySelectorAll('.acc-btn').forEach(b=>b.classList.toggle('on',b.dataset.a===acc));
+    document.getElementById('modeBtn').textContent=mode==='light'?'🌙 Dark':'☀ Light';
+    try{localStorage.setItem('v3mode',mode);localStorage.setItem('v3acc',acc)}catch(e){}}
+  document.querySelectorAll('.acc-btn').forEach(b=>b.onclick=()=>{acc=b.dataset.a;apply();});
+  document.getElementById('modeBtn').onclick=()=>{mode=mode==='light'?'dark':'light';apply();};
+  apply();
 </script>
 </body>
 </html>
