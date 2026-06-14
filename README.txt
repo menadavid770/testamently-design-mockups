@@ -44,3 +44,32 @@ NOTES
   - To regenerate after a deploy:
       cd apps/web && node scripts/capture-design-mockups.mjs
     (script lives in the testamently-app repo: apps/web/scripts/)
+
+
+EDIT & PUBLISH  (for David)
+  This is a plain static site, so editing and publishing is just git.
+
+  1. Clone:
+       git clone https://github.com/menadavid770/testamently-design-mockups.git
+  2. Edit any file in screens/ (the HTML), index.html (the gallery), etc.
+       - open the .html in a browser to preview as you go
+  3. Publish:
+       git add -A
+       git commit -m "tweak design"
+       git push
+
+  -> GitHub Pages rebuilds automatically on every push to main (~30-60s) and the
+     live site updates. No build step, no extra tooling.
+
+LINKS
+  GitHub repo  : https://github.com/menadavid770/testamently-design-mockups
+  Live (Pages) : https://menadavid770.github.io/testamently-design-mockups/   <- auto-updates on push
+  Live (Vercel): https://testamently-design-mockups.vercel.app
+
+VERCEL  (optional — only if you want the .vercel.app URL to auto-update too)
+  GitHub Pages already auto-deploys, so this is optional. To also auto-deploy to
+  Vercel on each push, authorize Vercel's GitHub app once in the dashboard:
+    1. https://vercel.com/testamently/testamently-design-mockups  -> Settings -> Git
+    2. "Connect Git Repository" -> menadavid770/testamently-design-mockups
+  Or deploy manually anytime from the folder:
+    vercel deploy --prod
