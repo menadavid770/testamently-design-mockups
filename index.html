@@ -43,6 +43,11 @@
   .btn.m{background:#fff;color:var(--ink)}
   .btn:hover{opacity:.88}
   .missing{filter:grayscale(1);opacity:.35}
+  /* proposed / new screen group */
+  .group.proposed{margin-top:46px;background:linear-gradient(180deg,#fffdf6,#fff);border:1px dashed #e3d3a0;border-radius:18px;padding:22px 24px 28px}
+  .group.proposed .group-hd h2{color:var(--gold)}
+  .newtag{font-size:10.5px;font-weight:800;letter-spacing:.07em;color:#fff;background:var(--gold);padding:3px 9px;border-radius:20px}
+  .group.proposed .group-line{background:#efe3bf}
   footer{max-width:1180px;margin:0 auto;padding:0 28px 60px;color:var(--muted);font-size:12.5px}
 </style>
 </head>
@@ -93,12 +98,16 @@ const GROUPS = [
     ['trustee-decline','Trustee invite — declined','Confirmation after declining a trustee invite'],
     ['family-accept','Family invite','“Sarah invited you to join their family plan”'],
   ]},
+  { title:'New screen — to implement', who:'proposal · not yet in the app', proposed:true, screens:[
+    ['welcome-intro','Welcome / first sign-in','Brand-new onboarding shown right after first sign-in: explains what Testamently is, then lets the user choose which secrets to protect and add their trustees. Interactive — click the cards. Could appear as a banner/explainer on top of the first-login screen.'],
+  ]},
 ];
 
 const app = document.getElementById('app');
 for (const g of GROUPS){
-  const sec = document.createElement('section'); sec.className='group';
-  sec.innerHTML = `<div class="group-hd"><h2>${g.title}</h2><span class="who">${g.who}</span></div><div class="group-line"></div><div class="grid"></div>`;
+  const sec = document.createElement('section'); sec.className='group' + (g.proposed ? ' proposed' : '');
+  const tag = g.proposed ? '<span class="newtag">NEW · PROPOSED</span>' : '';
+  sec.innerHTML = `<div class="group-hd"><h2>${g.title}</h2>${tag}<span class="who">${g.who}</span></div><div class="group-line"></div><div class="grid"></div>`;
   const grid = sec.querySelector('.grid');
   for (const [name,title,desc] of g.screens){
     const d = `shots/${name}-desktop.png`, m = `shots/${name}-mobile.png`;
