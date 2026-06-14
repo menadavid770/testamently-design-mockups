@@ -43,7 +43,7 @@ Captured screens are the real app; the two **to-implement** groups are new desig
 The gallery has a **v1 / v2** switcher at the top:
 
 - **v1 · Captured** — everything above (`index.html`).
-- **v2 · Minimalist** — `v2/` — **David's workspace** for a minimalist redesign with a different palette (one `--accent` CSS variable). Live at `/v2`.
+- **v2 · Minimalist** — `v2/` — the **"Dylaw style"** minimalist direction (David's): warm off-white paper, one ink colour, DM Serif Display headings. Includes David's full landing (`mockup-landing-dylaw.html` from the app repo) plus matching app screens (minimalist landing, Records, Settings). Live at `/v2`.
 
 The screen list lives in **`gallery-data.js`** (shared) — add a screen there and it appears in the gallery.
 
