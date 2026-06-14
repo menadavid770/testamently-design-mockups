@@ -28,6 +28,19 @@
   .trust{margin-top:26px;font-size:13px;color:var(--muted2)}
   .vals{max-width:1040px;margin:0 auto;padding:28px 7% 60px;display:grid;grid-template-columns:repeat(3,1fr);gap:26px;border-top:1px solid var(--border)}
   .val .n{font-family:var(--serif);font-size:15px;color:var(--muted2)}.val h3{font-family:var(--serif);font-size:23px;font-weight:400;margin:10px 0 8px;color:var(--text)}.val p{font-size:14px;color:var(--muted)}
+  .halves{max-width:1040px;margin:0 auto;padding:54px 7% 64px;border-top:1px solid var(--border);text-align:center}
+  .halves h2{font-family:var(--serif);font-size:clamp(26px,3.6vw,38px);font-weight:400;letter-spacing:-.4px;margin-bottom:8px}
+  .halves .lede{font-size:15px;color:var(--muted);max-width:560px;margin:0 auto 38px}
+  .hwrap{display:flex;align-items:stretch;justify-content:center;gap:14px;flex-wrap:wrap}
+  .half{flex:1;min-width:200px;max-width:280px;border:1px solid var(--border);background:var(--surface);border-radius:16px;padding:24px 20px;text-align:left}
+  .half.got{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 7%,transparent)}
+  .hic{width:44px;height:44px;border-radius:12px;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px}
+  .half.got .hic{background:var(--accent);color:var(--accent-fg)}
+  .ht{font-family:var(--serif);font-size:18px;font-weight:400;margin-bottom:6px}
+  .half p{font-size:13.5px;color:var(--muted);line-height:1.5}
+  .op{display:flex;align-items:center;font-family:var(--serif);font-size:28px;color:var(--muted2)}
+  .hnote{margin-top:30px;font-size:14.5px;color:var(--text);font-weight:500}
+  .vm .hwrap{flex-direction:column;align-items:stretch}.vm .op{justify-content:center;transform:rotate(90deg)}.vm .half{max-width:none}
   .closing{max-width:1040px;margin:0 auto 70px;padding:54px 7%;background:var(--accent);color:var(--accent-fg);border-radius:20px;text-align:center}
   .closing h2{font-family:var(--serif);font-size:clamp(28px,4vw,40px);font-weight:400;margin-bottom:12px}
   .closing p{opacity:.8;font-size:15.5px;margin-bottom:26px}
@@ -55,6 +68,18 @@
     <div class="val"><div class="n">01</div><h3>Store the half</h3><p>The PIN, the safe combo, where the documents are — useless to anyone without the physical thing it unlocks.</p></div>
     <div class="val"><div class="n">02</div><h3>Choose who receives it</h3><p>Assign trustees per record. They’re invited and verified — but see nothing until the day comes.</p></div>
     <div class="val"><div class="n">03</div><h3>Released on time</h3><p>If your check-ins stop, your trustees get exactly what you left them — never before.</p></div>
+  </section>
+  <section class="halves">
+    <h2>Two halves. Neither opens a thing alone.</h2>
+    <p class="lede">Testamently only ever holds one side of the lock. The other side stays with you — so what you store is safe even from us.</p>
+    <div class="hwrap">
+      <div class="half"><div class="hic">🔐</div><div class="ht">We keep the code</div><p>The PIN, the safe combination, where things are kept — encrypted, released only on your terms.</p></div>
+      <div class="op">+</div>
+      <div class="half"><div class="hic">🏠</div><div class="ht">Your home keeps the thing</div><p>The phone, the hardware wallet, the safe itself — never uploaded, never ours to lose.</p></div>
+      <div class="op">=</div>
+      <div class="half got"><div class="hic">✓</div><div class="ht">Access, at the right time</div><p>Only your trustees, only once both halves meet — and only after your check-ins stop.</p></div>
+    </div>
+    <p class="hnote">That’s why a breach of Testamently is worthless — the other half was never here.</p>
   </section>
   <section class="closing">
     <h2>Your legacy, in good hands.</h2>
