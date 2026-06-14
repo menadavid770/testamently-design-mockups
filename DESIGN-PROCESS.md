@@ -85,6 +85,10 @@ trustee assignment.
   (rename, change encryption, change the release rule, swap trustees, delete) lives on the
   **Edit record** screen, reached by tapping a record. Low friction to create; full control on
   demand. *(So you're never forced through the advanced options just to save something.)*
+  The **Edit record** screen holds: name · secret · **hint** (what the trustee sees before
+  revealing) · **folder** · encryption · release rule · trustees · delete. Two options from the
+  old app were **deliberately cut** — *expiry* and *view-limit / one-time view* — because a
+  self-destructing inheritance secret works *against* the promise of reliable delivery.
 - **Encryption is per-record, with an account default.** Settings holds a *default* tier for
   new records (a convenience); each record can **override** it on its own
   *"Record — encryption & activation"* screen (opened by tapping a record). Tiers:
