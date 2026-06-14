@@ -27,7 +27,16 @@
   .half.got .hic{background:var(--accent);color:var(--accent-fg)}
   .ht{font-family:var(--serif);font-size:17px;font-weight:400;margin-bottom:5px}.half p{font-size:13px;color:var(--muted);line-height:1.5}
   .op{display:flex;align-items:center;font-family:var(--serif);font-size:26px;color:var(--muted2)}
-  .hnote{font-size:14px;color:var(--text);font-weight:500;margin-bottom:36px}
+  .hnote{font-size:14px;color:var(--text);font-weight:500;margin-bottom:30px}
+  .examples{margin:0 auto 34px;max-width:700px;text-align:left}
+  .exlbl{font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted2);text-align:center;margin-bottom:16px}
+  .excols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .excol{border:1px solid var(--border);background:var(--surface);border-radius:13px;padding:15px 16px}
+  .exh{font-size:13px;font-weight:600;margin-bottom:9px}
+  .excol ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+  .excol li{font-size:12.6px;color:var(--muted);line-height:1.4;position:relative;padding-left:13px}
+  .excol li::before{content:"·";position:absolute;left:3px;color:var(--accent);font-weight:700}
+  .vm .excols{grid-template-columns:1fr}
   .cta{display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:var(--accent-fg);font-size:15px;font-weight:500;height:50px;padding:0 30px;border-radius:9px;border:none}
   .later{margin-top:14px;font-size:13px;color:var(--muted)}.later a{color:var(--text);font-weight:500}
   .tsw{position:fixed;bottom:18px;right:18px;display:flex;align-items:center;gap:9px;background:var(--surface);border:1px solid var(--border);border-radius:30px;padding:8px 14px;z-index:50;box-shadow:0 8px 26px rgba(0,0,0,.12)}
@@ -51,6 +60,15 @@
       <div class="half got"><div class="hic">✓</div><div class="ht">Access, at the right time</div><p>Only your trustees, only once both halves meet — and only after you’re gone.</p></div>
     </div>
     <p class="hnote">So even if we were breached, a thief gets nothing — the other half was never here.</p>
+
+    <div class="examples">
+      <p class="exlbl">A few things people keep here</p>
+      <div class="excols">
+        <div class="excol"><div class="exh">🔐 Access</div><ul><li>Phone PIN — for the family photos</li><li>Crypto wallet PIN &amp; recovery</li><li>Home-safe combination</li></ul></div>
+        <div class="excol"><div class="exh">🧭 They’d never find</div><ul><li>A life-insurance policy</li><li>An account abroad</li><li>Where the will &amp; solicitor are</li></ul></div>
+        <div class="excol"><div class="exh">🤍 Irreplaceable</div><ul><li>A letter to your children</li><li>Where the photos &amp; videos live</li><li>The story behind a ring</li></ul></div>
+      </div>
+    </div>
 
     <button class="cta">Add your first record →</button>
     <p class="later">It takes 20 seconds. <a href="#">Or take a tour first</a></p>
