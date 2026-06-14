@@ -49,6 +49,10 @@ The screen list lives in **`gallery-data.js`** (shared) — add a screen there a
 
 ## 📐 Design process
 
+🧱 **[PRODUCT-SPEC.md](./PRODUCT-SPEC.md)** — the record model, categories, fields and rules for
+**code** (the new direction). · 🌱 **[DEMO-ACCOUNT.md](./DEMO-ACCOUNT.md)** — the rebuilt demo seed.
+· ✍️ **[BLOG-IDEAS.md](./BLOG-IDEAS.md)** — new content direction (use-cases, 1 article per idea).
+
 🛠️ **[MIGRATION-CHECKLIST.md](./MIGRATION-CHECKLIST.md)** — developer-ready, ticket-per-screen
 plan to roll v4 into the live app (data mappings + acceptance criteria included).
 Also as **[CSV](./migration-tickets.csv)** + **[PDF](./Testamently-migration-checklist.pdf)**.

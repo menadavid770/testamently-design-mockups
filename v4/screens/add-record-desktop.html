@@ -34,6 +34,8 @@
   input.ti::placeholder,textarea.tv::placeholder{color:var(--muted2)}
   .defaults{margin:18px 0 6px;font-size:12.5px;color:var(--muted);display:flex;gap:8px;line-height:1.55}.defaults b{color:var(--text);font-weight:500}
   .splitnote{margin:14px 0 2px;font-size:12.5px;color:var(--muted);background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:11px 14px;line-height:1.5;display:flex;gap:9px}.splitnote b{color:var(--text);font-weight:600}
+  .alert{display:none;align-items:flex-start;gap:9px;margin:14px 0 2px;font-size:12.5px;color:var(--text);background:color-mix(in srgb,#C9A227 13%,var(--surface));border:1px solid color-mix(in srgb,#C9A227 42%,var(--border));border-radius:10px;padding:11px 14px;line-height:1.5}.alert.show{display:flex}.alert b{font-weight:600}
+  .exhint{font-size:12.5px;color:var(--muted);background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:10px 14px;margin-bottom:20px;line-height:1.55}.exhint b{color:var(--text);font-weight:600}
   details{margin-top:14px;border-top:1px solid var(--border);padding-top:14px}
   summary{list-style:none;cursor:pointer;font-size:13px;font-weight:500;color:var(--accent);display:flex;align-items:center;gap:7px}
   summary::-webkit-details-marker{display:none}.chev{transition:transform .15s}details[open] .chev{transform:rotate(90deg)}
@@ -56,13 +58,15 @@
   <div class="stage"><div class="panel">
     <div class="steps"><span class="sd on"><span class="n">1</span>The record</span><span class="sline"></span><span class="sd"><span class="n">2</span>Who receives it</span></div>
     <div class="ptop"><h2>Add a record</h2><button class="close">✕</button></div>
-    <div class="psub">What does someone need to <b>find or open something physical</b> you’re leaving behind?</div>
+    <div class="psub">What’s one thing your loved ones will need — to <b>find, open, or simply know about</b>?</div>
+    <div class="exhint">💡 People add: <b>where the will is</b> · a <b>life-insurance policy</b> · the <b>safe combination</b> · a <b>letter to their children</b> · where the <b>photos</b> are — or anything else important.</div>
     <div class="body">
       <p class="lbl">What is it?</p>
-      <div class="cats"><button class="cat on">📱 Phone / device</button><button class="cat">🔐 Crypto wallet</button><button class="cat">🏦 Safe combo</button><button class="cat">🔑 Keys &amp; access</button><button class="cat">📄 Document</button><button class="cat">✉️ Letter</button><button class="cat">🖼️ Photo</button></div>
-      <input class="ti" placeholder="e.g. iPhone passcode">
-      <textarea class="tv" placeholder="e.g. the 6-digit code — the phone itself stays with you"></textarea>
-      <div class="splitnote">🧩<div>Store the <b>PIN, not the phone</b> — the <b>code, not the wallet</b>. We keep one half; your home keeps the other, so a breach of Testamently alone reveals nothing usable.</div></div>
+      <div class="cats"><button class="cat">📱 Phone / device</button><button class="cat">🔐 Crypto wallet</button><button class="cat">🗄️ Safe combo</button><button class="cat">🔑 Keys &amp; access</button><button class="cat on">📄 Document</button><button class="cat">🏦 Account / policy</button><button class="cat">✉️ Letter</button><button class="cat">🖼️ Photo</button><button class="cat">🗂️ General</button></div>
+      <input class="ti" placeholder="e.g. Where my will is">
+      <textarea class="tv" placeholder="e.g. with my solicitor (Hartley &amp; Co) + a copy in the home safe"></textarea>
+      <div class="alert" id="cryptoAlert">⚠️<div><b>Never store your seed / recovery phrase here.</b> On its own, that’s full access. Save just the <b>PIN</b>, or <b>where the hardware wallet is kept</b> — so it’s useless to anyone who doesn’t have the device.</div></div>
+      <div class="splitnote">🧩<div>Store the <b>code, not the thing</b> — and <b>note where it’s kept</b>. We keep one half; your home keeps the other, so a breach of Testamently alone reveals nothing usable.</div></div>
       <div class="defaults">🔒<div>Saved with sensible defaults — released only if your check-ins stop, and fully editable later.</div></div>
       <details>
         <summary><span class="chev">▸</span> Advanced — encryption &amp; release rule</summary>
@@ -89,6 +93,10 @@
   let mode=(localStorage.getItem('v3mode')||'light'),acc=(localStorage.getItem('v3acc')||'forest');
   function apply(){const m=MODES[mode];for(const k in m)document.documentElement.style.setProperty('--'+k,m[k]);const a=ACC[acc][mode];document.documentElement.style.setProperty('--accent',a[0]);document.documentElement.style.setProperty('--accent-fg',a[1]);document.querySelectorAll('.acc-btn').forEach(b=>b.classList.toggle('on',b.dataset.a===acc));document.getElementById('modeBtn').textContent=mode==='light'?'🌙 Dark':'☀ Light';try{localStorage.setItem('v3mode',mode);localStorage.setItem('v3acc',acc)}catch(e){}}
   document.querySelectorAll('.acc-btn').forEach(b=>b.onclick=()=>{acc=b.dataset.a;apply();});document.getElementById('modeBtn').onclick=()=>{mode=mode==='light'?'dark':'light';apply();};apply();
+  const PH={'Phone / device':['e.g. iPhone passcode','e.g. the 6-digit code — the phone itself stays with you'],'Crypto wallet':['e.g. Hardware wallet PIN','e.g. the device PIN, and the safe it’s in — never the seed phrase'],'Safe combo':['e.g. Home safe combination','e.g. the combination, and what’s inside'],'Keys & access':['e.g. Spare keys & storage unit','e.g. where the keys are, the unit number & gate code'],'Document':['e.g. Where my will is','e.g. with my solicitor + a copy in the safe'],'Account / policy':['e.g. Life-insurance policy','e.g. insurer, policy # and who to call — they’d never find it otherwise'],'Letter':['e.g. Letter to my children','Write what you want them to read…'],'Photo':['e.g. Where the family photos are','e.g. the drive + cloud they’re backed up to'],'General':['Give it a name…','Anything else important — type or paste it here.']};
+  const cats=document.querySelectorAll('.cat'),al=document.getElementById('cryptoAlert'),nm=document.querySelector('.ti'),vl=document.querySelector('.tv');
+  function pick(c){cats.forEach(x=>x.classList.remove('on'));c.classList.add('on');const key=Object.keys(PH).find(k=>c.textContent.includes(k));al.classList.toggle('show',/Crypto/.test(c.textContent));if(key){nm.setAttribute('placeholder',PH[key][0]);vl.setAttribute('placeholder',PH[key][1]);}}
+  cats.forEach(c=>c.onclick=()=>pick(c));
   </script>
 </body>
 </html>
