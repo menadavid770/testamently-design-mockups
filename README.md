@@ -54,8 +54,9 @@ positioning, the minimalist design principles, the UX optimisations behind v4, t
 system, and the key product decisions (per-record encryption, 2-step add, the legal/will
 notice, etc.).
 
-📄 **One-page overview (PDF):** **[Testamently-overview.pdf](./Testamently-overview.pdf)** —
-summary + the model + a screenshot tour of the v4 app. Regenerate from `overview.html`.
+📄 **PDFs** (regenerate from the matching `*.html`):
+- **[Testamently-overview.pdf](./Testamently-overview.pdf)** — summary + model + a screenshot tour of the v4 app (1 screen/page, desktop + mobile).
+- **[Testamently-investor-brief.pdf](./Testamently-investor-brief.pdf)** — the investor pitch in the new direction (figures are placeholders to fill).
 
 ## ✏️ Edit & publish
 

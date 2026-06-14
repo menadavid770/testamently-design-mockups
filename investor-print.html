@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @page{size:A4;margin:0}
+  :root{--bg:#F4F3EF;--bg2:#EEEDEA;--surface:#FFFFFF;--text:#111;--muted:#6B7280;--muted2:#9A9A93;--border:#E4E3DC;--accent:#5E7356;--accent-fg:#FAFAF7;--serif:'DM Serif Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif}
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{font-family:var(--sans);color:var(--text)}
+  .page{width:210mm;height:297mm;padding:20mm 18mm;background:var(--bg);page-break-after:always;position:relative;overflow:hidden}
+  .page:last-child{page-break-after:auto}
+  .ph{color:var(--accent);font-weight:600;border-bottom:1px dashed var(--accent)}
+  .eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+  h1{font-family:var(--serif);font-size:60px;font-weight:400;line-height:1.02;letter-spacing:-1px;margin-bottom:18px}
+  h1 .i{font-style:italic;color:var(--accent)}
+  h2{font-family:var(--serif);font-size:34px;font-weight:400;letter-spacing:-.5px;margin-bottom:14px}
+  .pn{position:absolute;bottom:12mm;right:18mm;font-size:10px;color:var(--muted2)}
+  .conf{position:absolute;top:14mm;right:18mm;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted2)}
+  .brand{display:flex;align-items:center;gap:10px;font-size:18px;font-weight:600;margin-bottom:42px}
+  .brand .mk{width:34px;height:34px;border-radius:9px;background:var(--accent);color:var(--accent-fg);display:flex;align-items:center;justify-content:center;font-size:16px}
+  .sub{font-size:17px;color:var(--muted);max-width:140mm;line-height:1.6}
+  .sub b{color:var(--text)}
+  .ask{display:flex;gap:14px;margin-top:34px}
+  .askc{flex:1;border:1px solid var(--border);background:var(--surface);border-radius:12px;padding:15px 18px}
+  .askc .k{font-size:10.5px;color:var(--muted2);letter-spacing:.05em;text-transform:uppercase}.askc .v{font-family:var(--serif);font-size:20px;margin-top:3px}
+  .lead{font-size:14px;color:var(--muted);line-height:1.65;max-width:150mm;margin-bottom:28px}
+  .stats{display:flex;gap:16px}
+  .stat{flex:1;border:1px solid var(--border);background:var(--surface);border-radius:14px;padding:22px}
+  .stat .n{font-family:var(--serif);font-size:38px;line-height:1;color:var(--accent)}.stat .l{font-size:13px;color:var(--muted);margin-top:10px;line-height:1.5}
+  .halves{display:flex;gap:14px}
+  .half{flex:1;border:1px solid var(--border);background:var(--surface);border-radius:14px;padding:22px}
+  .half.got{border-color:var(--accent);background:#eef0ea}
+  .hic{width:42px;height:42px;border-radius:11px;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:21px;margin-bottom:12px}.half.got .hic{background:var(--accent)}
+  .ht{font-family:var(--serif);font-size:19px;margin-bottom:6px}.half p{font-size:13px;color:var(--muted);line-height:1.5}
+  .shots{display:flex;gap:16px}
+  .shot{flex:1;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 8px 22px rgba(0,0,0,.07)}
+  .shot .bar{height:16px;background:#e7e5de;display:flex;align-items:center;gap:4px;padding:0 7px;border-bottom:1px solid var(--border)}
+  .shot .bar i{width:5px;height:5px;border-radius:50%;background:#cfccc2;font-style:normal}
+  .shot img{display:block;width:100%;height:180px;object-fit:cover;object-position:top}
+  .shot .cap{font-size:11.5px;color:var(--muted);padding:9px 12px}
+  .moat{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .mrow{border:1px solid var(--border);background:var(--surface);border-radius:13px;padding:18px 20px}
+  .mrow h4{font-size:15px;margin-bottom:6px}.mrow p{font-size:13px;color:var(--muted);line-height:1.5}
+  .tiers{display:flex;gap:12px;margin-bottom:24px}
+  .tier{flex:1;border:1px solid var(--border);background:var(--surface);border-radius:13px;padding:16px}
+  .tier .t{font-family:var(--serif);font-size:16px}.tier .p{font-size:12.5px;color:var(--accent);font-weight:600;margin:4px 0 8px}.tier ul{list-style:none}.tier li{font-size:11.5px;color:var(--muted);padding-left:11px;position:relative;line-height:1.55}.tier li::before{content:"·";position:absolute;left:2px;color:var(--accent)}
+  .trac{border:1px solid var(--border);background:var(--surface);border-radius:13px;padding:16px 18px;font-size:13.5px;color:var(--muted)}.trac b{color:var(--text)}
+  .close{background:var(--accent);color:var(--accent-fg);border-radius:18px;text-align:center;padding:40px 30px;margin-top:24px}
+  .close h2{color:var(--accent-fg);margin-bottom:8px}.close p{opacity:.86;font-size:15px}.close .c{font-size:13px;margin-top:16px}
+  .legal{position:absolute;bottom:12mm;left:18mm;right:18mm;font-size:9.5px;color:var(--muted2);line-height:1.5}
+</style>
+</head>
+<body>
+
+  <!-- 1 COVER -->
+  <section class="page" style="display:flex;flex-direction:column;justify-content:center">
+    <div class="brand"><span class="mk">🛡</span>Testamently</div>
+    <div class="eyebrow">The opportunity</div>
+    <h1>The half <span class="i">they’ll&nbsp;need.</span></h1>
+    <p class="sub">A private vault for the codes, locations and final words that unlock what someone leaves behind — released to the people they trust, only when their check-ins stop. <b>Breach-proof by design.</b></p>
+    <div class="ask">
+      <div class="askc"><div class="k">Raising</div><div class="v"><span class="ph">$ —</span> pre-seed</div></div>
+      <div class="askc"><div class="k">Stage</div><div class="v">Live product · early users</div></div>
+      <div class="askc"><div class="k">Category</div><div class="v">Digital legacy</div></div>
+    </div>
+    <div class="conf">Investor brief · Confidential</div>
+  </section>
+
+  <!-- 2 PROBLEM -->
+  <section class="page">
+    <div class="eyebrow">The problem</div>
+    <h2>When someone dies, the access dies with them.</h2>
+    <p class="lead">The information needed to settle a life is scattered across phones, safes and people’s heads — and most of it is simply lost. Existing tools ask for the one thing nobody wants to upload: live passwords.</p>
+    <div class="stats">
+      <div class="stat"><div class="n"><span class="ph">$—B</span></div><div class="l">life-insurance benefits go <b>unclaimed</b> — families never knew the policy existed.</div></div>
+      <div class="stat"><div class="n"><span class="ph">~20%</span></div><div class="l">of all Bitcoin is estimated <b>lost forever</b> — keys that died with their owner.</div></div>
+      <div class="stat"><div class="n">1 in 2</div><div class="l">adults have <b>no will or plan</b>, and no record of where anything is.</div></div>
+    </div>
+    <div class="pn">02</div>
+  </section>
+
+  <!-- 3 INSIGHT -->
+  <section class="page">
+    <div class="eyebrow">The insight</div>
+    <h2>Store the half that’s <span style="font-style:italic">useless to a thief</span>.</h2>
+    <p class="lead">People won’t trust an app with their live bank password. They <i>will</i> trust it with the safe combination or the phone PIN — because alone, those open nothing. That single reframe unlocks the market and gives us a security claim no password manager can make.</p>
+    <div class="halves">
+      <div class="half"><div class="hic">🔐</div><div class="ht">We keep the code</div><p>The PIN, the combination, where it’s kept — encrypted, released only on the owner’s terms.</p></div>
+      <div class="half"><div class="hic">🏠</div><div class="ht">Their home keeps the thing</div><p>The phone, the wallet, the safe — never uploaded. A breach of us reveals nothing usable.</p></div>
+      <div class="half got"><div class="hic">✓</div><div class="ht">Released at the right time</div><p>Only the chosen trustees, only once both halves meet, only after the dead-man’s switch.</p></div>
+    </div>
+    <div class="pn">03</div>
+  </section>
+
+  <!-- 4 PRODUCT -->
+  <section class="page">
+    <div class="eyebrow">The product · live today</div>
+    <h2>Calm, minimal, and it explains itself.</h2>
+    <p class="lead">A working app: store records in two taps, assign who receives them, and a check-in “dead-man’s switch” that releases everything at the right moment — in plain language throughout.</p>
+    <div class="shots">
+      <div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="v4/pdfshots/main-d.png"><div class="cap">Your records — status at a glance</div></div>
+      <div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="v4/pdfshots/add-record-d.png"><div class="cap">Add a record in two taps</div></div>
+      <div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="v4/pdfshots/trustee-view-d.png"><div class="cap">What a trustee sees, on release</div></div>
+    </div>
+    <div class="pn">04</div>
+  </section>
+
+  <!-- 5 MOAT -->
+  <section class="page">
+    <div class="eyebrow">Why it wins</div>
+    <h2>A moat made of trust.</h2>
+    <p class="lead">Defensibility comes from the architecture and the relationship, not a feature.</p>
+    <div class="moat">
+      <div class="mrow"><h4>🛡 A claim no one else can make</h4><p>“Even if we’re hacked, your secrets are safe.” Split-knowledge isn’t marketing — it’s architecture.</p></div>
+      <div class="mrow"><h4>🤍 Emotion + utility</h4><p>It saves money (unclaimed policies, lost crypto) <i>and</i> carries the irreplaceable (letters, photos).</p></div>
+      <div class="mrow"><h4>🔁 Sticky &amp; recurring</h4><p>People add to it for years and check in monthly. Trustees become tomorrow’s owners — built-in virality.</p></div>
+      <div class="mrow"><h4>⚖️ Complements, never competes</h4><p>Not a will — it points families <i>to</i> the will and solicitor. Friendly to lawyers, insurers, banks.</p></div>
+    </div>
+    <div class="pn">05</div>
+  </section>
+
+  <!-- 6 MODEL + ASK -->
+  <section class="page">
+    <div class="eyebrow">Business model &amp; the ask</div>
+    <h2>Freemium, with security as the upgrade.</h2>
+    <p class="lead">Free to start; people pay for stronger encryption, more records, and a family plan. Encryption tiers are already built.</p>
+    <div class="tiers">
+      <div class="tier"><div class="t">Free</div><div class="p">£0</div><ul><li>Up to 10 records</li><li>Standard encryption</li><li>2 trustees</li></ul></div>
+      <div class="tier"><div class="t">Premium</div><div class="p"><span class="ph">£—/mo</span></div><ul><li>Unlimited records</li><li>Premium &amp; Gold</li><li>Files &amp; crypto</li></ul></div>
+      <div class="tier"><div class="t">Zero-knowledge</div><div class="p"><span class="ph">£—/mo</span></div><ul><li>We can never decrypt</li><li>Most sensitive</li></ul></div>
+      <div class="tier"><div class="t">Family</div><div class="p"><span class="ph">£—/yr</span></div><ul><li>Shared seats</li><li>One plan, whole family</li></ul></div>
+    </div>
+    <div class="trac"><b>Traction:</b> <span class="ph">[ — waitlist signups · — active vaults · — protected records ]</span> · live on web + mobile shell.</div>
+    <div class="close">
+      <h2>Make sure nothing important is ever lost again.</h2>
+      <p>We’re raising <span class="ph" style="border-color:var(--accent-fg);color:var(--accent-fg)">$ —</span> to grow the team and reach the millions who’ll need this.</p>
+      <div class="c">testamently.com · <span class="ph" style="border-color:var(--accent-fg);color:var(--accent-fg)">founders@testamently.com</span></div>
+    </div>
+    <div class="legal"><b>Confidential.</b> For discussion only; not an offer of securities. Figures marked <span class="ph">like this</span> are placeholders to be completed. Testamently is a private information vault, not a legal will, trust or estate-administration service.</div>
+  </section>
+
+</body>
+</html>
