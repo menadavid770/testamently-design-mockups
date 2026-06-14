@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" class="vd">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testamently — Settings (themeable · v3)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#F4F3EF;--bg2:#EEEDEA;--surface:#FFFFFF;--text:#111111;--muted:#6B7280;--muted2:#9A9A93;--border:#E4E3DC;--toggle-off:#D9D6CC;--status:#16A34A;--accent:#5E7356;--accent-fg:#FAFAF7;
+    --serif:'DM Serif Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6}
+  button{font-family:inherit;cursor:pointer}
+  nav{height:65px;border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 6%}
+  .logo{display:flex;align-items:center;gap:10px}.logo .mk{width:30px;height:30px;border-radius:8px;background:var(--accent);color:var(--accent-fg);display:flex;align-items:center;justify-content:center;font-size:14px}.logo .tx{font-size:18px;font-weight:600}
+  nav .links{display:flex;gap:30px;margin-left:48px}nav .links a{font-size:14px;color:var(--muted);text-decoration:none}nav .links a.on{color:var(--text);font-weight:500}
+  .me{margin-left:auto;width:32px;height:32px;border-radius:50%;background:var(--bg2);border:1px solid var(--border);color:var(--text);font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center}
+  .wrap{max-width:700px;margin:0 auto;padding:54px 28px 90px}
+  h1{font-family:var(--serif);font-size:46px;font-weight:400;line-height:1;letter-spacing:-.5px;margin-bottom:36px}
+  .sec{margin-bottom:40px}.sec-h{display:flex;align-items:center;gap:10px;margin-bottom:5px}.sec-h h2{font-family:var(--serif);font-size:22px;font-weight:400}
+  .new{font-size:9.5px;font-weight:600;letter-spacing:.06em;color:var(--accent-fg);background:var(--accent);padding:3px 8px;border-radius:20px}
+  .sec-note{font-size:13px;color:var(--muted);margin-bottom:16px}
+  .row{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--border)}.row:last-child{border-bottom:none}
+  .row .l{font-size:14.5px;font-weight:500}.row .d{font-size:12.5px;color:var(--muted);margin-top:2px;max-width:330px}.row .ctl{margin-left:auto;flex:0 0 auto}.val{font-size:14px;color:var(--muted)}
+  .seg{display:inline-flex;border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--surface)}
+  .seg button{font-size:12.5px;padding:8px 14px;background:none;border:none;color:var(--muted);border-left:1px solid var(--border)}.seg button:first-child{border-left:none}.seg button.on{background:var(--accent);color:var(--accent-fg);font-weight:500}
+  .pill{border:1px solid var(--border);border-radius:8px;padding:9px 14px;font-size:13.5px;font-weight:500;background:var(--surface);color:var(--text)}
+  .tg{width:42px;height:24px;border-radius:20px;background:var(--accent);position:relative;border:none}.tg::after{content:"";position:absolute;top:3px;right:3px;width:18px;height:18px;border-radius:50%;background:var(--surface)}
+  .tg.off{background:var(--toggle-off)}.tg.off::after{right:21px;background:var(--surface)}
+  .danger .l{color:#C0483B}.link{font-size:13.5px;font-weight:500;color:#C0483B;background:none;border:none}
+  .tsw{position:fixed;bottom:18px;right:18px;display:flex;align-items:center;gap:9px;background:var(--surface);border:1px solid var(--border);border-radius:30px;padding:8px 14px;z-index:50;box-shadow:0 8px 26px rgba(0,0,0,.12)}
+  .tsw .lab{font-size:11px;color:var(--muted);font-weight:600}
+  .tsw .acc-btn{width:18px;height:18px;border-radius:50%;border:2px solid var(--surface);box-shadow:0 0 0 1px var(--border);cursor:pointer;padding:0}.tsw .acc-btn.on{box-shadow:0 0 0 2px var(--text)}
+  .tsw .sep{width:1px;height:20px;background:var(--border)}
+  .tsw .mode-btn{font-size:12px;font-weight:600;color:var(--text);background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:5px 12px}
+  .vm nav .links{display:none}.vm .wrap{padding:30px 18px 70px}.vm h1{font-size:36px}.vm .row{flex-wrap:wrap;gap:10px}.vm .seg{flex-wrap:wrap}
+</style>
+</head>
+<body>
+  <nav><div class="logo"><div class="mk"><i style="font-style:normal">🛡</i></div><div class="tx">Testamently</div></div><div class="links"><a>Records</a><a>Trustees</a><a class="on">Settings</a></div><div class="me">SM</div></nav>
+  <div class="wrap">
+    <h1>Settings</h1>
+    <div class="sec"><div class="sec-h"><h2>Account</h2></div>
+      <div class="row"><div class="l">Name</div><div class="ctl val">Sarah Mitchell</div></div>
+      <div class="row"><div class="l">Email</div><div class="ctl val">demo@testamently.com</div></div>
+      <div class="row"><div class="l">Plan</div><div class="ctl val">Premium</div></div></div>
+    <div class="sec"><div class="sec-h"><h2>Encryption</h2><span class="new">NEW</span></div>
+      <div class="sec-note">Set once — applies to every new record. You can still upgrade any single record from its card.</div>
+      <div class="row"><div><div class="l">Default protection</div><div class="d">How new records are encrypted by default.</div></div><div class="ctl seg"><button class="on">Standard</button><button>Premium</button><button>Gold</button><button>Zero-knowledge</button></div></div>
+      <div class="row"><div><div class="l">Require master password to reveal</div><div class="d">A second passphrase before any record is shown.</div></div><div class="ctl"><button class="tg off"></button></div></div></div>
+    <div class="sec"><div class="sec-h"><h2>Release &amp; activation</h2><span class="new">NEW</span></div>
+      <div class="sec-note">When your trusted people are given access — the “dead-man’s switch”.</div>
+      <div class="row"><div><div class="l">Release my vault after</div><div class="d">Trustees gain access once you’ve missed check-ins this long.</div></div><div class="ctl"><select class="pill"><option>30 days</option><option selected>60 days of no check-in</option><option>90 days</option></select></div></div>
+      <div class="row"><div><div class="l">Check-in reminders</div><div class="d">We’ll nudge you before the timer runs out.</div></div><div class="ctl"><button class="tg"></button></div></div>
+      <div class="row"><div><div class="l">Remind me by</div></div><div class="ctl seg"><button class="on">Email</button><button>SMS</button><button>Both</button></div></div>
+      <div class="row"><div><div class="l">Check-in frequency</div><div class="d">How often we ask you to confirm you’re OK.</div></div><div class="ctl"><select class="pill"><option>Weekly</option><option selected>Monthly</option><option>Every 3 months</option></select></div></div></div>
+    <div class="sec danger"><div class="sec-h"><h2>Danger zone</h2></div>
+      <div class="row"><div><div class="l">Delete vault</div><div class="d">Permanently erase all records and trustees.</div></div><div class="ctl"><button class="link">Delete</button></div></div></div>
+  </div>
+
+  <div class="tsw">
+    <span class="lab">Accent</span>
+    <button class="acc-btn" data-a="ink" style="background:#111111" title="Ink (David's)"></button>
+    <button class="acc-btn" data-a="forest" style="background:#5E7356" title="Forest"></button>
+    <button class="acc-btn" data-a="emerald" style="background:#0E7C5A" title="Emerald"></button>
+    <button class="acc-btn" data-a="slate" style="background:#46707C" title="Slate"></button>
+    <span class="sep"></span>
+    <button id="modeBtn" class="mode-btn">🌙 Dark</button>
+  </div>
+  <script>
+  const MODES={light:{bg:'#F4F3EF',bg2:'#EEEDEA',surface:'#FFFFFF',text:'#111111',muted:'#6B7280',muted2:'#9A9A93',border:'#E4E3DC','toggle-off':'#D9D6CC',status:'#16A34A'},
+    dark:{bg:'#14160E',bg2:'#1B1E14',surface:'#1C2015',text:'#F1EFE3',muted:'#A8AA93',muted2:'#7E8270',border:'#333829','toggle-off':'#3A4031',status:'#86C08A'}};
+  const ACC={ink:{light:['#111111','#FAFAFA'],dark:['#E8E6DD','#16190F']},forest:{light:['#5E7356','#FAFAF7'],dark:['#9DBE8A','#16190F']},emerald:{light:['#0E7C5A','#F4FBF7'],dark:['#34D399','#0C140F']},slate:{light:['#46707C','#F5FAFB'],dark:['#86A9B3','#0E1417']}};
+  let mode=(localStorage.getItem('v3mode')||'light'),acc=(localStorage.getItem('v3acc')||'forest');
+  function apply(){const m=MODES[mode];for(const k in m)document.documentElement.style.setProperty('--'+k,m[k]);const a=ACC[acc][mode];document.documentElement.style.setProperty('--accent',a[0]);document.documentElement.style.setProperty('--accent-fg',a[1]);
+    document.querySelectorAll('.acc-btn').forEach(b=>b.classList.toggle('on',b.dataset.a===acc));
+    document.getElementById('modeBtn').textContent=mode==='light'?'🌙 Dark':'☀ Light';
+    try{localStorage.setItem('v3mode',mode);localStorage.setItem('v3acc',acc)}catch(e){}}
+  document.querySelectorAll('.acc-btn').forEach(b=>b.onclick=()=>{acc=b.dataset.a;apply();});
+  document.getElementById('modeBtn').onclick=()=>{mode=mode==='light'?'dark':'light';apply();};
+  apply();
+  </script>
+</body>
+</html>
