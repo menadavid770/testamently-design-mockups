@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Testamently — Add record (minimalist · v3)</title>
+<title>Testamently — Add a record · Step 1 (v4)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -12,39 +12,39 @@
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6}
   button{font-family:inherit;cursor:pointer}
-  .stage{display:flex;justify-content:center;padding:52px 20px 90px}
+  .stage{display:flex;justify-content:center;padding:46px 20px 90px}
   .panel{width:100%;max-width:540px;background:var(--surface);border:1px solid var(--border);border-radius:18px;overflow:hidden}
-  .ptop{display:flex;align-items:center;gap:13px;padding:24px 28px 4px}
-  .ptop h2{font-family:var(--serif);font-size:26px;font-weight:400}
+  .steps{display:flex;align-items:center;gap:10px;padding:18px 28px 0}
+  .sd{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:var(--muted)}
+  .sd .n{width:20px;height:20px;border-radius:50%;font-size:11px;display:flex;align-items:center;justify-content:center;background:var(--bg2);color:var(--muted)}
+  .sd.on{color:var(--text)}.sd.on .n{background:var(--accent);color:var(--accent-fg)}
+  .sline{flex:1;height:1px;background:var(--border)}
+  .ptop{display:flex;align-items:baseline;gap:13px;padding:16px 28px 2px}
+  .ptop h2{font-family:var(--serif);font-size:25px;font-weight:400}
   .ptop .close{margin-left:auto;font-size:18px;color:var(--muted2);background:none;border:none}
-  .ptop+.psub{padding:0 28px;font-size:13.5px;color:var(--muted);margin-bottom:20px}
+  .psub{padding:0 28px;font-size:13.5px;color:var(--muted);margin-bottom:20px}
   .body{padding:0 28px}
   .lbl{font-size:12.5px;font-weight:600;color:var(--muted);margin:0 0 9px}
   .cats{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
-  .cat{font-size:13px;font-weight:400;color:var(--text);border:1px solid var(--border);border-radius:30px;padding:8px 15px;background:var(--surface)}
+  .cat{font-size:13px;color:var(--text);border:1px solid var(--border);border-radius:30px;padding:8px 15px;background:var(--surface)}
   .cat.on{border-color:var(--accent);background:var(--accent);color:var(--accent-fg);font-weight:500}
   input.ti,textarea.tv{width:100%;border:1px solid var(--border);border-radius:11px;padding:13px 15px;font-size:14.5px;font-family:inherit;color:var(--text);background:var(--surface)}
-  textarea.tv{min-height:96px;resize:vertical;margin-top:12px}
+  textarea.tv{min-height:92px;resize:vertical;margin-top:12px}
   input.ti:focus,textarea.tv:focus{outline:none;border-color:var(--accent)}
   input.ti::placeholder,textarea.tv::placeholder{color:var(--muted2)}
-  .defaults{margin:18px 0 6px;font-size:12.5px;color:var(--muted);display:flex;align-items:flex-start;gap:8px;line-height:1.55}
-  .defaults b{color:var(--text);font-weight:500}
+  .defaults{margin:18px 0 6px;font-size:12.5px;color:var(--muted);display:flex;gap:8px;line-height:1.55}.defaults b{color:var(--text);font-weight:500}
   details{margin-top:14px;border-top:1px solid var(--border);padding-top:14px}
   summary{list-style:none;cursor:pointer;font-size:13px;font-weight:500;color:var(--accent);display:flex;align-items:center;gap:7px}
-  summary::-webkit-details-marker{display:none}
-  summary .chev{transition:transform .15s}
-  details[open] summary .chev{transform:rotate(90deg)}
-  .adv{padding-top:14px}
-  .arow{margin-bottom:16px}
-  .arow .al{font-size:12.5px;font-weight:600;margin-bottom:8px}
+  summary::-webkit-details-marker{display:none}.chev{transition:transform .15s}details[open] .chev{transform:rotate(90deg)}
+  .adv{padding-top:14px}.arow{margin-bottom:16px}.arow .al{font-size:12.5px;font-weight:600;margin-bottom:8px}
   .seg{display:flex;border:1px solid var(--border);border-radius:9px;overflow:hidden}
   .seg button{flex:1;font-size:12px;padding:9px 6px;background:var(--surface);border:none;color:var(--muted);border-left:1px solid var(--border)}
   .seg button:first-child{border-left:none}.seg button.on{background:var(--accent);color:var(--accent-fg);font-weight:500}
   .pill{border:1px solid var(--border);border-radius:9px;padding:10px 13px;font-size:13px;background:var(--surface);color:var(--text);width:100%}
   .foot{display:flex;align-items:center;gap:14px;padding:18px 28px;margin-top:18px;border-top:1px solid var(--border);background:var(--bg2)}
-  .note{font-size:11.6px;color:var(--muted)}.foot .actions{margin-left:auto;display:flex;gap:10px}
+  .note{font-size:11.6px;color:var(--muted)}.foot .actions{margin-left:auto;display:flex;gap:10px;align-items:center}
   .cancel{font-size:13px;font-weight:500;color:var(--muted);background:none;border:none}
-  .save{font-size:13.5px;font-weight:500;color:var(--accent-fg);background:var(--accent);border:none;border-radius:9px;padding:12px 24px}
+  .cont{font-size:13.5px;font-weight:500;color:var(--accent-fg);background:var(--accent);border:none;border-radius:9px;padding:12px 22px}
   .tsw{position:fixed;bottom:18px;right:18px;display:flex;align-items:center;gap:9px;background:var(--surface);border:1px solid var(--border);border-radius:30px;padding:8px 14px;z-index:50;box-shadow:0 8px 26px rgba(0,0,0,.12)}
   .tsw .lab{font-size:11px;color:var(--muted);font-weight:600}.tsw .acc-btn{width:18px;height:18px;border-radius:50%;border:2px solid var(--surface);box-shadow:0 0 0 1px var(--border);cursor:pointer;padding:0}.tsw .acc-btn.on{box-shadow:0 0 0 2px var(--text)}
   .tsw .sep{width:1px;height:20px;background:var(--border)}.tsw .mode-btn{font-size:12px;font-weight:600;color:var(--text);background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:5px 12px}
@@ -53,28 +53,24 @@
 </head>
 <body>
   <div class="stage"><div class="panel">
+    <div class="steps"><span class="sd on"><span class="n">1</span>The record</span><span class="sline"></span><span class="sd"><span class="n">2</span>Who receives it</span></div>
     <div class="ptop"><h2>Add a record</h2><button class="close">✕</button></div>
-    <div class="psub">Two fields and you’re protected — we encrypt it the moment you type.</div>
+    <div class="psub">First, what do you want to keep safe? We encrypt it the moment you type.</div>
     <div class="body">
       <p class="lbl">What is it?</p>
-      <div class="cats">
-        <button class="cat on">🔑 Password</button><button class="cat">₿ Crypto seed</button><button class="cat">🏦 Bank info</button><button class="cat">✉️ A letter</button><button class="cat">📄 Document</button>
-      </div>
+      <div class="cats"><button class="cat on">🔑 Password</button><button class="cat">₿ Crypto seed</button><button class="cat">🏦 Bank info</button><button class="cat">✉️ A letter</button><button class="cat">📄 Document</button></div>
       <input class="ti" placeholder="Give it a name…">
       <textarea class="tv" placeholder="Type or paste what you want to protect"></textarea>
-
-      <div class="defaults">🔒<div><b>Standard encryption</b>, released only if your check-ins stop, no trustee yet — all editable later. Want to change them now?</div></div>
-
+      <div class="defaults">🔒<div><b>Standard encryption</b>, released only if your check-ins stop — editable later. Want to change it now?</div></div>
       <details>
-        <summary><span class="chev">▸</span> Advanced — encryption, release &amp; trustee</summary>
+        <summary><span class="chev">▸</span> Advanced — encryption &amp; release rule</summary>
         <div class="adv">
           <div class="arow"><div class="al">Encryption</div><div class="seg"><button class="on">Standard</button><button>Premium</button><button>Gold</button><button>Zero-knowledge</button></div></div>
           <div class="arow"><div class="al">Release to trustees</div><select class="pill"><option selected>When my check-ins stop (60 days)</option><option>On a specific date</option><option>Only after death is verified</option></select></div>
-          <div class="arow"><div class="al">Who receives it</div><select class="pill"><option selected>Add later</option><option>Michael Mitchell</option><option>Jennifer Roth</option></select></div>
         </div>
       </details>
     </div>
-    <div class="foot"><span class="note">🔒 Encrypted on your device before saving.</span><div class="actions"><button class="cancel">Cancel</button><button class="save">Save record</button></div></div>
+    <div class="foot"><span class="note">🔒 Encrypted before saving.</span><div class="actions"><button class="cancel">Cancel</button><button class="cont">Continue →</button></div></div>
   </div></div>
 
   <div class="tsw">
@@ -83,21 +79,14 @@
     <button class="acc-btn" data-a="forest" style="background:#5E7356" title="Forest"></button>
     <button class="acc-btn" data-a="emerald" style="background:#0E7C5A" title="Emerald"></button>
     <button class="acc-btn" data-a="slate" style="background:#46707C" title="Slate"></button>
-    <span class="sep"></span>
-    <button id="modeBtn" class="mode-btn">🌙 Dark</button>
+    <span class="sep"></span><button id="modeBtn" class="mode-btn">🌙 Dark</button>
   </div>
   <script>
-  const MODES={light:{bg:'#F4F3EF',bg2:'#EEEDEA',surface:'#FFFFFF',text:'#111111',muted:'#6B7280',muted2:'#9A9A93',border:'#E4E3DC','toggle-off':'#D9D6CC',status:'#16A34A'},
-    dark:{bg:'#14160E',bg2:'#1B1E14',surface:'#1C2015',text:'#F1EFE3',muted:'#A8AA93',muted2:'#7E8270',border:'#333829','toggle-off':'#3A4031',status:'#86C08A'}};
+  const MODES={light:{bg:'#F4F3EF',bg2:'#EEEDEA',surface:'#FFFFFF',text:'#111111',muted:'#6B7280',muted2:'#9A9A93',border:'#E4E3DC','toggle-off':'#D9D6CC',status:'#16A34A'},dark:{bg:'#14160E',bg2:'#1B1E14',surface:'#1C2015',text:'#F1EFE3',muted:'#A8AA93',muted2:'#7E8270',border:'#333829','toggle-off':'#3A4031',status:'#86C08A'}};
   const ACC={ink:{light:['#111111','#FAFAFA'],dark:['#E8E6DD','#16190F']},forest:{light:['#5E7356','#FAFAF7'],dark:['#9DBE8A','#16190F']},emerald:{light:['#0E7C5A','#F4FBF7'],dark:['#34D399','#0C140F']},slate:{light:['#46707C','#F5FAFB'],dark:['#86A9B3','#0E1417']}};
   let mode=(localStorage.getItem('v3mode')||'light'),acc=(localStorage.getItem('v3acc')||'forest');
-  function apply(){const m=MODES[mode];for(const k in m)document.documentElement.style.setProperty('--'+k,m[k]);const a=ACC[acc][mode];document.documentElement.style.setProperty('--accent',a[0]);document.documentElement.style.setProperty('--accent-fg',a[1]);
-    document.querySelectorAll('.acc-btn').forEach(b=>b.classList.toggle('on',b.dataset.a===acc));
-    document.getElementById('modeBtn').textContent=mode==='light'?'🌙 Dark':'☀ Light';
-    try{localStorage.setItem('v3mode',mode);localStorage.setItem('v3acc',acc)}catch(e){}}
-  document.querySelectorAll('.acc-btn').forEach(b=>b.onclick=()=>{acc=b.dataset.a;apply();});
-  document.getElementById('modeBtn').onclick=()=>{mode=mode==='light'?'dark':'light';apply();};
-  apply();
+  function apply(){const m=MODES[mode];for(const k in m)document.documentElement.style.setProperty('--'+k,m[k]);const a=ACC[acc][mode];document.documentElement.style.setProperty('--accent',a[0]);document.documentElement.style.setProperty('--accent-fg',a[1]);document.querySelectorAll('.acc-btn').forEach(b=>b.classList.toggle('on',b.dataset.a===acc));document.getElementById('modeBtn').textContent=mode==='light'?'🌙 Dark':'☀ Light';try{localStorage.setItem('v3mode',mode);localStorage.setItem('v3acc',acc)}catch(e){}}
+  document.querySelectorAll('.acc-btn').forEach(b=>b.onclick=()=>{acc=b.dataset.a;apply();});document.getElementById('modeBtn').onclick=()=>{mode=mode==='light'?'dark':'light';apply();};apply();
   </script>
 </body>
 </html>

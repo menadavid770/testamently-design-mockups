@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Testamently — Add a record · Step 1 (v4)</title>
+<title>Testamently — Add a record · Step 2 (v4)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -17,60 +17,56 @@
   .steps{display:flex;align-items:center;gap:10px;padding:18px 28px 0}
   .sd{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:var(--muted)}
   .sd .n{width:20px;height:20px;border-radius:50%;font-size:11px;display:flex;align-items:center;justify-content:center;background:var(--bg2);color:var(--muted)}
+  .sd.done .n{background:color-mix(in srgb,var(--status) 16%,transparent);color:var(--status)}
   .sd.on{color:var(--text)}.sd.on .n{background:var(--accent);color:var(--accent-fg)}
   .sline{flex:1;height:1px;background:var(--border)}
   .ptop{display:flex;align-items:baseline;gap:13px;padding:16px 28px 2px}
   .ptop h2{font-family:var(--serif);font-size:25px;font-weight:400}
   .ptop .close{margin-left:auto;font-size:18px;color:var(--muted2);background:none;border:none}
-  .psub{padding:0 28px;font-size:13.5px;color:var(--muted);margin-bottom:20px}
+  .psub{padding:0 28px;font-size:13.5px;color:var(--muted);margin-bottom:18px}
   .body{padding:0 28px}
-  .lbl{font-size:12.5px;font-weight:600;color:var(--muted);margin:0 0 9px}
-  .cats{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
-  .cat{font-size:13px;color:var(--text);border:1px solid var(--border);border-radius:30px;padding:8px 15px;background:var(--surface)}
-  .cat.on{border-color:var(--accent);background:var(--accent);color:var(--accent-fg);font-weight:500}
-  input.ti,textarea.tv{width:100%;border:1px solid var(--border);border-radius:11px;padding:13px 15px;font-size:14.5px;font-family:inherit;color:var(--text);background:var(--surface)}
-  textarea.tv{min-height:92px;resize:vertical;margin-top:12px}
-  input.ti:focus,textarea.tv:focus{outline:none;border-color:var(--accent)}
-  input.ti::placeholder,textarea.tv::placeholder{color:var(--muted2)}
-  .defaults{margin:18px 0 6px;font-size:12.5px;color:var(--muted);display:flex;gap:8px;line-height:1.55}.defaults b{color:var(--text);font-weight:500}
-  details{margin-top:14px;border-top:1px solid var(--border);padding-top:14px}
-  summary{list-style:none;cursor:pointer;font-size:13px;font-weight:500;color:var(--accent);display:flex;align-items:center;gap:7px}
-  summary::-webkit-details-marker{display:none}.chev{transition:transform .15s}details[open] .chev{transform:rotate(90deg)}
-  .adv{padding-top:14px}.arow{margin-bottom:16px}.arow .al{font-size:12.5px;font-weight:600;margin-bottom:8px}
-  .seg{display:flex;border:1px solid var(--border);border-radius:9px;overflow:hidden}
-  .seg button{flex:1;font-size:12px;padding:9px 6px;background:var(--surface);border:none;color:var(--muted);border-left:1px solid var(--border)}
-  .seg button:first-child{border-left:none}.seg button.on{background:var(--accent);color:var(--accent-fg);font-weight:500}
-  .pill{border:1px solid var(--border);border-radius:9px;padding:10px 13px;font-size:13px;background:var(--surface);color:var(--text);width:100%}
+  .saved{display:flex;align-items:center;gap:11px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:11px 14px;margin-bottom:22px}
+  .saved .si{width:34px;height:34px;border-radius:9px;background:var(--surface);display:flex;align-items:center;justify-content:center;font-size:17px}
+  .saved b{font-size:13.5px}.saved span{font-size:12px;color:var(--muted)}
+  .saved .ok{margin-left:auto;font-size:12px;font-weight:500;color:var(--status)}
+  .lbl{font-size:12.5px;font-weight:600;color:var(--muted);margin:0 0 10px}
+  .people{display:flex;flex-direction:column;gap:9px;margin-bottom:16px}
+  .person{display:flex;align-items:center;gap:12px;border:1.5px solid var(--border);border-radius:12px;padding:11px 14px;cursor:pointer;background:var(--surface)}
+  .person.on{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 7%,transparent)}
+  .av{width:34px;height:34px;border-radius:50%;color:#fff;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center}
+  .person .nm{font-size:13.8px;font-weight:500}.person .rl{font-size:12px;color:var(--muted)}
+  .person .chk{margin-left:auto;width:20px;height:20px;border-radius:50%;border:1.5px solid var(--toggle-off);display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff}
+  .person.on .chk{background:var(--accent);border-color:var(--accent)}
+  .addnew{border:1px dashed var(--toggle-off);border-radius:12px;padding:11px 14px;font-size:13px;color:var(--accent);font-weight:500;background:none;width:100%;text-align:left}
+  .reassure{font-size:12px;color:var(--muted);display:flex;gap:7px;margin-top:4px}
   .foot{display:flex;align-items:center;gap:14px;padding:18px 28px;margin-top:18px;border-top:1px solid var(--border);background:var(--bg2)}
-  .note{font-size:11.6px;color:var(--muted)}.foot .actions{margin-left:auto;display:flex;gap:10px;align-items:center}
-  .cancel{font-size:13px;font-weight:500;color:var(--muted);background:none;border:none}
-  .cont{font-size:13.5px;font-weight:500;color:var(--accent-fg);background:var(--accent);border:none;border-radius:9px;padding:12px 22px}
+  .skip{font-size:13px;font-weight:500;color:var(--muted);background:none;border:none}
+  .foot .actions{margin-left:auto;display:flex;gap:10px;align-items:center}
+  .back{font-size:13px;font-weight:500;color:var(--muted);background:none;border:none}
+  .save{font-size:13.5px;font-weight:500;color:var(--accent-fg);background:var(--accent);border:none;border-radius:9px;padding:12px 22px}
   .tsw{position:fixed;bottom:18px;right:18px;display:flex;align-items:center;gap:9px;background:var(--surface);border:1px solid var(--border);border-radius:30px;padding:8px 14px;z-index:50;box-shadow:0 8px 26px rgba(0,0,0,.12)}
   .tsw .lab{font-size:11px;color:var(--muted);font-weight:600}.tsw .acc-btn{width:18px;height:18px;border-radius:50%;border:2px solid var(--surface);box-shadow:0 0 0 1px var(--border);cursor:pointer;padding:0}.tsw .acc-btn.on{box-shadow:0 0 0 2px var(--text)}
   .tsw .sep{width:1px;height:20px;background:var(--border)}.tsw .mode-btn{font-size:12px;font-weight:600;color:var(--text);background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:5px 12px}
-  .vm .stage{padding:0 0 90px}.vm .panel{max-width:none;border:none;border-radius:0;min-height:100vh}.vm .seg{flex-wrap:wrap}
+  .vm .stage{padding:0 0 90px}.vm .panel{max-width:none;border:none;border-radius:0;min-height:100vh}
 </style>
 </head>
 <body>
   <div class="stage"><div class="panel">
-    <div class="steps"><span class="sd on"><span class="n">1</span>The record</span><span class="sline"></span><span class="sd"><span class="n">2</span>Who receives it</span></div>
-    <div class="ptop"><h2>Add a record</h2><button class="close">✕</button></div>
-    <div class="psub">First, what do you want to keep safe? We encrypt it the moment you type.</div>
+    <div class="steps"><span class="sd done"><span class="n">✓</span>The record</span><span class="sline"></span><span class="sd on"><span class="n">2</span>Who receives it</span></div>
+    <div class="ptop"><h2>Who should receive it?</h2><button class="close">✕</button></div>
+    <div class="psub">Pick who gets this record once your vault is released. They’re only invited now — they can’t see anything yet.</div>
     <div class="body">
-      <p class="lbl">What is it?</p>
-      <div class="cats"><button class="cat on">🔑 Password</button><button class="cat">₿ Crypto seed</button><button class="cat">🏦 Bank info</button><button class="cat">✉️ A letter</button><button class="cat">📄 Document</button></div>
-      <input class="ti" placeholder="Give it a name…">
-      <textarea class="tv" placeholder="Type or paste what you want to protect"></textarea>
-      <div class="defaults">🔒<div><b>Standard encryption</b>, released only if your check-ins stop — editable later. Want to change it now?</div></div>
-      <details>
-        <summary><span class="chev">▸</span> Advanced — encryption &amp; release rule</summary>
-        <div class="adv">
-          <div class="arow"><div class="al">Encryption</div><div class="seg"><button class="on">Standard</button><button>Premium</button><button>Gold</button><button>Zero-knowledge</button></div></div>
-          <div class="arow"><div class="al">Release to trustees</div><select class="pill"><option selected>When my check-ins stop (60 days)</option><option>On a specific date</option><option>Only after death is verified</option></select></div>
-        </div>
-      </details>
+      <div class="saved"><div class="si">🔑</div><div><b>Gmail password</b><br><span>Encrypted · Standard</span></div><span class="ok">Saved ✓</span></div>
+
+      <p class="lbl">Your trustees</p>
+      <div class="people">
+        <div class="person on"><div class="av" style="background:#1f2937">MM</div><div><div class="nm">Michael Mitchell</div><div class="rl">Spouse</div></div><div class="chk">✓</div></div>
+        <div class="person"><div class="av" style="background:#4b5563">JR</div><div><div class="nm">Jennifer Roth</div><div class="rl">Attorney</div></div><div class="chk"></div></div>
+      </div>
+      <button class="addnew">+ Invite someone new</button>
+      <div class="reassure">🔕 No one can open it until your check-ins stop and your vault is released.</div>
     </div>
-    <div class="foot"><span class="note">🔒 Encrypted before saving.</span><div class="actions"><button class="cancel">Cancel</button><button class="cont">Continue →</button></div></div>
+    <div class="foot"><button class="skip">Skip — add later</button><div class="actions"><button class="back">← Back</button><button class="save">Save record</button></div></div>
   </div></div>
 
   <div class="tsw">
@@ -87,6 +83,7 @@
   let mode=(localStorage.getItem('v3mode')||'light'),acc=(localStorage.getItem('v3acc')||'forest');
   function apply(){const m=MODES[mode];for(const k in m)document.documentElement.style.setProperty('--'+k,m[k]);const a=ACC[acc][mode];document.documentElement.style.setProperty('--accent',a[0]);document.documentElement.style.setProperty('--accent-fg',a[1]);document.querySelectorAll('.acc-btn').forEach(b=>b.classList.toggle('on',b.dataset.a===acc));document.getElementById('modeBtn').textContent=mode==='light'?'🌙 Dark':'☀ Light';try{localStorage.setItem('v3mode',mode);localStorage.setItem('v3acc',acc)}catch(e){}}
   document.querySelectorAll('.acc-btn').forEach(b=>b.onclick=()=>{acc=b.dataset.a;apply();});document.getElementById('modeBtn').onclick=()=>{mode=mode==='light'?'dark':'light';apply();};apply();
+  document.querySelectorAll('.person').forEach(p=>p.onclick=()=>p.classList.toggle('on'));
   </script>
 </body>
 </html>
