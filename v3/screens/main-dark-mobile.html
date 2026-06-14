@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" class="vm">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testamently — Records (dark · v3)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{ /* default = Forest (theme switcher overrides live) */
+    --bg:#14160E;--bg2:#1B1E14;--surface:#1C2015;--text:#F1EFE3;--muted:#A8AA93;--muted2:#7E8270;--border:#333829;--accent:#9DBE8A;--accent-fg:#16190F;--status:#86C08A;
+    --serif:'DM Serif Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+  button{font-family:inherit;cursor:pointer}
+  nav{height:65px;border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 6%}
+  .logo{display:flex;align-items:center;gap:10px}.logo .mk{width:30px;height:30px;border-radius:8px;background:var(--accent);color:var(--accent-fg);display:flex;align-items:center;justify-content:center;font-size:14px}.logo .tx{font-size:18px;font-weight:600;letter-spacing:-.3px}
+  nav .links{display:flex;gap:30px;margin-left:48px}nav .links a{font-size:14px;color:var(--muted);text-decoration:none}nav .links a.on{color:var(--text);font-weight:500}
+  .me{margin-left:auto;width:32px;height:32px;border-radius:50%;background:var(--bg2);border:1px solid var(--border);color:var(--text);font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center}
+  .wrap{max-width:780px;margin:0 auto;padding:54px 28px 90px}
+  .head{display:flex;align-items:flex-end;gap:14px;margin-bottom:6px}
+  .head h1{font-family:var(--serif);font-size:46px;font-weight:400;line-height:1;letter-spacing:-.5px}.head .ct{font-size:14px;color:var(--muted2);padding-bottom:6px}
+  .head .add{margin-left:auto;font-size:14px;font-weight:500;color:var(--accent-fg);background:var(--accent);border:none;border-radius:6px;height:42px;padding:0 22px}
+  .sub{font-size:15px;color:var(--muted);margin-bottom:30px}
+  .search{width:100%;border:1px solid var(--border);border-radius:8px;padding:13px 16px;font-size:14.5px;background:var(--bg2);color:var(--text);margin-bottom:26px}.search::placeholder{color:var(--muted2)}.search:focus{outline:none;border-color:var(--accent)}
+  .tabs{display:flex;gap:26px;border-bottom:1px solid var(--border);margin-bottom:6px}
+  .tabs a{font-size:13.5px;color:var(--muted);text-decoration:none;padding:0 0 13px;position:relative}.tabs a.on{color:var(--text);font-weight:500}.tabs a.on::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--accent)}
+  .row{display:flex;align-items:center;gap:16px;padding:18px 4px;border-bottom:1px solid var(--border)}
+  .row .ic{width:38px;height:38px;border-radius:9px;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:16px;flex:0 0 auto}
+  .row .nm{font-size:15px;font-weight:500}.row .mt{font-size:12.5px;color:var(--muted);margin-top:1px}
+  .row .right{margin-left:auto;display:flex;align-items:center;gap:15px}
+  .dot{width:6px;height:6px;border-radius:50%}.dot.g{background:var(--status)}.dot.a{background:#C9A227}
+  .stat{font-size:11.5px;color:var(--muted2)}
+  .rv{font-size:12.5px;font-weight:500;color:var(--accent);opacity:0;transition:.15s}
+  .row:hover{background:var(--surface)}.row:hover .rv{opacity:1}
+  .lock{font-size:12.5px;color:var(--muted2)}
+  .tsw{position:fixed;bottom:18px;right:18px;display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:30px;padding:8px 13px;z-index:50}
+  .tsw span{font-size:11px;color:var(--muted);font-weight:500}
+  .tsw button{width:18px;height:18px;border-radius:50%;border:2px solid var(--surface);box-shadow:0 0 0 1px var(--border);cursor:pointer;padding:0}
+  .vm nav .links{display:none}.vm .wrap{padding:30px 18px 60px}.vm .head h1{font-size:36px}.vm .tabs{gap:16px;overflow-x:auto}.vm .stat{display:none}
+</style>
+</head>
+<body>
+  <nav><div class="logo"><div class="mk"><i style="font-style:normal">🛡</i></div><div class="tx">Testamently</div></div><div class="links"><a class="on">Records</a><a>Trustees</a><a>Settings</a></div><div class="me">SM</div></nav>
+  <div class="wrap">
+    <div class="head"><h1>Records</h1><span class="ct">10 items · 80% protected</span><button class="add">+ New record</button></div>
+    <p class="sub">Everything you’re keeping safe, in one place — released only to the people you choose.</p>
+    <input class="search" placeholder="Search records">
+    <div class="tabs"><a class="on">All</a><a>Finances</a><a>Personal</a><a>Legal &amp; Documents</a></div>
+    <div class="row"><div class="ic">🔑</div><div><div class="nm">Home Safe</div><div class="mt">Physical location · Michael, Jennifer</div></div><div class="right"><span class="stat">Protected</span><span class="dot g"></span><span class="rv">Reveal</span></div></div>
+    <div class="row"><div class="ic">📄</div><div><div class="nm">Life Insurance — MetLife</div><div class="mt">Document · Michael, Jennifer</div></div><div class="right"><span class="stat">Protected</span><span class="dot g"></span><span class="rv">Reveal</span></div></div>
+    <div class="row"><div class="ic">🪪</div><div><div class="nm">US Passport</div><div class="mt">ID · Jennifer</div></div><div class="right"><span class="stat">Protected</span><span class="dot g"></span><span class="rv">Reveal</span></div></div>
+    <div class="row"><div class="ic">✉️</div><div><div class="nm">Letter to my children</div><div class="mt">Note · Michael, Jennifer</div></div><div class="right"><span class="stat">Protected</span><span class="dot g"></span><span class="rv">Reveal</span></div></div>
+    <div class="row"><div class="ic">📱</div><div><div class="nm">iPhone Passcode</div><div class="mt">Phone + PIN · Michael</div></div><div class="right"><span class="stat">Protected</span><span class="dot g"></span><span class="rv">Reveal</span></div></div>
+    <div class="row"><div class="ic">🎬</div><div><div class="nm">Netflix Family</div><div class="mt">Password · no trustee</div></div><div class="right"><span class="stat">Unassigned</span><span class="dot a"></span><span class="rv">Reveal</span></div></div>
+    <div class="row"><div class="ic">₿</div><div><div class="nm">Coinbase Account</div><div class="mt">Crypto wallet · Michael</div></div><div class="right"><span class="stat">Protected</span><span class="dot g"></span><span class="rv">Reveal</span></div></div>
+    <div class="row"><div class="ic">🏦</div><div><div class="nm">Chase Checking Account</div><div class="mt">Bank account · Michael, Jennifer</div></div><div class="right"><span class="stat">Protected</span><span class="dot g"></span><span class="rv">Reveal</span></div></div>
+    <div class="row"><div class="ic">🔐</div><div><div class="nm">Bitcoin Cold Wallet — Seed Phrase</div><div class="mt">Crypto wallet · Gold encryption · Michael</div></div><div class="right"><span class="lock">🔒 Locked</span><span class="rv">Unlock</span></div></div>
+  </div>
+
+  <div class="tsw"><span>Theme</span>
+    <button data-t="forest" style="background:#9DBE8A" title="Forest"></button>
+    <button data-t="emerald" style="background:#34D399" title="Emerald"></button>
+    <button data-t="gold" style="background:#D4AF37" title="Noir gold"></button>
+    <button data-t="slate" style="background:#86A9B3" title="Slate"></button>
+  </div>
+  <script>
+  const TH={
+    forest:{bg:'#14160E',bg2:'#1B1E14',surface:'#1C2015',text:'#F1EFE3',muted:'#A8AA93',muted2:'#7E8270',border:'#333829',accent:'#9DBE8A','accent-fg':'#16190F',status:'#86C08A'},
+    emerald:{bg:'#0F1512',bg2:'#16201B',surface:'#17221C',text:'#ECF2EE',muted:'#9DB0A6',muted2:'#74877D',border:'#28332D',accent:'#34D399','accent-fg':'#0C140F',status:'#34D399'},
+    gold:{bg:'#16140D',bg2:'#1F1B11',surface:'#201C12',text:'#F2EEE1',muted:'#ABA48C',muted2:'#827B64',border:'#37311F',accent:'#D4AF37','accent-fg':'#16140D',status:'#C9A227'},
+    slate:{bg:'#11161A',bg2:'#172026',surface:'#182228',text:'#ECF1F4',muted:'#9DAAB2',muted2:'#71808A',border:'#26333B',accent:'#86A9B3','accent-fg':'#0E1417',status:'#7FB8A0'}};
+  function setT(n){const t=TH[n]||TH.forest;for(const k in t)document.documentElement.style.setProperty('--'+k,t[k]);try{localStorage.setItem('v3t',n)}catch(e){}}
+  document.querySelectorAll('.tsw button').forEach(b=>b.onclick=()=>setT(b.dataset.t));
+  setT(localStorage.getItem('v3t')||'forest');
+  </script>
+</body>
+</html>
