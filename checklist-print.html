@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @page{size:A4;margin:0}
+  :root{--bg:#F4F3EF;--surface:#fff;--text:#111;--muted:#6B7280;--muted2:#9A9A93;--border:#E4E3DC;--accent:#5E7356;--serif:'DM Serif Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif}
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{font-family:var(--sans);color:var(--text)}
+  .page{width:210mm;min-height:297mm;padding:15mm 14mm;background:var(--bg);page-break-after:always}
+  .page:last-child{page-break-after:auto}
+  .top{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
+  .top .mk{font-size:14px;font-weight:600}.top .mk .d{color:var(--accent)}
+  h1{font-family:var(--serif);font-size:30px;font-weight:400;letter-spacing:-.4px;margin-bottom:4px}
+  .sub{font-size:12px;color:var(--muted);margin-bottom:14px}
+  .ph{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--accent);margin:14px 0 8px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .card{border:1px solid var(--border);background:var(--surface);border-radius:10px;padding:11px 12px}
+  .ch{display:flex;align-items:center;gap:7px;margin-bottom:5px}
+  .box{width:13px;height:13px;border:1.5px solid var(--muted2);border-radius:3px;flex:0 0 auto}
+  .id{font-size:10px;font-weight:700;color:var(--accent);font-family:var(--serif)}
+  .t{font-size:12.5px;font-weight:600}
+  .row{font-size:10.5px;color:var(--muted);line-height:1.45;margin-top:2px}.row b{color:var(--text);font-weight:600}
+</style></head><body>
+<div class="page" id="pg"></div>
+<script>
+const T=[
+ ['0 — Foundations',[
+  ['T0.1','Design tokens & type','Shared theme matching v4','vars, DM Serif + Inter, hairlines','—'],
+  ['T0.2','Appearance switcher (opt.)','Light/dark + accent preference','port v4 switcher; default Forest/light','persist on profile/cookie'],
+  ['T0.3','Copy & positioning','Adopt the “you hold half” story','codes/locations framing; legal/will notice','—'],
+  ['T0.4','Language / i18n','Language = a setting, not a flow choice','remove switcher from auth; Settings>Language','locale on profile+cookie'],
+  ['T0.5','Types + fields','New types + per-record fields','Phone/Crypto/Safe/Keys/Doc/Letter/Photo','additive: hint, folder, release_rule'],
+ ]],
+ ['1 — Core flow',[
+  ['T1.1','Records home ★','Vault explains itself','status summary, nudge, plain pills, visible actions','Will reach N=accepted; No trustee=unassigned'],
+  ['T1.2','Add a record (2-step)','Effortless create','Step1 record / Step2 who-receives','new person = pending invite'],
+  ['T1.3','Edit a record','One place for everything','hint/folder/encryption/release/trustees/delete','per-record overrides'],
+  ['T1.4','Onboarding / Welcome','Teach model then add','two-halves + example bank > CTA','first-run (0 records)'],
+ ]],
+ ['2 — Trustees & lifecycle',[
+  ['T2.1','Trustees','Coverage + gaps','“will receive N”; Active vs Invited; nudge','Active=accepted; Invited=pending'],
+  ['T2.2','Check-in','Reassuring + concrete','“what if I stop?” w/ exact release date','date=last check-in+window'],
+  ['T2.3','Trustee view','Plain-language release','reveal each record; owner hints','assigned only, after release'],
+ ]],
+ ['3 — Surfaces',[
+  ['T3.1','Settings','Defaults + lifecycle','default encryption; release/activation; appearance; language','account-level defaults'],
+  ['T3.2','Landing','Sell the direction','hero, two-halves, what-people-leave, legal','—'],
+  ['T3.3','Investor (opt.)','Refresh /investor','port v4 investor; real figures','keep password gate'],
+ ]],
+ ['4 — Polish & QA',[
+  ['T4','Polish & QA','Ship-ready','demo run-through; mobile; empty/error; a11y; remove old copy','light + dark'],
+ ]],
+];
+let h=`<div class="top"><span class="mk">Testamently<span class="d">.</span></span></div><h1>Migration checklist → v4</h1><div class="sub">Ticket-per-screen rollout of the v4 UX + “you hold half” direction. Data mappings + acceptance in each card. ★ = biggest win.</div>`;
+for(const [ph,items] of T){ h+=`<div class="ph">${ph}</div><div class="grid">`; for(const [id,t,goal,ch,data] of items){ h+=`<div class="card"><div class="ch"><span class="box"></span><span class="id">${id}</span><span class="t">${t}</span></div><div class="row"><b>Goal:</b> ${goal}</div><div class="row"><b>Do:</b> ${ch}</div><div class="row"><b>Data:</b> ${data}</div></div>`; } h+=`</div>`; }
+document.getElementById('pg').innerHTML=h;
+</script></body></html>

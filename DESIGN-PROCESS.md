@@ -34,6 +34,12 @@ The test for whether something belongs: **on its own, is it harmless?**
 This also lowers the emotional barrier: people are far more comfortable storing "the safe combo"
 than "my live bank login."
 
+**Encryption is table-stakes, not the headline.** When the product stored live passwords,
+"military-grade encryption" was the pitch. Now that we only ever hold a harmless *half*, the
+security story is the **split-knowledge model**, not the cipher. So: keep encryption present but
+**quiet** — sensible defaults, controls tucked into Advanced/Edit, never bolded in marketing or
+in the create flow. Lead with *"a breach reveals nothing usable,"* not *"AES-256."*
+
 ### Three things people leave (the example bank)
 Used in the onboarding welcome and the landing to show breadth at a glance:
 
