@@ -39,6 +39,11 @@
   .person.on .chk{background:var(--accent);border-color:var(--accent)}
   .addnew{border:1px dashed var(--toggle-off);border-radius:12px;padding:11px 14px;font-size:13px;color:var(--accent);font-weight:500;background:none;width:100%;text-align:left}
   .reassure{font-size:12px;color:var(--muted);display:flex;gap:7px;margin-top:4px}
+  .pbadge{font-size:10.5px;font-weight:600;color:var(--accent);background:color-mix(in srgb,var(--accent) 13%,transparent);border-radius:20px;padding:3px 9px;margin-left:auto;white-space:nowrap}
+  .abadge{font-size:10.5px;font-weight:600;color:var(--status);background:color-mix(in srgb,var(--status) 14%,transparent);border-radius:20px;padding:3px 9px;margin-left:auto;white-space:nowrap}
+  .person .chk{margin-left:10px}
+  .notes{margin-top:15px;display:flex;flex-direction:column;gap:10px}
+  .note{display:flex;gap:9px;font-size:12.3px;color:var(--muted);line-height:1.5}.note b{color:var(--text);font-weight:600}
   .foot{display:flex;align-items:center;gap:14px;padding:18px 28px;margin-top:18px;border-top:1px solid var(--border);background:var(--bg2)}
   .skip{font-size:13px;font-weight:500;color:var(--muted);background:none;border:none}
   .foot .actions{margin-left:auto;display:flex;gap:10px;align-items:center}
@@ -60,11 +65,15 @@
 
       <p class="lbl">Your trustees</p>
       <div class="people">
-        <div class="person on"><div class="av" style="background:#1f2937">MM</div><div><div class="nm">Michael Mitchell</div><div class="rl">Spouse</div></div><div class="chk">✓</div></div>
-        <div class="person"><div class="av" style="background:#4b5563">JR</div><div><div class="nm">Jennifer Roth</div><div class="rl">Attorney</div></div><div class="chk"></div></div>
+        <div class="person on"><div class="av" style="background:#1f2937">MM</div><div><div class="nm">Michael Mitchell</div><div class="rl">Spouse · just invited</div></div><span class="pbadge">Invited · pending</span><div class="chk">✓</div></div>
+        <div class="person"><div class="av" style="background:#4b5563">JR</div><div><div class="nm">Jennifer Roth</div><div class="rl">Attorney</div></div><span class="abadge">Active</span><div class="chk"></div></div>
       </div>
       <button class="addnew">+ Invite someone new</button>
-      <div class="reassure">🔕 No one can open it until your check-ins stop and your vault is released.</div>
+      <div class="notes">
+        <div class="note">📩<div>They’ll get an invite to confirm they’ll act as your trustee. <b>This record stays “waiting” until they accept</b> — nothing reaches anyone before then.</div></div>
+        <div class="note">✓<div><b>They confirm once — not per record.</b> After Michael accepts, he’s your trustee for good; assign him to anything later without inviting him again.</div></div>
+        <div class="note">🔕<div>And no one can open a thing until your check-ins stop and your vault is released.</div></div>
+      </div>
     </div>
     <div class="foot"><button class="skip">Skip — add later</button><div class="actions"><button class="back">← Back</button><button class="save">Save record</button></div></div>
   </div></div>

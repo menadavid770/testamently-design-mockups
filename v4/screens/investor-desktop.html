@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" class="vd">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testamently — Investor brief (v4)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#F4F3EF;--bg2:#EEEDEA;--surface:#FFFFFF;--text:#111;--muted:#6B7280;--muted2:#9A9A93;--border:#E4E3DC;--accent:#5E7356;--accent-fg:#FAFAF7;--serif:'DM Serif Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .ph{color:var(--accent);font-weight:600;border-bottom:1px dashed var(--accent)}
+  nav{height:62px;border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 7%;position:sticky;top:0;background:rgba(244,243,239,.9);backdrop-filter:blur(12px);z-index:10}
+  .logo{display:flex;align-items:center;gap:9px;font-size:17px;font-weight:600}.logo .mk{width:28px;height:28px;border-radius:8px;background:var(--accent);color:var(--accent-fg);display:flex;align-items:center;justify-content:center;font-size:14px}
+  .conf{margin-left:auto;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted2)}
+  section{max-width:1000px;margin:0 auto;padding:64px 7%}
+  .eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+  h1{font-family:var(--serif);font-size:clamp(40px,6vw,64px);font-weight:400;line-height:1.03;letter-spacing:-.7px;margin-bottom:18px;max-width:16ch}
+  h1 .i{font-style:italic;color:var(--accent)}
+  .hero p{font-size:18px;color:var(--muted);max-width:620px}
+  .ask{display:inline-flex;gap:18px;margin-top:30px;flex-wrap:wrap}
+  .askc{border:1px solid var(--border);background:var(--surface);border-radius:12px;padding:13px 20px}
+  .askc .k{font-size:11px;color:var(--muted2);letter-spacing:.04em;text-transform:uppercase}.askc .v{font-family:var(--serif);font-size:21px;margin-top:2px}
+  h2{font-family:var(--serif);font-size:clamp(26px,3.6vw,36px);font-weight:400;letter-spacing:-.4px;margin-bottom:14px}
+  .sec-sub{font-size:15px;color:var(--muted);max-width:640px;margin-bottom:30px}
+  .alt{background:var(--bg2)}.alt-w{max-width:none}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .stat{border:1px solid var(--border);background:var(--surface);border-radius:14px;padding:22px}
+  .stat .n{font-family:var(--serif);font-size:34px;line-height:1;color:var(--accent)}.stat .l{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.45}
+  .halves{display:flex;gap:13px;margin-top:8px}
+  .half{flex:1;border:1px solid var(--border);background:var(--surface);border-radius:14px;padding:20px}
+  .half.got{border-color:var(--accent);background:#eef0ea}
+  .hic{width:40px;height:40px;border-radius:11px;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:11px}.half.got .hic{background:var(--accent)}
+  .ht{font-family:var(--serif);font-size:18px;margin-bottom:5px}.half p{font-size:13px;color:var(--muted);line-height:1.5}
+  .shots{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+  .shot{border:1px solid var(--border);border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 8px 22px rgba(0,0,0,.07)}
+  .shot .bar{height:16px;background:#e7e5de;display:flex;align-items:center;gap:4px;padding:0 7px;border-bottom:1px solid var(--border)}
+  .shot .bar i{width:5px;height:5px;border-radius:50%;background:#cfccc2;font-style:normal}
+  .shot img{display:block;width:100%;height:150px;object-fit:cover;object-position:top}
+  .shot .cap{font-size:11.5px;color:var(--muted);padding:8px 11px}
+  .moat{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .mrow{border:1px solid var(--border);background:var(--surface);border-radius:13px;padding:16px 18px}
+  .mrow h4{font-size:14px;margin-bottom:5px}.mrow p{font-size:12.8px;color:var(--muted);line-height:1.5}
+  .tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:8px}
+  .tier{border:1px solid var(--border);background:var(--surface);border-radius:13px;padding:16px}
+  .tier .t{font-family:var(--serif);font-size:16px}.tier .p{font-size:12.5px;color:var(--accent);font-weight:600;margin:4px 0 7px}.tier ul{list-style:none}.tier li{font-size:11.5px;color:var(--muted);padding-left:11px;position:relative;line-height:1.5}.tier li::before{content:"·";position:absolute;left:2px;color:var(--accent)}
+  .close{background:var(--accent);color:var(--accent-fg);border-radius:20px;text-align:center;padding:54px 7%;max-width:1000px;margin:40px auto 60px}
+  .close h2{color:var(--accent-fg)}.close p{opacity:.85;font-size:16px;margin-bottom:8px}
+  .close .c{font-size:14px;margin-top:18px}
+  footer{border-top:1px solid var(--border);max-width:1000px;margin:0 auto;padding:24px 7%;font-size:11px;color:var(--muted2);line-height:1.6}
+  .tsw{position:fixed;bottom:18px;right:18px;display:flex;align-items:center;gap:9px;background:var(--surface);border:1px solid var(--border);border-radius:30px;padding:8px 14px;z-index:50;box-shadow:0 8px 26px rgba(0,0,0,.12)}
+  .tsw .lab{font-size:11px;color:var(--muted);font-weight:600}.tsw .acc-btn{width:18px;height:18px;border-radius:50%;border:2px solid var(--surface);box-shadow:0 0 0 1px var(--border);cursor:pointer;padding:0}.tsw .acc-btn.on{box-shadow:0 0 0 2px var(--text)}
+  .tsw .sep{width:1px;height:20px;background:var(--border)}.tsw .mode-btn{font-size:12px;font-weight:600;color:var(--text);background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:5px 12px}
+  .vm section{padding:44px 7%}.vm .stats,.vm .shots,.vm .tiers,.vm .moat,.vm .halves{grid-template-columns:1fr;flex-direction:column}
+</style>
+</head>
+<body>
+  <nav><div class="logo"><span class="mk"><i style="font-style:normal">🛡</i></span>Testamently</div><span class="conf">Investor brief · Confidential</span></nav>
+
+  <section class="hero">
+    <div class="eyebrow">The opportunity</div>
+    <h1>The half <span class="i">they’ll need.</span></h1>
+    <p>A private vault for the codes, locations and final words that unlock what someone leaves behind — released to the people they trust, only when their check-ins stop. <b>Breach-proof by design.</b></p>
+    <div class="ask">
+      <div class="askc"><div class="k">Raising</div><div class="v"><span class="ph">$ —</span> pre-seed</div></div>
+      <div class="askc"><div class="k">Stage</div><div class="v">Live product · early users</div></div>
+      <div class="askc"><div class="k">Category</div><div class="v">Digital legacy / estate-tech</div></div>
+    </div>
+  </section>
+
+  <section class="alt alt-w" style="max-width:none"><div style="max-width:1000px;margin:0 auto">
+    <div class="eyebrow">The problem</div>
+    <h2>When someone dies, the access dies with them.</h2>
+    <p class="sec-sub">The information needed to settle a life is scattered across phones, safes and people’s heads — and most of it is simply lost. Existing tools ask for the one thing nobody wants to upload: live passwords.</p>
+    <div class="stats">
+      <div class="stat"><div class="n"><span class="ph">$—B</span></div><div class="l">life-insurance benefits go <b>unclaimed</b> because families never knew the policy existed.</div></div>
+      <div class="stat"><div class="n"><span class="ph">~20%</span></div><div class="l">of all Bitcoin is estimated <b>lost forever</b> — keys that died with their owner.</div></div>
+      <div class="stat"><div class="n">1 in 2</div><div class="l">adults have <b>no will or plan</b>, and no record of where anything is.</div></div>
+    </div>
+  </div></section>
+
+  <section>
+    <div class="eyebrow">The insight</div>
+    <h2>Store the half that’s <span style="font-style:italic">useless to a thief</span>.</h2>
+    <p class="sec-sub">People won’t trust an app with their live bank password. They <i>will</i> trust it with the safe combination or the phone PIN — because alone, those open nothing. That single reframe unlocks the market and gives us a security claim no password manager can make.</p>
+    <div class="halves">
+      <div class="half"><div class="hic">🔐</div><div class="ht">We keep the code</div><p>The PIN, the combination, where it’s kept — encrypted, released only on the owner’s terms.</p></div>
+      <div class="half"><div class="hic">🏠</div><div class="ht">Their home keeps the thing</div><p>The phone, the wallet, the safe — never uploaded. A breach of us reveals nothing usable.</p></div>
+      <div class="half got"><div class="hic">✓</div><div class="ht">Released at the right time</div><p>Only the chosen trustees, only once both halves meet, only after the dead-man’s switch.</p></div>
+    </div>
+  </section>
+
+  <section class="alt alt-w" style="max-width:none"><div style="max-width:1000px;margin:0 auto">
+    <div class="eyebrow">The product · live today</div>
+    <h2>Calm, minimal, and it explains itself.</h2>
+    <p class="sec-sub">A working app: store records in two taps, assign who receives them, and a check-in “dead-man’s switch” that releases everything at the right moment — in plain language throughout.</p>
+    <div class="shots">
+      <div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="../pdfshots/main-d.png"><div class="cap">Your records — status at a glance</div></div>
+      <div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="../pdfshots/add-record-d.png"><div class="cap">Add a record in two taps</div></div>
+      <div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="../pdfshots/trustee-view-d.png"><div class="cap">What a trustee sees, on release</div></div>
+    </div>
+  </div></section>
+
+  <section>
+    <div class="eyebrow">Why it wins</div>
+    <h2>A moat made of trust.</h2>
+    <div class="moat">
+      <div class="mrow"><h4>🛡 A claim no one else can make</h4><p>“Even if we’re hacked, your secrets are safe.” Split-knowledge isn’t marketing — it’s architecture.</p></div>
+      <div class="mrow"><h4>🤍 Emotion + utility</h4><p>It saves money (unclaimed policies, lost crypto) <i>and</i> carries the irreplaceable (letters, photos).</p></div>
+      <div class="mrow"><h4>🔁 Sticky &amp; recurring</h4><p>People add to it for years and check in monthly. Trustees become tomorrow’s owners — built-in virality.</p></div>
+      <div class="mrow"><h4>⚖️ Complements, never competes</h4><p>Not a will — it points families <i>to</i> the will and solicitor. Friendly to lawyers, insurers, banks.</p></div>
+    </div>
+  </section>
+
+  <section class="alt alt-w" style="max-width:none"><div style="max-width:1000px;margin:0 auto">
+    <div class="eyebrow">Business model</div>
+    <h2>Freemium, with security as the upgrade.</h2>
+    <p class="sec-sub">Free to start; people pay for stronger encryption, more records, and a family plan. Encryption tiers are already built.</p>
+    <div class="tiers">
+      <div class="tier"><div class="t">Free</div><div class="p">£0</div><ul><li>Up to 10 records</li><li>Standard encryption</li><li>2 trustees</li></ul></div>
+      <div class="tier"><div class="t">Premium</div><div class="p"><span class="ph">£—/mo</span></div><ul><li>Unlimited records</li><li>Premium &amp; Gold encryption</li><li>Files &amp; crypto</li></ul></div>
+      <div class="tier"><div class="t">Zero-knowledge</div><div class="p"><span class="ph">£—/mo</span></div><ul><li>Server can never decrypt</li><li>For the most sensitive</li></ul></div>
+      <div class="tier"><div class="t">Family</div><div class="p"><span class="ph">£—/yr</span></div><ul><li>Shared seats</li><li>One plan, whole family</li></ul></div>
+    </div>
+    <p class="sec-sub" style="margin-top:24px"><b>Traction:</b> <span class="ph">[ — waitlist signups · — active vaults · — protected records ]</span> · live on web + mobile shell.</p>
+  </div></section>
+
+  <div class="close">
+    <h2>Make sure nothing important is ever lost again.</h2>
+    <p>We’re raising <span class="ph" style="border-color:var(--accent-fg);color:var(--accent-fg)">$ —</span> to grow the team and reach the millions who’ll need this.</p>
+    <div class="c">testamently.com · <span class="ph" style="border-color:var(--accent-fg);color:var(--accent-fg)">founders@testamently.com</span></div>
+  </div>
+
+  <footer><b>Confidential.</b> For discussion purposes only; not an offer of securities. Figures marked <span class="ph">like this</span> are placeholders to be completed. Testamently is a private information vault, not a legal will, trust or estate-administration service.</footer>
+
+  <div class="tsw"><span class="lab">Accent</span><button class="acc-btn" data-a="ink" style="background:#111111" title="Ink"></button><button class="acc-btn" data-a="forest" style="background:#5E7356" title="Forest"></button><button class="acc-btn" data-a="emerald" style="background:#0E7C5A" title="Emerald"></button><button class="acc-btn" data-a="slate" style="background:#46707C" title="Slate"></button><span class="sep"></span><button id="modeBtn" class="mode-btn">🌙 Dark</button></div>
+  <script>
+  const MODES={light:{bg:"#F4F3EF",bg2:"#EEEDEA",surface:"#FFFFFF",text:"#111111",muted:"#6B7280",muted2:"#9A9A93",border:"#E4E3DC","toggle-off":"#D9D6CC",status:"#16A34A"},dark:{bg:"#14160E",bg2:"#1B1E14",surface:"#1C2015",text:"#F1EFE3",muted:"#A8AA93",muted2:"#7E8270",border:"#333829","toggle-off":"#3A4031",status:"#86C08A"}};
+  const ACC={ink:{light:["#111111","#FAFAFA"],dark:["#E8E6DD","#16190F"]},forest:{light:["#5E7356","#FAFAF7"],dark:["#9DBE8A","#16190F"]},emerald:{light:["#0E7C5A","#F4FBF7"],dark:["#34D399","#0C140F"]},slate:{light:["#46707C","#F5FAFB"],dark:["#86A9B3","#0E1417"]}};
+  let mode=(localStorage.getItem("v3mode")||"light"),acc=(localStorage.getItem("v3acc")||"forest");
+  function apply(){const m=MODES[mode];for(const k in m)document.documentElement.style.setProperty("--"+k,m[k]);const a=ACC[acc][mode];document.documentElement.style.setProperty("--accent",a[0]);document.documentElement.style.setProperty("--accent-fg",a[1]);document.querySelectorAll(".acc-btn").forEach(b=>b.classList.toggle("on",b.dataset.a===acc));document.getElementById("modeBtn").textContent=mode==="light"?"🌙 Dark":"☀ Light";try{localStorage.setItem("v3mode",mode);localStorage.setItem("v3acc",acc)}catch(e){}}
+  document.querySelectorAll(".acc-btn").forEach(b=>b.onclick=()=>{acc=b.dataset.a;apply();});document.getElementById("modeBtn").onclick=()=>{mode=mode==="light"?"dark":"light";apply();};apply();
+  </script>
+</body>
+</html>
