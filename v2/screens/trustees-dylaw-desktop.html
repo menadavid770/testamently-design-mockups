@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" class="vd">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testamently — Trustees (Dylaw style)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#F4F3EF;--bg2:#EEEDEA;--surface:#fff;--text:#111;--muted:#6B7280;--muted2:#9A9A93;--border:#E4E3DC;--green:#059669;--warm:#C9C5B8;--serif:'DM Serif Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6}
+  button{font-family:inherit;cursor:pointer}
+  nav{height:65px;background:rgba(244,243,239,.82);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 6%}
+  .logo{display:flex;align-items:center;gap:10px}.logo .mk{width:30px;height:30px;border-radius:8px;background:var(--text);color:#FAFAFA;display:flex;align-items:center;justify-content:center;font-size:14px}.logo .tx{font-size:18px;font-weight:600;letter-spacing:-.3px}
+  nav .links{display:flex;gap:30px;margin-left:48px}nav .links a{font-size:14px;color:var(--muted);text-decoration:none}nav .links a.on{color:var(--text);font-weight:500}
+  .me{margin-left:auto;width:32px;height:32px;border-radius:50%;background:var(--text);color:#FAFAFA;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center}
+  .wrap{max-width:740px;margin:0 auto;padding:54px 28px 90px}
+  .head{display:flex;align-items:flex-end;gap:14px;margin-bottom:6px}
+  .head h1{font-family:var(--serif);font-size:46px;font-weight:400;line-height:1;letter-spacing:-.5px}.head .ct{font-size:14px;color:var(--muted2);padding-bottom:6px}
+  .head .add{margin-left:auto;font-size:14px;font-weight:500;color:#FAFAFA;background:var(--text);border:none;border-radius:6px;height:42px;padding:0 22px}
+  .intro{font-size:15px;color:var(--muted);margin-bottom:30px}
+  .row{display:flex;align-items:center;gap:16px;padding:18px 4px;border-bottom:1px solid var(--border)}
+  .av{width:40px;height:40px;border-radius:50%;color:#fff;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+  .nm{font-size:15px;font-weight:500}.mt{font-size:12.5px;color:var(--muted);margin-top:1px}
+  .right{margin-left:auto;display:flex;align-items:center;gap:18px}.recs{font-size:12.5px;color:var(--muted)}
+  .badge{font-size:11.5px;font-weight:500;padding:4px 11px;border-radius:20px}.badge.ok{color:var(--green);background:rgba(5,150,105,.09)}.badge.pend{color:#92702a;background:rgba(201,165,39,.14)}
+  .mng{font-size:12.5px;color:var(--muted2);background:none;border:none}
+  .vm nav .links{display:none}.vm .wrap{padding:30px 18px 60px}.vm .head h1{font-size:36px}.vm .recs{display:none}
+</style>
+</head>
+<body>
+  <nav><div class="logo"><div class="mk"><i style="font-style:normal">🛡</i></div><div class="tx">Testamently</div></div><div class="links"><a>Records</a><a class="on">Trustees</a><a>Settings</a></div><div class="me">SM</div></nav>
+  <div class="wrap">
+    <div class="head"><h1>Trustees</h1><span class="ct">3 people</span><button class="add">+ Invite</button></div>
+    <p class="intro">The people who can unlock your records — but only if your check-ins ever stop.</p>
+    <div class="row"><div class="av" style="background:#1f2937">MM</div><div><div class="nm">Michael Mitchell</div><div class="mt">Spouse · michael.demo@testamently.com</div></div><div class="right"><span class="recs">6 records</span><span class="badge ok">Active</span><button class="mng">Manage</button></div></div>
+    <div class="row"><div class="av" style="background:#4b5563">JR</div><div><div class="nm">Jennifer Roth</div><div class="mt">Attorney · jennifer.demo@testamently.com</div></div><div class="right"><span class="recs">4 records</span><span class="badge ok">Active</span><button class="mng">Manage</button></div></div>
+    <div class="row"><div class="av" style="background:#9ca3af">DK</div><div><div class="nm">David Klein</div><div class="mt">Brother · david.klein@example.com</div></div><div class="right"><span class="recs">0 records</span><span class="badge pend">Invited</span><button class="mng">Resend</button></div></div>
+  </div>
+</body>
+</html>
