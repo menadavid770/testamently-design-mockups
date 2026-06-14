@@ -9,11 +9,10 @@
   :root{--bg:#F4F3EF;--bg2:#EEEDEA;--surface:#FFFFFF;--text:#111;--muted:#6B7280;--muted2:#9A9A93;--border:#E4E3DC;--accent:#5E7356;--accent-fg:#FAFAF7;--serif:'DM Serif Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif}
   *{box-sizing:border-box;margin:0;padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   body{font-family:var(--sans);color:var(--text)}
-  .page{width:210mm;min-height:297mm;padding:18mm 16mm;background:var(--bg);page-break-after:always;position:relative}
+  .page{width:210mm;height:297mm;padding:18mm 16mm;background:var(--bg);page-break-after:always;position:relative;overflow:hidden}
   .page:last-child{page-break-after:auto}
 
-  /* cover */
-  .cover{display:flex;flex-direction:column;justify-content:center;background:var(--bg)}
+  .cover{display:flex;flex-direction:column;justify-content:center}
   .brand{display:flex;align-items:center;gap:10px;font-size:18px;font-weight:600;margin-bottom:40px}
   .brand .mk{width:34px;height:34px;border-radius:9px;background:var(--accent);color:var(--accent-fg);display:flex;align-items:center;justify-content:center;font-size:16px}
   .cover h1{font-family:var(--serif);font-size:62px;font-weight:400;line-height:1.02;letter-spacing:-1px;margin-bottom:18px}
@@ -22,41 +21,38 @@
   .cover .meta{position:absolute;bottom:18mm;left:16mm;font-size:12px;color:var(--muted2);letter-spacing:.04em}
 
   h2{font-family:var(--serif);font-size:30px;font-weight:400;letter-spacing:-.4px;margin-bottom:14px}
-  .lead{font-size:13.5px;color:var(--muted);line-height:1.65;max-width:150mm;margin-bottom:22px}
-  .lead b{color:var(--text);font-weight:600}
-
-  .halves{display:flex;gap:10px;margin-bottom:24px}
+  .lead{font-size:13.5px;color:var(--muted);line-height:1.65;margin-bottom:22px}.lead b{color:var(--text);font-weight:600}
+  .halves{display:flex;gap:10px;margin-bottom:22px}
   .half{flex:1;border:1px solid var(--border);background:var(--surface);border-radius:12px;padding:15px}
   .half.got{border-color:var(--accent);background:#eef0ea}
   .hic{width:34px;height:34px;border-radius:9px;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:17px;margin-bottom:9px}
   .half.got .hic{background:var(--accent)}
-  .ht{font-family:var(--serif);font-size:15px;margin-bottom:4px}
-  .half p{font-size:11px;color:var(--muted);line-height:1.45}
-
+  .ht{font-family:var(--serif);font-size:15px;margin-bottom:4px}.half p{font-size:11px;color:var(--muted);line-height:1.45}
   .exwrap{display:flex;gap:10px}
   .ex{flex:1;border:1px solid var(--border);background:var(--surface);border-radius:12px;padding:14px 15px}
-  .ex h4{font-size:12.5px;margin-bottom:8px}
-  .ex ul{list-style:none}
-  .ex li{font-size:11px;color:var(--muted);line-height:1.5;padding-left:11px;position:relative}
-  .ex li::before{content:"·";position:absolute;left:2px;color:var(--accent);font-weight:700}
-  .legalbar{margin-top:22px;font-size:10.5px;color:var(--muted2);line-height:1.55;border-top:1px solid var(--border);padding-top:14px}
-  .legalbar b{color:var(--muted)}
+  .ex h4{font-size:12.5px;margin-bottom:8px}.ex ul{list-style:none}
+  .ex li{font-size:11px;color:var(--muted);line-height:1.5;padding-left:11px;position:relative}.ex li::before{content:"·";position:absolute;left:2px;color:var(--accent);font-weight:700}
+  .legalbar{margin-top:20px;font-size:10.5px;color:var(--muted2);line-height:1.55;border-top:1px solid var(--border);padding-top:14px}.legalbar b{color:var(--muted)}
 
-  .ghead{display:flex;align-items:baseline;gap:10px;margin-bottom:16px}
-  .ghead .gt{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted2)}
-  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-  .card{border:1px solid var(--border);border-radius:11px;overflow:hidden;background:var(--surface)}
-  .bbar{height:16px;background:#e7e5de;display:flex;align-items:center;gap:4px;padding:0 7px;border-bottom:1px solid var(--border)}
-  .dot{width:5px;height:5px;border-radius:50%;background:#cfccc2}
-  .shot{display:block;width:100%;height:104px;object-fit:cover;object-position:top}
-  .cap{padding:9px 12px}
-  .cap .t{font-size:12px;font-weight:600}
-  .cap .d{font-size:10.5px;color:var(--muted);margin-top:1px;line-height:1.4}
+  /* one screen per page */
+  .shead{display:flex;align-items:baseline;gap:13px;margin-bottom:18px}
+  .shead .snum{font-family:var(--serif);font-size:30px;color:var(--muted2);line-height:1}
+  .shead h3{font-family:var(--serif);font-size:27px;font-weight:400;letter-spacing:-.3px}
+  .shead p{font-size:13px;color:var(--muted);margin-top:3px;max-width:150mm}
+  .srow{display:flex;gap:14px;align-items:flex-start}
+  .browser{flex:0 0 128mm;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 8px 26px rgba(0,0,0,.08)}
+  .bbar{height:22px;background:#e7e5de;display:flex;align-items:center;gap:5px;padding:0 9px;border-bottom:1px solid var(--border)}
+  .dot{width:7px;height:7px;border-radius:50%;background:#cfccc2}
+  .browser img{display:block;width:100%}
+  .phone{flex:0 0 47mm;border:4px solid #23271b;border-radius:20px;overflow:hidden;background:#000;box-shadow:0 8px 26px rgba(0,0,0,.12)}
+  .phone img{display:block;width:100%}
+  .vlabel{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted2);margin-bottom:6px}
+  .col{display:flex;flex-direction:column}
+  .pagenum{position:absolute;bottom:12mm;right:16mm;font-size:10px;color:var(--muted2)}
 </style>
 </head>
 <body>
 
-  <!-- COVER -->
   <section class="page cover">
     <div class="brand"><span class="mk">🛡</span>Testamently</div>
     <h1>The half <span class="i">they’ll need.</span></h1>
@@ -64,54 +60,51 @@
     <div class="meta">DESIGN OVERVIEW · v4 (UX) · 2026 · forest theme</div>
   </section>
 
-  <!-- WHAT IT IS -->
   <section class="page">
     <h2>What it is</h2>
     <p class="lead"><b>Not a password manager, and not a legal will.</b> Testamently holds the things that would otherwise be lost — the PIN to the phone with the family photos, a life-insurance policy no one knows about, where the safe is, a letter to your children. On its own it opens nothing: the other half — the phone, the wallet, the safe — lives with you, so a breach reveals nothing usable.</p>
-
     <div class="halves">
       <div class="half"><div class="hic">🔐</div><div class="ht">We keep the code</div><p>The PIN, the safe combo, where things are kept — encrypted, released only on your terms.</p></div>
       <div class="half"><div class="hic">🏠</div><div class="ht">Your home keeps the thing</div><p>The phone, the wallet, the safe itself — never uploaded, never ours to lose.</p></div>
       <div class="half got"><div class="hic">✓</div><div class="ht">Access, at the right time</div><p>Only your trustees, only once both halves meet — and only after you’re gone.</p></div>
     </div>
-
     <h2 style="font-size:20px;margin:6px 0 12px">A few things people keep here</h2>
     <div class="exwrap">
       <div class="ex"><h4>🔐 Access</h4><ul><li>Phone PIN — for the photos</li><li>Crypto wallet PIN &amp; recovery</li><li>Home-safe combination</li></ul></div>
       <div class="ex"><h4>🧭 They’d never find</h4><ul><li>A life-insurance policy</li><li>An account abroad</li><li>Where the will &amp; solicitor are</li></ul></div>
       <div class="ex"><h4>🤍 Irreplaceable</h4><ul><li>A letter to your children</li><li>Where the photos &amp; videos live</li><li>The story behind a ring</li></ul></div>
     </div>
-
     <p class="legalbar"><b>Legal notice.</b> Testamently is a private, encrypted information vault — not a legal will, trust or estate-administration service, and not a substitute for one. Release to trustees is a convenience, not probate. It can hold a copy of your official will, or point your family to the solicitor who keeps the original.</p>
   </section>
 
-  <!-- SCREENS 1 -->
-  <section class="page">
-    <div class="ghead"><span class="gt">The app · v4</span></div>
-    <div class="grid" id="g1"></div>
-  </section>
-  <!-- SCREENS 2 -->
-  <section class="page">
-    <div class="ghead"><span class="gt">The app · v4 (cont.)</span></div>
-    <div class="grid" id="g2"></div>
-  </section>
+  <div id="screens"></div>
 
 <script>
   const S=[
-    ['welcome','Welcome / onboarding','The “you hold half” explainer + first record.'],
-    ['landing','Landing','Hero, the two-halves model, what people leave.'],
-    ['main','Records — home','Status at a glance, gap nudge, plain-language statuses.'],
-    ['add-record','Add a record · Step 1','Quick-pick + name + secret. Advanced optional.'],
-    ['add-record-step2','Add a record · Step 2','“Who should receive it?” — pick a trustee.'],
-    ['secret-detail','Edit a record','Rename, hint, folder, encryption, release, trustees.'],
-    ['trustees','Trustees','What each person will receive, gap nudge.'],
-    ['trustee-view','Trustee view','What a trustee sees once the vault is released.'],
-    ['checkin','Check-in','Reassuring status + a concrete “what if I stop?”.'],
-    ['settings','Settings','Default encryption + release / activation timing.'],
+    ['welcome','Welcome / onboarding','The “you hold half” explainer, an example bank, then add your first record.'],
+    ['landing','Landing','Hero, the two-halves model, what people leave, and the legal / will notice.'],
+    ['main','Records — home','Status at a glance, a gap nudge, plain-language statuses, always-visible actions.'],
+    ['add-record','Add a record · Step 1','Physical-half types, quick-pick + name + secret, the “we hold one half” note.'],
+    ['add-record-step2','Add a record · Step 2','“Who should receive it?” — pick a trustee (or skip and add later).'],
+    ['secret-detail','Edit a record','Rename, hint, folder, encryption, release rule, swap trustees, or delete.'],
+    ['trustees','Trustees','What each person will receive, a reassurance line, and a gap nudge.'],
+    ['trustee-view','Trustee view (released)','What a trustee sees once the vault is released — reveal each record.'],
+    ['checkin','Check-in (heartbeat)','A reassuring status and a concrete “what if I stop?” with the release date.'],
+    ['settings','Settings','Account default encryption, and the release / activation (check-in) timing.'],
   ];
-  const mk=(name,t,d)=>`<div class="card"><div class="bbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div><img class="shot" src="v4/shots/${name}-desktop.png"><div class="cap"><div class="t">${t}</div><div class="d">${d}</div></div></div>`;
-  document.getElementById('g1').innerHTML=S.slice(0,6).map(s=>mk(...s)).join('');
-  document.getElementById('g2').innerHTML=S.slice(6).map(s=>mk(...s)).join('');
+  const wrap=document.getElementById('screens');
+  S.forEach(([n,t,d],i)=>{
+    const num=String(i+1).padStart(2,'0');
+    wrap.insertAdjacentHTML('beforeend',`
+    <section class="page">
+      <div class="shead"><span class="snum">${num}</span><div><h3>${t}</h3><p>${d}</p></div></div>
+      <div class="srow">
+        <div class="col" style="flex:0 0 128mm"><div class="vlabel">Desktop</div><div class="browser"><div class="bbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div><img src="v4/pdfshots/${n}-d.png"></div></div>
+        <div class="col" style="flex:0 0 47mm"><div class="vlabel">Mobile</div><div class="phone"><img src="v4/pdfshots/${n}-m.png"></div></div>
+      </div>
+      <div class="pagenum">Testamently · v4 · ${num}</div>
+    </section>`);
+  });
 </script>
 </body>
 </html>
